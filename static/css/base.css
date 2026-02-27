@@ -1,0 +1,15 @@
+*{
+    font-family: 'Quicksand' !important;
+    font-weight: 600 !important;
+}
+
+:root{
+    --bg-image: url('/home/bumberto_eko/Documents/GitHub/portfolio/portfolio/static/img/20260225_12h09m43s_grim.png');
+}
+
+
+body{
+    background-image: var(--bg-image);
+    background-size: cover;
+    background-repeat: no-repeat; 
+}
