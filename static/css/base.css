@@ -3,10 +3,6 @@
     font-weight: 600 !important;
 }
 
-h1
-{
-    color: red !important;
-}
 :root{
     --bg-image: url('/home/bumberto_eko/Documents/GitHub/portfolio/portfolio/static/img/20260225_12h09m43s_grim.png');
 }
