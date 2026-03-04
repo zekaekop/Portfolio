@@ -7,4 +7,4 @@ def report(request):
         "test":"test",
     }
     
-    return render(request, "html" , content)
+    return render(request, "feedback/feedback_form.html" , content)
