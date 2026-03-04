@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 class Feedback(models.Model):
     
-    name = models.CharField(max_length=200,verbose_name="Name")
+    title = models.CharField(max_length=200,verbose_name="Title")
     desc = models.CharField(max_length=400, verbose_name="Description")
 
     date_created = models.DateTimeField(auto_now_add=True)

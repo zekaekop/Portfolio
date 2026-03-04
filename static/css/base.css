@@ -25,6 +25,7 @@ body{
     margin: 0.2rem;
 }
 
+.box-button,
 .box{
     background-color: #757155;
     
@@ -33,6 +34,22 @@ body{
 
     border-bottom:  2px  solid #676751;
     border-right:  2px  solid #676751;
+}
+
+.box-button{
+    background-color: #9b9670;
+    border-top:  2px solid #c6c3aa;
+    border-left:  2px  solid #c6c3aa;
+}
+
+.box-button:hover{
+    background-color: #807b59;
+    
+    border-bottom:  2px solid #81806f;
+    border-right:  2px  solid #81806f;
+
+    border-top:  2px  solid #676751;
+    border-left:  2px  solid #676751;
 }
 
 .box-inset{
