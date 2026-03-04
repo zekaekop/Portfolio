@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 # from accounts.models import UserProfile
 from dataclasses import dataclass
-# from accounts.views import decrease_BZ
 
 import random
 
@@ -16,10 +15,9 @@ class PfpAssembly():
         result = self.create_user_pfp(request.user)
         return redirect("/profile/" + request.user.username)
 
-    def pfp_reroll(self, request): # we could add a currency that costs to reroll, it adds value
+    def pfp_reroll(self, request):
         authenticate_users(request)
         result = self.create_user_pfp(request.user)
-        # decrease_BZ(request, 20)
         return redirect("/profile/" + request.user.username)
 
     def create_user_pfp(self, user, new_user = None):
@@ -29,19 +27,6 @@ class PfpAssembly():
         profile, created = UserProfile.objects.get_or_create(user=user)
         profile.generated_pic = generated_pic_data
         profile.save()
-
-    # class Pixel: # I removed this since i forgot the model uses JSONField meaning its just way easier to do a dict
-    #     def __init__(self, r, g, b, a=255):
-    #         self.color = [r, g, b, a]
-    #         self.effects = []
-    #         self.gradience = None
-    #         self.scale = 1
-    #         self.roundness = 0
-
-    #     def add_effect(self, effect_name, **kwargs):
-    #         self.effects.append(effect_name)
-    #         for key, value in kwargs.items():
-    #             setattr(self, key, value)
 
     def write_pfp(self, pfp):
 
