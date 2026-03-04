@@ -11,7 +11,27 @@ body{
 }
 
 .header-gradient{
-    background: linear-gradient(#000000, #00000000);
+    background: linear-gradient(#0000005c, #00000000);
+}
+
+.box{
+    background-color: rgb(125, 119, 170);
+    
+    border-top:  2px rgb(167, 162, 207);
+    border-left:  2px rgb(167, 162, 207);
+
+    border-bottom:  2px rgb(101, 93, 160);
+    border-right:  2px rgb(82, 74, 141);
+}
+
+.box-unfocused{
+    background-color: rgb(125, 119, 170);
+    
+    border-top:  2px rgb(167, 162, 207);
+    border-left:  2px rgb(167, 162, 207);
+
+    border-bottom:  2px rgb(101, 93, 160);
+    border-right:  2px rgb(82, 74, 141);
 }
 
 .btn-primary{
