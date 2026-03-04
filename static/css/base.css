@@ -5,7 +5,7 @@
 
 
 body{
-    background-color: #86836D !important;
+    background-color:#645f2f !important;
     /* background-image: var(--bg-image);
     background-size: cover;
     background-repeat: no-repeat;  */
@@ -21,28 +21,34 @@ body{
 
 .box-inset,
 .box{
-    padding: 0.2rem;
+    padding: 0.5rem;
     margin: 1rem;
 }
 
 .box{
-    background-color: #e2de84;
+    background-color: #a59e63;
     
     border-top:  2px solid #ecfeaa;
     border-left:  2px  solid #ecfeaa;
 
-    border-bottom:  2px  solid #a6a670;
-    border-right:  2px  solid #a6a670;
+    border-bottom:  2px  solid #8f8f5d;
+    border-right:  2px  solid #8f8f5d;
 }
 
 .box-inset{
-    background-color: #e2de84;
+    background-color: #847e49;
     
     border-bottom:  2px solid #ecfeaa;
     border-right:  2px  solid #ecfeaa;
 
-    border-top:  2px  solid #a6a670;
-    border-left:  2px  solid #a6a670;
+    border-top:  2px  solid #8f8f5d;
+    border-left:  2px  solid #8f8f5d;
+}
+
+.img-home-projects{
+    display: block;
+    object-fit: cover !important;
+    max-height: 200px;
 }
 
 /*  dark purple theme
