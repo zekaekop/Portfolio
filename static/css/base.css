@@ -9,3 +9,28 @@ body{
     background-size: cover;
     background-repeat: no-repeat; 
 }
+
+.header-gradient{
+    background: linear-gradient(#000000, #00000000);
+}
+
+.btn-primary{
+    background-color: black;
+}
+
+.btn{
+    background-color: rgb(44, 44, 44);
+}
+
+.tags{
+    /* event tags */
+    background-color: red;
+}
+
+.shadow-text{
+    text-shadow: 3px 3px 3px black;
+}
+
+.shadow-box{
+    box-shadow: 3px 3px 3px black;
+}
