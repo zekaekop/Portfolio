@@ -5,7 +5,7 @@
 
 
 body{
-    background-color:#645f2f !important;
+    background-color:#5a563d !important;
     /* background-image: var(--bg-image);
     background-size: cover;
     background-repeat: no-repeat;  */
@@ -22,27 +22,27 @@ body{
 .box-inset,
 .box{
     padding: 0.5rem;
-    margin: 1rem;
+    margin: 0.2rem;
 }
 
 .box{
-    background-color: #a59e63;
+    background-color: #757155;
     
-    border-top:  2px solid #ecfeaa;
-    border-left:  2px  solid #ecfeaa;
+    border-top:  2px solid #a19f8a;
+    border-left:  2px  solid #a19f8a;
 
-    border-bottom:  2px  solid #8f8f5d;
-    border-right:  2px  solid #8f8f5d;
+    border-bottom:  2px  solid #676751;
+    border-right:  2px  solid #676751;
 }
 
 .box-inset{
-    background-color: #847e49;
+    background-color: #656148;
     
-    border-bottom:  2px solid #ecfeaa;
-    border-right:  2px  solid #ecfeaa;
+    border-bottom:  2px solid #81806f;
+    border-right:  2px  solid #81806f;
 
-    border-top:  2px  solid #8f8f5d;
-    border-left:  2px  solid #8f8f5d;
+    border-top:  2px  solid #676751;
+    border-left:  2px  solid #676751;
 }
 
 .img-home-projects{
@@ -69,6 +69,24 @@ body{
 
     border-bottom:  2px  solid #a6a670;
     border-right:  2px  solid #a6a670;
+    ------------------------------------------------
+    desert yellow theme 2
+    background-color: #a59e63;
+    
+    border-top:  2px solid #fefaaa;
+    border-left:  2px  solid #fefaaa;
+
+    border-bottom:  2px  solid #8f8f5d;
+    border-right:  2px  solid #8f8f5d;
+    ------------------------------------------------
+    Gray theme
+    background-color: #757155;
+    
+    border-top:  2px solid #a19f8a;
+    border-left:  2px  solid #a19f8a;
+
+    border-bottom:  2px  solid #676751;
+    border-right:  2px  solid #676751;
      */
 
 .btn-primary{

@@ -3,21 +3,19 @@
 
 {% block body %}
 
-<div class="container text-white box">
+<div class="container text-white box mt-3">
     <h1>Hello I am Eko</h1>
 
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi adipisci voluptates repellendus optio possimus saepe nihil ab aliquam modi odio cum quisquam, at ducimus? Quisquam ad impedit delectus tempore obcaecati.</p>
 
-    <div class="d-flex justify-content-center">
-        <div class="">
-            {% if tags %}
-                {% for tag in tags%}
-                    {% include 'home/tags.html' %}
-                {% endfor %}
-            {% else %}
-                Tag list of the langauges i know
-            {% endif %}
-        </div>
+    <div class="d-flex justify-content-center box-inset p-0 ms-3 me-3">
+        {% if tags %}
+            {% for tag in tags%}
+                {% include 'home/tags.html' %}
+            {% endfor %}
+        {% else %}
+            Tag list of the langauges i know
+        {% endif %}
     </div>
 
     <div class="container">
@@ -26,9 +24,7 @@
             <div class="col-md-4">
                 <div class="box-inset h-100">
                     <img src="{% static '/img/example/example.png'%}" class="card-img-top img-fluid" alt="Project 1">
-                    <div class="card-body">
-                        <p class="card-text">Some images to display projects</p>
-                    </div>
+                        <p>The Django project</p>
                 </div>
             </div>
             
@@ -36,9 +32,7 @@
             <div class="col-md-4">
                 <div class="box-inset h-100">
                     <img src="{% static '/img/example/example.png'%}" class="card-img-top img-fluid" alt="Project 2">
-                    <div class="card-body">
-                        <p class="card-text">Some images to display projects</p>
-                    </div>
+                        <p>Python chat</p>
                 </div>
             </div>
             
@@ -46,9 +40,7 @@
             <div class="col-md-4">
                 <div class="box-inset h-100">
                     <img src="{% static '/img/example/example.png'%}" class="card-img-top img-fluid" alt="Project 3">
-                    <div class="card-body">
-                        <p class="card-text">Some images to display projects</p>
-                    </div>
+                        <p>Sand Simulation</p>
                 </div>
             </div>
         </div>
@@ -67,7 +59,7 @@
 
     
 
-    <footer class="mt-5">
+    <footer class="mt-3">
         <div class="d-flex justify-content-between">
 
             <div class="mt-3">

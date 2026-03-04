@@ -4,13 +4,11 @@ from django.shortcuts import render
 
 def home_page(request):
 
-    frameworks = ("Django", "Nginx", "NodeJS", ) # ETC.
-    tags = ("CSS","HTML","JS","C","C++","Python","PHP",)
+    tags = ("CSS","HTML","JS","C","C++","Python","PHP","TypeScript","Bash","MySQL","GIT","Django", "Nginx", "NodeJS", )
 
     context = {
         "world":"World!!",
         "tags":  tags,
-        "frameworks": frameworks,
     }
     
     return render(request, "home/home.html", context)
