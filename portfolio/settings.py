@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'home',
     'feedback',
     'procedural_pfp',
+    'account',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +53,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # Custom middleware
+    'account.middlewares.SaveIpAddr',
 ]
 
 ROOT_URLCONF = 'portfolio.urls'

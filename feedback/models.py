@@ -2,7 +2,6 @@ from django.db import models
 
 # Create your models here.
 class Feedback(models.Model):
-    ip_addr = models.GenericIPAddressField
     
     name = models.CharField(max_length=200,verbose_name="Name")
     desc = models.CharField(max_length=400, verbose_name="Description")
