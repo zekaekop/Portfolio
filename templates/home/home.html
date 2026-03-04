@@ -3,7 +3,7 @@
 
 {% block body %}
 
-<div class="container">
+<div class="container text-white box">
     <h1>Hello I am Eko</h1>
 
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi adipisci voluptates repellendus optio possimus saepe nihil ab aliquam modi odio cum quisquam, at ducimus? Quisquam ad impedit delectus tempore obcaecati.</p>
@@ -19,14 +19,31 @@
             {% endif %}
         </div>
     </div>
-    
-    <div>
-        Some images to display projects
+
+    <div class="d-flex">
+        <div>
+            Some images to display projects
+        </div>
+        
+        <div>
+            Some images to display projects
+        </div>
+        
+        <div>
+            Some images to display projects
+        </div>
     </div>
 
-    <div>
-        Another image here
-    </div>
+    {% if images %}
+        <div class="">
+            {% for image in images %}
+
+                Image wall here
+                <img src="example" alt="">
+                
+            {% endfor %}
+        </div>
+    {% endif %}
 
     <small>More projects</small>
 

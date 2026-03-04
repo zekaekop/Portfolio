@@ -5,34 +5,65 @@
 
 
 body{
-    background-image: var(--bg-image);
+    background-color: rgb(45, 45, 54);
+    /* background-image: var(--bg-image);
     background-size: cover;
-    background-repeat: no-repeat; 
+    background-repeat: no-repeat;  */
 }
 
 .header-gradient{
     background: linear-gradient(#0000005c, #00000000);
 }
 
+.text-white{
+    text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
+}
+
+.box-inset,
 .box{
-    background-color: rgb(125, 119, 170);
-    
-    border-top:  2px rgb(167, 162, 207);
-    border-left:  2px rgb(167, 162, 207);
-
-    border-bottom:  2px rgb(101, 93, 160);
-    border-right:  2px rgb(82, 74, 141);
+    padding: 0.2rem;
+    margin: 1rem;
 }
 
-.box-unfocused{
-    background-color: rgb(125, 119, 170);
+.box{
+    background-color: #e2de84;
     
-    border-top:  2px rgb(167, 162, 207);
-    border-left:  2px rgb(167, 162, 207);
+    border-top:  2px solid #ecfeaa;
+    border-left:  2px  solid #ecfeaa;
 
-    border-bottom:  2px rgb(101, 93, 160);
-    border-right:  2px rgb(82, 74, 141);
+    border-bottom:  2px  solid #a6a670;
+    border-right:  2px  solid #a6a670;
 }
+
+.box-inset{
+    background-color: #e2de84;
+    
+    border-bottom:  2px solid #ecfeaa;
+    border-right:  2px  solid #ecfeaa;
+
+    border-top:  2px  solid #a6a670;
+    border-left:  2px  solid #a6a670;
+}
+
+/*  dark purple theme
+    background-color: rgb(72, 69, 95);
+    
+    border-top:  2px solid rgb(120, 117, 140);
+    border-left:  2px  solid rgb(120, 117, 140);
+
+    border-bottom:  2px  solid rgb(27, 24, 44);
+    border-right:  2px  solid rgb(27, 24, 44);
+
+    -------------------------------------------------
+    desert yellow theme
+    background-color: #e2de84;
+    
+    border-top:  2px solid #ecfeaa;
+    border-left:  2px  solid #ecfeaa;
+
+    border-bottom:  2px  solid #a6a670;
+    border-right:  2px  solid #a6a670;
+     */
 
 .btn-primary{
     background-color: black;
