@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+
+<div class="container text-white box mt-3">
+
+    <h1>Submit a Question?</h1>
+
+    <p>Found a Bug? an issue on your end? Let us know.</p>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <input type="question" name="title" id="" required>
+        <br>
+        <textarea name="desc" id=""></textarea required>
+        <br>
+        <button class="box-button text-white" type="submit">Submit</button>
+    </form>
+
+</div>
+
+
+<div class="container text-white box mt-3">
+    {% if FAQs %}
+        <div class="d-flex">
+                {% for question in FAQs%}
+                    <div class="box">
+
+                    </div>
+                {% endfor%}
+        </div>
+    {% else %}
+        <div class="box text-white">
+            There seems to be no Questions
+        </div>
+    {% endif %}
+</div>
+
+{% include 'footer.html' %}
+
+{% endblock %}
