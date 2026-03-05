@@ -1,9 +1,16 @@
 from django.shortcuts import render
 from account.models import Anon
+from .models import Feedback
 from home.views import get_client_ip
 
 # Create your views here.
 def report(request):
+
+    if request.method == "POST":
+        Feedback.objects.create(
+            title=request.POST.get("title"),
+            desc=request.POST.get("desc"),
+            ip_addr=get_client_ip(request)) # saves the user ip adress
     
     content = {
         "test":"test",
