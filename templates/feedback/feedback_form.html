@@ -10,9 +10,11 @@
     <p>Found a Bug? an issue on your end? Let us know.</p>
 
     <form action="" method="post">
-        <input type="text" name="title" id="">
+        {% csrf_token %}
+
+        <input type="text" name="title" id="" required>
         <br>
-        <textarea name="desc" id=""></textarea>
+        <textarea name="desc" id=""></textarea required>
         <br>
         <button class="box-button text-white" type="submit">Submit</button>
     </form>
