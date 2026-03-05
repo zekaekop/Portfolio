@@ -12,9 +12,9 @@ class SaveIpAddr:
         anon, created = Anon.objects.get_or_create(ip_addr=ip_addr)
 
         if created:
-            print("created")
+            print("new IP ADDR created")
         else:
-            print("exists")
+            print("IP ADDR exists")
 
         response = self.get_response(request)
 
