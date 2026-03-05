@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'procedural_pfp',
     'account',
     'chatting',
+    'FAQ',
 ]
 
 MIDDLEWARE = [
