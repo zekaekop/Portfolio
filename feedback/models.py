@@ -1,9 +1,10 @@
 from django.db import models
+from account.models import Anon
 
 # Create your models here.
 class Feedback(models.Model):
 
-    ip_addr = models.GenericIPAddressField(protocol='both') # This is the only thing that we can track with the account identity and feedback reports
+    anon = models.OneToOneField(Anon, on_delete=models.CASCADE) 
     
     title = models.CharField(max_length=200,verbose_name="Title")
     desc = models.CharField(max_length=400, verbose_name="Description")

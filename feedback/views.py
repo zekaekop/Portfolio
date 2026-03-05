@@ -10,11 +10,12 @@ def report(request):
         Feedback.objects.create(
             title=request.POST.get("title"),
             desc=request.POST.get("desc"),
-            ip_addr=get_client_ip(request)) # saves the user ip adress
+            anon=Anon.objects.get(ip_addr=get_client_ip(request)),
+        )
     
     content = {
         "test":"test",
-        "ip_addr": Anon.objects.get(ip_addr=get_client_ip(request)).ip_addr,
+        "ip_addr": Anon.objects.get(ip_addr=get_client_ip(request)),
     }
     
     return render(request, "feedback/feedback_form.html" , content)
