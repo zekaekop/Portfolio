@@ -12,9 +12,13 @@
     <form action="" method="POST">
         {% csrf_token %}
 
-        <input type="question" name="title" id="" required>
+        {% if status_message %}
+            <p>You were succesfull</p>
+        {% endif %}
+
+        <input type="text" name="question" id="" required>
         <br>
-        <textarea name="desc" id=""></textarea required>
+        <textarea type="text" name="desc" id=""></textarea required>
         <br>
         <button class="box-button text-white" type="submit">Submit</button>
     </form>
@@ -23,11 +27,13 @@
 
 
 <div class="container text-white box mt-3">
-    {% if FAQs %}
+    {% if FAQs.data.list %}
         <div class="d-flex">
-                {% for question in FAQs%}
+                {% for Q in FAQs%}
                     <div class="box">
-
+                        Q.asked_question
+                        <p>Q.answer</p>
+                        <small>Q.created_date</small>
                     </div>
                 {% endfor%}
         </div>

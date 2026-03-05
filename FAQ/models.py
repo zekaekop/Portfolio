@@ -1,4 +1,5 @@
 from django.db import models
+from account.models import Anon
 
 # Create your models here.
 class FAQuestions(models.Model):
