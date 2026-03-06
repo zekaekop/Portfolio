@@ -51,38 +51,46 @@
     
 
 <div class="container text-white box mt-3">
-    <!-- Lists current FAQ questions -->
-    {% if FAQs.data.list %}
-        <div class="d-flex">
-                {% for Q in FAQs%}
+
+
+    {% if request.path == "/FAQ/answers/" %}
+
+        <!-- Lists current FAQ questions -->
+        {% if FAQs.data.list %}
+            <div class="d-flex">
+                    {% for Q in FAQs%}
+                        <div class="box">
+                            Q.asked_question
+                            <p>Q.answer</p>
+                            <small>Q.created_date</small>
+                        </div>
+                    {% endfor%}
+            </div>
+        {% else %}
+            <div class="box text-white">
+                There seems to be no Questions
+            </div>
+        {% endif %}
+
+    {% elif request.path ==  "/FAQ/submissions/" %}
+    
+        <!-- Lists current FAQ Submissions -->
+        {% if FAQSs.data.list %}
+            <div class="d-flex">
+                {% for S in FAQSs%}
                     <div class="box">
-                        Q.asked_question
-                        <p>Q.answer</p>
-                        <small>Q.created_date</small>
+                        S.asked_question
+                        <p>S.answer</p>
+                        <small>S.created_date</small>
                     </div>
                 {% endfor%}
         </div>
-    {% else %}
-        <div class="box text-white">
-            There seems to be no Questions
-        </div>
-    {% endif %}
-    
-    <!-- Lists current FAQ Submissions -->
-    {% if FAQSs.data.list %}
-        <div class="d-flex">
-            {% for S in FAQSs%}
-                <div class="box">
-                    S.asked_question
-                    <p>S.answer</p>
-                    <small>S.created_date</small>
-                </div>
-            {% endfor%}
-    </div>
-    {% else %}
-        <div class="box text-white">
-            There seems to be no Submissions
-        </div>
+        {% else %}
+            <div class="box text-white">
+                There seems to be no Submissions
+            </div>
+        {% endif %}
+
     {% endif %}
 </div>
 
