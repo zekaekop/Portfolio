@@ -60,12 +60,13 @@
             <h1>FAQs</h1>
 
             <hr>
-            
+
             <div class="d-flex box-inset">
                     {% for Q in FAQs%}
                         <div class="box">
                             {{Q.asked_question}}
                             <p>{{Q.answer}}</p>
+                            <small>{{Q.anon.ip_addr}}</small>
                             <small>{{Q.created_date}}</small>
                         </div>
                     {% endfor%}
