@@ -1,26 +1,39 @@
-{% extends 'base.html' %}
 {% load static %}
-
-{% block body %}
 
 <!-- This navbar should only be accesible to people of power -->
 
-<div class="container text-white box mt-3">
-    {% if FAQs %}
-        <div class="d-flex">
-                {% for question in FAQs%}
-                    <div class="box">
+<div class="container text-white box">
 
-                    </div>
-                {% endfor%}
+    <h1 class="box-inset">FAQ Moderation Navbar</h1>
+
+    <div class="box-inset">
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 mb-md-0 box">
+
+            {% if request.user.is_superuser %}
+                <li><a href="{# url 'admin_panel'#}" class="nav-link px-2 text-white">Create FAQ</a></li>
+                <li><a href="{# url 'FAQ:submission' #}" class="nav-link px-2 text-white">FAQ Submissions</a></li> 
+                <li><a href="{# url 'mod history' #}" class="nav-link px-2 text-white">Moderation History</a></li> 
+                <!-- this should jump all the way up to the main navbar -->
+                <li class="ms-auto"><a href="{% url 'FAQ:answers' %}" class="nav-link px-2 text-white"><small>Go Back</small></a></li>  
+            {% endif %}
+        </ul>
+
+        <hr>
+
+        <div class="side-box">
+            <div class="side-box-content">
+                <h5 class="box">FAQ Guidelines</h5>
+                <ul class="list-unstyled">
+                    <!-- maybe you could add a checkbox next to them, and after they all check it, they can submit? -->
+                    <li>Be specific with your question.</li> 
+                    <hr class="m-1">
+                    <li>Check FAQs for duplicate questions before submitting.</li>
+                    <hr class="m-1">
+                    <li>Be kind, you are talking to a human.</li>
+                    <hr class="m-1">
+                </ul>
+            </div>
         </div>
-    {% else %}
-        <div class="box text-white">
-            There seems to be no Questions
-        </div>
-    {% endif %}
+    </div>
+
 </div>
-
-{% include 'footer.html' %}
-
-{% endblock %}
