@@ -12,6 +12,7 @@ class FAQCards():
 
         context = {
             "FAQs":FAQs,
+            "ip_addr": Anon.objects.get(ip_addr=get_client_ip(request)).ip_addr,
         }
         
         return render(request, "FAQ/FAQ.html", context )
@@ -28,7 +29,7 @@ class FAQCards():
             context = {
                 "status_message": created,
                 "question": question,
-                "ip_addr": Anon.objects.get(ip_addr=get_client_ip(request)),
+                "ip_addr": Anon.objects.get(ip_addr=get_client_ip(request)).ip_addr,
             }
 
             return render(request, "FAQ/FAQ_create.html", context)
@@ -69,7 +70,7 @@ class FAQSubmissions():
             context = {
                 "status_message": created,
                 "submission": submission,
-                "ip_addr": Anon.objects.get(ip_addr=get_client_ip(request)),
+                "ip_addr": Anon.objects.get(ip_addr=get_client_ip(request)).ip_addr,
             }
 
             return render(request, "FAQ/FAQ.html", context)
