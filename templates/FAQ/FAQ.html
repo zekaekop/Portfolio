@@ -83,6 +83,8 @@
     
         <!-- Lists current FAQ Submissions -->
         {% if FAQSs %}
+            <hr>
+
             <div class="d-flex box-inset">
                 {% for S in FAQSs%}
                     <div class="box">
@@ -105,6 +107,8 @@
 
         <p>What you will be posting will be public to anyone.</p>
 
+        <hr>
+
         <form action="" method="POST">
             {% csrf_token %}
 
@@ -121,6 +125,8 @@
     
         <!-- Lists current FAQ Submissions -->
         {% if FAQSs %}
+            <hr>
+
             <div class="d-flex box-inset">
                 {% for S in FAQSs%}
                     <div class="box">
