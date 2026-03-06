@@ -11,7 +11,7 @@
 
             {% if request.user.is_superuser %}
                 <li><a href="{# url 'admin_panel'#}" class="nav-link px-2 text-white">Create FAQ</a></li>
-                <li><a href="{# url 'FAQ:submission' #}" class="nav-link px-2 text-white">FAQ Submissions</a></li> 
+                <li><a href="{% url 'FAQ:submissions' %}" class="nav-link px-2 text-white">FAQ Submissions</a></li> 
                 <li><a href="{# url 'mod history' #}" class="nav-link px-2 text-white">Moderation History</a></li> 
                 <!-- this should jump all the way up to the main navbar -->
                 <li class="ms-auto"><a href="{% url 'FAQ:answers' %}" class="nav-link px-2 text-white"><small>Go Back</small></a></li>  
