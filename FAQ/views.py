@@ -51,6 +51,17 @@ class FAQCards():
         pass
 
 class FAQSubmissions():
+
+    def list_submissions(self, request):
+        FAQSs = FAQuestionsSubmissions.objects.all()
+
+        context = {
+            "FAQSs":FAQSs,
+            "ip_addr": Anon.objects.get(ip_addr=get_client_ip(request)).ip_addr,
+        }
+
+        return render(request, "FAQ/FAQ.html", context)
+
     def create_submissions(self, request):
         if request.method == "POST":
 
