@@ -83,9 +83,9 @@
     
         <!-- Lists current FAQ Submissions -->
         {% if FAQSs %}
-            <div class="d-flex">
+            <div class="d-flex box-inset">
                 {% for S in FAQSs%}
-                    <div class="box-inset">
+                    <div class="box">
                         <h3>{{S.question}}</h3>
                         <p>{{S.desc}}</p>
                         <small>{{S.anon.ip_addr}}</small>
@@ -121,9 +121,9 @@
     
         <!-- Lists current FAQ Submissions -->
         {% if FAQSs %}
-            <div class="d-flex">
+            <div class="d-flex box-inset">
                 {% for S in FAQSs%}
-                    <div class="box-inset">
+                    <div class="box">
                         <h3>{{S.question}}</h3>
                         <p>{{S.desc}}</p>
                         <small>{{S.anon.ip_addr}}</small>
