@@ -31,11 +31,16 @@ class FAQCards():
                 "status_message": created,
                 "question": question,
                 "ip_addr": Anon.objects.get(ip_addr=get_client_ip(request)).ip_addr,
+                "FAQSs": FAQSubmissions().get_FAQSubmissions(),
             }
 
             return render(request, "FAQ/FAQ.html", context)
 
-        return render(request, "FAQ/FAQ.html", {"ip_addr": Anon.objects.get(ip_addr=get_client_ip(request)).ip_addr})
+        context = {
+            "ip_addr": Anon.objects.get(ip_addr=get_client_ip(request)).ip_addr,
+            "FAQSs": FAQSubmissions().get_FAQSubmissions(),
+        }
+        return render(request, "FAQ/FAQ.html", context)
 
     def delete_FAQ(self, request):
 
@@ -57,7 +62,7 @@ class FAQCards():
 
 class FAQSubmissions():
 
-    def get_FAQSubmissions():
+    def get_FAQSubmissions(self):
         return FAQuestionsSubmissions.objects.all()
 
     def list_submissions(self, request):
