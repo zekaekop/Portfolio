@@ -8,4 +8,5 @@ FAQSubmissions = views.FAQSubmissions()
 
 urlpatterns = [
     path('answers/', FAQCards.list_FAQ , name="answers"),
+    path('submissions/', FAQSubmissions.list_submissions , name="submissions"),
 ]

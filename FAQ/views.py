@@ -8,8 +8,6 @@ class FAQCards():
     def list_FAQ(self, request):
         FAQs = FAQuestions.objects.all()
 
-        FAQSubmissions().create_submissions(request) # used here since the submit for submissions is at the same place as the answers
-
         context = {
             "FAQs":FAQs,
             "ip_addr": Anon.objects.get(ip_addr=get_client_ip(request)).ip_addr,
