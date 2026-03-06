@@ -57,11 +57,13 @@ class FAQCards():
 
 class FAQSubmissions():
 
+    def get_FAQSubmissions():
+        return FAQuestionsSubmissions.objects.all()
+
     def list_submissions(self, request):
-        FAQSs = FAQuestionsSubmissions.objects.all()
 
         context = {
-            "FAQSs":FAQSs,
+            "FAQSs": self.get_FAQSubmissions(),
             "ip_addr": Anon.objects.get(ip_addr=get_client_ip(request)).ip_addr,
         }
 
