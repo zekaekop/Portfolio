@@ -17,7 +17,10 @@ class FAQCards():
 
     def create_FAQ(self, request):
         if request.method == "POST":
-            question, created = FAQuestions.objects.get_or_create(asked_question=request.POST.get("question"))
+            question, created = FAQuestions.objects.get_or_create(
+                asked_question=request.POST.get("asked_question"),
+                answer=request.POST.get("answer"),
+                anon=Anon.objects.get(ip_addr=get_client_ip(request)))
 
             if created:
                 print("this FAQ already exists")
@@ -30,7 +33,9 @@ class FAQCards():
                 "ip_addr": Anon.objects.get(ip_addr=get_client_ip(request)).ip_addr,
             }
 
-            return render(request, "FAQ/FAQ_create.html", context)
+            return render(request, "FAQ/FAQ.html", context)
+
+        return render(request, "FAQ/FAQ.html", {"ip_addr": Anon.objects.get(ip_addr=get_client_ip(request)).ip_addr})
 
     def delete_FAQ(self, request):
 
