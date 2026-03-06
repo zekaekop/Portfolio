@@ -56,13 +56,13 @@
     {% if request.path == "/FAQ/answers/" %}
 
         <!-- Lists current FAQ questions -->
-        {% if FAQs.data.list %}
+        {% if FAQs %}
             <div class="d-flex">
                     {% for Q in FAQs%}
                         <div class="box">
-                            Q.asked_question
-                            <p>Q.answer</p>
-                            <small>Q.created_date</small>
+                            {{Q.asked_question}}
+                            <p>{{Q.answer}}</p>
+                            <small>{{Q.created_date}}</small>
                         </div>
                     {% endfor%}
             </div>
@@ -75,13 +75,14 @@
     {% elif request.path ==  "/FAQ/submissions/" %}
     
         <!-- Lists current FAQ Submissions -->
-        {% if FAQSs.data.list %}
+        {% if FAQSs %}
             <div class="d-flex">
                 {% for S in FAQSs%}
-                    <div class="box">
-                        S.asked_question
-                        <p>S.answer</p>
-                        <small>S.created_date</small>
+                    <div class="box-inset">
+                        <h3>{{S.question}}</h3>
+                        <p>{{S.desc}}</p>
+                        <small>{{S.anon.ip_addr}}</small>
+                        <small>{{S.created_date}}</small>
                     </div>
                 {% endfor%}
         </div>
