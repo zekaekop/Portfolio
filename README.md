@@ -2,8 +2,13 @@
 
 <p>This is a portfolio site designed with Django, there are features other than being a portfolio site, that will expand as time goes on.</p>
 
-<img src="" >
-<small style="color:gray">These images will be updated. As the project develops</small>
+<hr>
+
+<img src="static/img/readme/Home.png" >
+
+<small style="color:gray">These images may not represent the project at its current state and may look outdated. As the project develops</small>
+
+<hr>
 
 <h3>Features</h3>
 
@@ -18,21 +23,33 @@
     <li style="color:gray">A very simple chatting node js server (will be reworked with my own implementation)</li> 
 </ul>
 
-<img src="" >
-<small style="color:gray">These images will be updated. As the project develops</small>
+<hr>
 
-<img src="" >
-<small style="color:gray">These images will be updated. As the project develops</small>
+<img src="static/img/readme/FAQ.png" >
+
+<small style="color:gray">These images may not represent the project at its current state and may look outdated. As the project develops</small>
+
+<hr>
 
 <h3>Road map</h3>
 
 <p>The current project is very new and in development, this section will be completed soon.</p>
 
-<h3>Why?<h3>
+<hr>
 
-<p>The portfolio site isnt just for me, the entire project is for me to get better at these skills.</p>
-<p>While also creating modular apps to use anywhere i would like.</p>
+<h3>Why?</h3>
 
-<h4>Contributing Guidelines</h4>
+<p>The portfolio site isnt just for me, the entire project is for me to get better at these skills. While also creating modular apps to use anywhere i would like.</p>
 
-<p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero neque vel eaque voluptatibus eum vitae quia, quod excepturi exercitationem nesciunt laboriosam veniam officia delectus? Aliquid assumenda ad excepturi suscipit magni. </p>
+<hr>
+
+<h3>Contributing Guidelines</h3>
+
+<h4>1. Creating an issue</h4>
+<p>If you find a bug or something bothering you, i recommend you tell us by creating a issue. This is the most likely way you will be able to contact and comunicate with me as i look at the issues alot.</p>
+
+<h4>2. Contributing</h4>
+<p>I do not have any strict rules on contributing, feel free to create a PR about any features (new frameworks, systems etc.). and bugs. Thought i do not condone the usage of AI, if the PR looks like its all created by AI i will most likely not accept it for this project unless its a minor change.</p>
+
+<h3>Where can i find a live server?</h3>
+Currently i do not have a production server running this project.
