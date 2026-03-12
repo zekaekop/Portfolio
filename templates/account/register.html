@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-6 col-xl-5 box">
             
-            <h1>Login Account</h1>
+            <h1>Register Account</h1>
             
             <form action="" method="POST">
                 {% csrf_token %}
@@ -15,12 +15,13 @@
                 <hr>
                 <input type="text" name="username" class="form-control text-white" placeholder="Username" required>
                 <input type="password"  name="password" class="form-control text-white" placeholder="Password" required></input>
+                <input type="password"  name="repeat_password" class="form-control text-white" placeholder="Repeat password" required></input>
                 <hr>
                 <button class="box-button text-white" type="submit">Submit</button>
             </form>
 
             <div class="d-flex justify-content-between mt-3">
-                <small><a href="{% url 'account:login' %}" class="text-fadded">Dont have an account?</a></small>
+                <small><a href="{% url 'account:register' %}" class="text-fadded">Dont have an account?</a></small>
                 <small><a href="{% url 'FAQ:answers' %}" class="text-fadded">Info?</a></small>
                 <small><a href="/" class="text-fadded">Continue as guest</a></small>
             </div>
