@@ -10,10 +10,10 @@
     <form action="" method="POST">
         {% csrf_token %}
 
-        <input type="text" name="username" class="btn btn-primary" required>
+        <input type="text" name="username" class="btn form-control" required>
         <br>
-        <input type="password"  name="password" class="btn btn-primary"></input required>
-        <input type="password"  name="repeat_password" class="btn btn-primary"></input required>
+        <input type="password"  name="password" class="btn form-control"></input required>
+        <input type="password"  name="repeat_password" class="btn form-control"></input required>
         <br>
         <button class="box-button text-white" type="submit">Submit</button>
     </form>
