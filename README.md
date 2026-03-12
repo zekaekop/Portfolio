@@ -49,7 +49,7 @@
 <p>If you find a bug or something bothering you, i recommend you tell us by creating a issue. This is the most likely way you will be able to contact and comunicate with me as i look at the issues alot.</p>
 
 <h4>2. Contributing</h4>
-<p>I do not have any strict rules on contributing, feel free to create a PR about any features (new frameworks, systems etc.). and bugs. Thought i do not condone the usage of AI, if the PR looks like its all created by AI i will most likely not accept it for this project unless its a minor change.</p>
+<p>I do not have any strict rules on contributing, feel free to create a PR about any features (new frameworks, systems etc.). and bugs. Though i do not condone the usage of AI, if the PR looks like its all created by AI i will most likely not accept it for this project unless its a minor change.</p>
 
 <h3>Where can i find a live server?</h3>
 Currently i do not have a production server running this project.
