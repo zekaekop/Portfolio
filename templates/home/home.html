@@ -5,7 +5,13 @@
 
 <div class="container text-white box mt-3">
 
-    <h1>Hello {{ request.user}}</h1>
+    <h1>Hello 
+        {% if request.user.is_authenticated %}
+            {{ request.user }}
+        {% else %}
+            Anon<!-- Instead of saying AnonymousUser, its just shortened -->
+        {% endif %}
+    </h1>
 
     <p>This is lorem</p>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi adipisci voluptates repellendus optio possimus saepe nihil ab aliquam modi odio cum quisquam, at ducimus? Quisquam ad impedit delectus tempore obcaecati.</p>
