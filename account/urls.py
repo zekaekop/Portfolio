@@ -3,8 +3,6 @@ from .views import Account
 
 app_name = 'account'
 
-
-
 urlpatterns = [
     path('register/', Account.register , name="register"),
     path('login/', Account.login , name="login"),
