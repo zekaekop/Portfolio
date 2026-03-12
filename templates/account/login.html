@@ -6,6 +6,10 @@
 <div class="container text-white box mt-3">
     <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-6 col-xl-5 box">
+
+            {% if login_status %}
+                {{login_status}}
+            {% endif %}
             
             <h1>Login Account</h1>
             
@@ -20,7 +24,7 @@
             </form>
 
             <div class="d-flex justify-content-between mt-3">
-                <small><a href="{% url 'account:login' %}" class="text-fadded">Dont have an account?</a></small>
+                <small><a href="{% url 'account:register' %}" class="text-fadded">Dont have an account?</a></small>
                 <small><a href="{% url 'FAQ:answers' %}" class="text-fadded">Info?</a></small>
                 <small><a href="/" class="text-fadded">Continue as guest</a></small>
             </div>
