@@ -5,7 +5,10 @@
 
 <div class="container text-white box mt-3">
 
-    {% include 'home/about.html' %}
+    <h1>Hello {{ request.user}}</h1>
+
+    <p>This is lorem</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi adipisci voluptates repellendus optio possimus saepe nihil ab aliquam modi odio cum quisquam, at ducimus? Quisquam ad impedit delectus tempore obcaecati.</p>
 
     <div class="d-flex justify-content-center box-inset p-0 ms-3 me-3">
         {% if tags %}

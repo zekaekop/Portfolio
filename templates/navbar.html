@@ -14,4 +14,10 @@
     <li><a href="{# url 'about' #}" class="nav-link px-2 text-white">About</a></li> 
     <li><a href="{# url 'about' #}" class="nav-link px-2 text-white">{{ip_addr}}</a></li> 
 
+    {% if request.user.is_authenticated  %}
+        <li><a href="{% url 'account:logout' %}" class="nav-link px-2 text-white">Logout</a></li> 
+    {% else %}
+        <li><a href="{% url 'account:login' %}" class="nav-link px-2 text-white">Login</a></li>
+    {% endif %}
+    
 </ul>

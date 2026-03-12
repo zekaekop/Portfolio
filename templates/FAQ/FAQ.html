@@ -2,9 +2,9 @@
 {% load static %}
 
 {% block body %}
-<div class=" container d-flex p-0 mt-3">
 
-    {% if request.user == request.user.is_superuser %} <!--  The super user does not need to make a submission, they can just create an FAQ -->
+ {% if request.user != request.user.is_superuser %} <!--  The super user does not need to make a submission, they can just create an FAQ -->
+<div class=" container d-flex p-0 mt-3">   
         <div class="container text-white box">
             <h1>Submit a Question?</h1>
 
@@ -44,14 +44,12 @@
             </div>
 
         </div>
-    {% else %}
-        {% include 'FAQ/FAQ_navbar.html' %}
-    {% endif %}
 </div>
+{% else %}
+    {% include 'FAQ/FAQ_navbar.html' %}
+{% endif %}
     
-
 <div class="container text-white box mt-3">
-
 
     {% if request.path == "/FAQ/answers/" %}
 

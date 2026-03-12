@@ -18,7 +18,15 @@ body{
 .text-white{
     text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
 }
+.text-fadded{
+    color: rgb(215, 215, 215);
+}
 
+input::placeholder {
+  color: rgb(215, 215, 215) !important;
+}
+
+.form-control,
 .box-inset,
 .box{
     padding: 0.5rem;
@@ -35,31 +43,43 @@ body{
     border-bottom:  2px  solid #676751;
     border-right:  2px  solid #676751;
 }
+.btn-primary:hover,
+.btn-primary{
+    border-radius: 0 !important;
+    border-color: rgba(0, 0, 0, 0) !important;
+}
+.form-control:hover,
+.form-control{
+    border-radius: 0 !important;
+}
 
+.btn-primary,
 .box-button{
-    background-color: #9b9670;
-    border-top:  2px solid #c6c3aa;
-    border-left:  2px  solid #c6c3aa;
+    background-color: #9b9670 !important ;
+    border-top:  2px solid #c6c3aa !important;
+    border-left:  2px  solid #c6c3aa !important;
 }
 
+.btn-primary:hover,
 .box-button:hover{
-    background-color: #807b59;
+    background-color: #807b59 !important;
     
-    border-bottom:  2px solid #81806f;
-    border-right:  2px  solid #81806f;
+    border-bottom:  2px solid #81806f !important;
+    border-right:  2px  solid #81806f !important;
 
-    border-top:  2px  solid #676751;
-    border-left:  2px  solid #676751;
+    border-top:  2px  solid #676751 !important;
+    border-left:  2px  solid #676751 !important;
 }
 
+.form-control,
 .box-inset{
-    background-color: #656148;
+    background-color: #656148 !important;
     
-    border-bottom:  2px solid #81806f;
-    border-right:  2px  solid #81806f;
+    border-bottom:  2px solid #81806f !important;
+    border-right:  2px  solid #81806f !important;
 
-    border-top:  2px  solid #676751;
-    border-left:  2px  solid #676751;
+    border-top:  2px  solid #676751 !important;
+    border-left:  2px  solid #676751 !important;
 }
 
 .img-home-projects{
