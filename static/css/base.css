@@ -18,6 +18,13 @@ body{
 .text-white{
     text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
 }
+.text-fadded{
+    color: rgb(215, 215, 215);
+}
+
+input::placeholder {
+  color: rgb(215, 215, 215) !important;
+}
 
 .form-control,
 .box-inset,
