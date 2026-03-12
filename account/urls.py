@@ -1,10 +1,12 @@
 from django.urls import path, reverse
-from . import views
+from .views import Account
 
 app_name = 'account'
 
+
+
 urlpatterns = [
-    path('register/', views.register , name="register"),
-    path('login/', views.login , name="login"),
-    path('logout/', views.logout , name="logout"),
+    path('register/', Account.register , name="register"),
+    path('login/', Account.login , name="login"),
+    path('logout/', Account.logout , name="logout"),
 ]
