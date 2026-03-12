@@ -2,9 +2,9 @@
 {% load static %}
 
 {% block body %}
-<div class=" container d-flex p-0 mt-3">
 
-    {% if request.user == request.user.is_superuser %} <!--  The super user does not need to make a submission, they can just create an FAQ -->
+ {% if request.user != request.user.is_superuser %} <!--  The super user does not need to make a submission, they can just create an FAQ -->
+<div class=" container d-flex p-0 mt-3">   
         <div class="container text-white box">
             <h1>Submit a Question?</h1>
 
@@ -44,29 +44,22 @@
             </div>
 
         </div>
-    {% else %}
-        {% include 'FAQ/FAQ_navbar.html' %}
-    {% endif %}
 </div>
+{% else %}
+    {% include 'FAQ/FAQ_navbar.html' %}
+{% endif %}
     
-
 <div class="container text-white box mt-3">
-
 
     {% if request.path == "/FAQ/answers/" %}
 
         <!-- Lists current FAQ questions -->
         {% if FAQs %}
-            <h1>FAQs Answers</h1>
-
-            <hr>
-
-            <div class="d-flex box-inset">
+            <div class="d-flex">
                     {% for Q in FAQs%}
                         <div class="box">
                             {{Q.asked_question}}
                             <p>{{Q.answer}}</p>
-                            <small>{{Q.anon.ip_addr}}</small>
                             <small>{{Q.created_date}}</small>
                         </div>
                     {% endfor%}
@@ -78,58 +71,12 @@
         {% endif %}
 
     {% elif request.path ==  "/FAQ/submissions/" %}
-
-        <h1>FAQ Submissions</h1>
     
         <!-- Lists current FAQ Submissions -->
         {% if FAQSs %}
-            <hr>
-
-            <div class="d-flex box-inset">
+            <div class="d-flex">
                 {% for S in FAQSs%}
-                    <div class="box">
-                        <h3>{{S.question}}</h3>
-                        <p>{{S.desc}}</p>
-                        <small>{{S.anon.ip_addr}}</small>
-                        <small>{{S.created_date}}</small>
-                    </div>
-                {% endfor%}
-        </div>
-        {% else %}
-            <div class="box text-white">
-                There seems to be no Submissions
-            </div>
-        {% endif %}
-
-    {% elif request.path ==  "/FAQ/create/" %}
-
-        <h1>Create a FAQ</h1>
-
-        <p>What you will be posting will be public to anyone.</p>
-
-        <hr>
-
-        <form action="" method="POST">
-            {% csrf_token %}
-
-            {% if status_message %}
-                <p>You were succesfull</p>
-            {% endif %}
-
-            <input type="text" name="asked_question" id="" required>
-            <br>
-            <textarea type="text" name="answer" id="" required></textarea>
-            <br>
-            <button class="box-button text-white" type="submit">Submit</button>
-        </form>
-    
-        <!-- Lists current FAQ Submissions -->
-        {% if FAQSs %}
-            <hr>
-
-            <div class="d-flex box-inset">
-                {% for S in FAQSs%}
-                    <div class="box">
+                    <div class="box-inset">
                         <h3>{{S.question}}</h3>
                         <p>{{S.desc}}</p>
                         <small>{{S.anon.ip_addr}}</small>
