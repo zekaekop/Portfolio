@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+
+<div class="container text-white box mt-3">
+
+    <h1>User Login</h1>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <input type="text" name="username" class="btn btn-primary" required>
+        <br>
+        <input type="password"  name="password" class="btn btn-primary"></input required>
+        <input type="password"  name="repeat_password" class="btn btn-primary"></input required>
+        <br>
+        <button class="box-button text-white" type="submit">Submit</button>
+    </form>
+
+    <small><a href="{% url 'FAQ:answers' %}">Info?</a></small>
+        <small><a href="/">Continue as guest</a></small>
+
+</div>
+
+{% include 'footer.html' %}
+
+{% endblock %}
