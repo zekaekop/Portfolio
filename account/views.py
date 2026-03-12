@@ -15,7 +15,7 @@ class Account:
             user,existing = User.objects.get_or_create(username=username)
 
             if (existing):
-                return render(request, "account/register", { "login_status" : "Username is taken"})
+                return render(request, "account/register.html", { "login_status" : "Username is taken"})
 
             if (password == repeat_password):
                 user.set_password(password)
@@ -27,7 +27,7 @@ class Account:
                 login(request, new_user)
                 return render(request, "home/home.html", {"login_status": True})
 
-            return render(request, "account/login", {"login_status": False})
+            return render(request, "account/login.html", {"login_status": False})
 
     def login(request):
         if request.method == "POST":
@@ -45,4 +45,4 @@ class Account:
 
     def logout(request):
         logout(request)
-        return redirect("account/login")
+        return render(request, "account/login.html", {"login_status": False})
