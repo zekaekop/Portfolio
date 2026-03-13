@@ -3,6 +3,10 @@
 
 {% block body %}
 
+{% if request.user.is_superuser %}
+    {% include 'FAQ/FAQ_navbar.html' %}
+{% endif %}
+
 <div class="container text-white box mt-3">
 
     <h1>Create a FAQ</h1>
@@ -12,9 +16,9 @@
     <form action="" method="POST">
         {% csrf_token %}
 
-        <input type="question" name="title" id="" required>
+        <input type="text" name="asked_question" id="" required>
         <br>
-        <textarea name="desc" id="" required></textarea>
+        <textarea name="answer" id="" required></textarea>
         <br>
         <button class="box-button text-white" type="submit">Submit</button>
     </form>
@@ -24,10 +28,16 @@
 <!-- List submissions on the side -->
 
 <div class="container text-white box mt-3">
+
+    <div class="box-inset">
+        <h1>Frequently Asked Question Submissions</h1>
+    </div>
+    <hr>
+
     {% if FAQSs %}
-        <div class="d-flex">
+        <div class="d-flex box-inset">
             {% for S in FAQSs%}
-                <div class="box-inset">
+                <div class="box">
                     <h3>{{S.question}}</h3>
                     <p>{{S.desc}}</p>
                     <small>{{S.anon.ip_addr}}</small>
