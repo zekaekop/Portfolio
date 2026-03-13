@@ -14,7 +14,7 @@
 
         <input type="question" name="title" id="" required>
         <br>
-        <textarea name="desc" id=""></textarea required>
+        <textarea name="desc" id="" required></textarea>
         <br>
         <button class="box-button text-white" type="submit">Submit</button>
     </form>
@@ -24,17 +24,20 @@
 <!-- List submissions on the side -->
 
 <div class="container text-white box mt-3">
-    {% if FAQs %}
+    {% if FAQSs %}
         <div class="d-flex">
-                {% for question in FAQs%}
-                    <div class="box">
-
-                    </div>
-                {% endfor%}
-        </div>
+            {% for S in FAQSs%}
+                <div class="box-inset">
+                    <h3>{{S.question}}</h3>
+                    <p>{{S.desc}}</p>
+                    <small>{{S.anon.ip_addr}}</small>
+                    <small>{{S.created_date}}</small>
+                </div>
+            {% endfor%}
+    </div>
     {% else %}
         <div class="box text-white">
-            There seems to be no Questions
+            There seems to be no Submissions
         </div>
     {% endif %}
 </div>

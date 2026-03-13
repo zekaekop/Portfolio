@@ -41,9 +41,11 @@ class Account:
             if  exists:
                 login(request, user)
                 return redirect("/")
+            else:
+                return render(request, "account/login.html", {"login_status": "Account username is taken"})
 
         return render(request, "account/login.html", {"login_status": "Failed to log in"})
 
     def logout(request):
         logout(request)
-        return render(request, "account/login.html", {"login_status": False})
+        return redirect("account/login")
