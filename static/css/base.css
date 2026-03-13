@@ -26,8 +26,8 @@ input::placeholder {
   color: rgb(215, 215, 215) !important;
 }
 
-.box-button[data-theme="steam-old"],
-.box[data-theme="steam-old"]{
+html[data-theme="steam-old"] .box-button,
+html[data-theme="steam-old"] .box{
     background-color: #757155;
     
     border-top:  2px solid #a19f8a;
@@ -36,6 +36,16 @@ input::placeholder {
     border-bottom:  2px  solid #676751;
     border-right:  2px  solid #676751;
 }
+html[data-theme="default"] .box{
+    background-color: rgb(49, 49, 49);
+    
+    border-top:  2px solid rgb(237, 213, 127);
+    border-left:  2px  solid rgb(203, 182, 103);
+
+    border-bottom:  2px  solid rgb(151, 130, 54);
+    border-right:  2px  solid rgb(127, 108, 40);
+}
+
 .btn-primary:hover,
 .btn-primary{
     border-radius: 0 !important;
@@ -46,15 +56,15 @@ input::placeholder {
     border-radius: 0 !important;
 }
 
-.btn-primary[data-theme="steam old"],
-.box-button[data-theme="steam-old"]{
+html[data-theme="steam-old"] .btn-primary,
+html[data-theme="steam-old"] .box-button{
     background-color: #9b9670 !important ;
     border-top:  2px solid #c6c3aa !important;
     border-left:  2px  solid #c6c3aa !important;
 }
 
-.btn-primary:hover[data-theme="steam old"],
-.box-button:hover[data-theme="steam-old"]{
+html[data-theme="steam-old"] .btn-primary:hover,
+html[data-theme="steam-old"] .box-button:hover{
     background-color: #807b59 !important;
     
     border-bottom:  2px solid #81806f !important;
@@ -64,8 +74,8 @@ input::placeholder {
     border-left:  2px  solid #676751 !important;
 }
 
-.form-control[data-theme="steam old"],
-.box-inset[data-theme="steam-old"]{
+html[data-theme="steam-old"] .form-control,
+html[data-theme="steam-old"] .box-inset{
     background-color: #656148 !important;
     
     border-bottom:  2px solid #81806f !important;
