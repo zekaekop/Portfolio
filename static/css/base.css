@@ -26,13 +26,6 @@ input::placeholder {
   color: rgb(215, 215, 215) !important;
 }
 
-.form-control,
-.box-inset,
-.box{
-    padding: 0.5rem;
-    margin: 0.2rem;
-}
-
 .box-button,
 .box{
     background-color: #757155;

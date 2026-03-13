@@ -22,16 +22,17 @@
 
 </ul>
 
-        <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <span id="theme_used">Theme</span>
-            </button>
-            <ul class="dropdown-menu" id="theme_menu">
-                <li><a class="dropdown-item" href="#">Default</a></li>
-                <li><a class="dropdown-item" href="#">Light</a></li>
-                <li><a class="dropdown-item" href="#">Steam Old</a></li>
-                <li><a class="dropdown-item" href="#">Frutiger Aero</a></li>
-            </ul>
-        </div>
-    
-    <script src="{% static 'js/theme.js' %}"></script>
+
+<div class="dropdown">
+    <button class=" dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <span id="theme_used">Theme</span>
+    </button>
+    <ul class="dropdown-menu" id="theme_menu">
+        <li><a class="dropdown-item" href="#" data-theme="default">Default</a></li>
+        <li><a class="dropdown-item" href="#" data-theme="light">Light</a></li>
+        <li><a class="dropdown-item" href="#" data-theme="steam-old">Steam Old</a></li>
+        <li><a class="dropdown-item" href="#" data-theme="frutiger-aero">Frutiger Aero</a></li>
+    </ul>
+</div>
+
+<script src="{% static 'js/theme.js' %}"></script>
