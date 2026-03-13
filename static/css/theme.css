@@ -1,7 +1,7 @@
 /* The variables for the website theme Ex: light mode and dark mode*/
 /* You can find the icon variables in the base html files, these variables get assigned in icons.css*/
 
-:root[data-theme="light"]{ /*Handles dark and light mode*/
+:root[data-theme="default"]{ /*Handles dark and light mode*/
     --bg-color: linear-gradient(rgb(27, 39, 82), rgb(89, 28, 168));
     --bg-secondary-color: rgba(230, 230, 230, 0.3);
     --bg-border-color: rgb(200, 200, 200);
@@ -63,6 +63,67 @@
     --bg-txtbox-color-focused: rgba(60,60,60);
     --txtbox-border-color-focused: rgb(80, 80, 80);
 }
+:root[data-theme="steam old"]{
+    --bg-color: rgb(45, 45, 45);
+    --bg-secondary-color: rgb(75, 75, 75,0.3);
+    --bg-border-color: rgb(75, 75, 75);
+    --text-color: rgb(255, 255, 255);
+    --text-color-faded: rgb(255, 255, 255, 0.5);
+    
+    --shadow-color-04: rgb(0, 0, 0);
+    --shadow-color-02: rgba(0, 0, 0, 0.5);
+
+    --transparent: rgba(0, 0, 0, 0);
+
+    --button-disabled: #4a4a4a;
+    --button-disabled-hover: #5a5a5a;
+    --button-disabled-active: #707070;
+    
+    --button-border-color: rgb(80, 80, 80);
+    --button-border-color-hover: rgb(100, 100, 100);
+    
+    --button-primary-color: rgba(45, 45, 45);
+    --button-primary-color-hover: rgb(70, 70, 70);
+
+    --navbar-gradient: linear-gradient(rgb(45, 45, 45,0.6) 80%, rgba(0, 0, 0, 0) 90%);
+    --paginator-gradient: linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0));
+
+    --bg-txtbox-color: rgba(45, 45, 45);
+    --txtbox-border-color: rgb(70, 70, 70);
+    --bg-txtbox-color-focused: rgba(60,60,60);
+    --txtbox-border-color-focused: rgb(80, 80, 80);
+}
+:root[data-theme="frutieger aero"]{
+    --bg-color: rgb(45, 45, 45);
+    --bg-secondary-color: rgb(75, 75, 75,0.3);
+    --bg-border-color: rgb(75, 75, 75);
+    --text-color: rgb(255, 255, 255);
+    --text-color-faded: rgb(255, 255, 255, 0.5);
+    
+    --shadow-color-04: rgb(0, 0, 0);
+    --shadow-color-02: rgba(0, 0, 0, 0.5);
+
+    --transparent: rgba(0, 0, 0, 0);
+
+    --button-disabled: #4a4a4a;
+    --button-disabled-hover: #5a5a5a;
+    --button-disabled-active: #707070;
+    
+    --button-border-color: rgb(80, 80, 80);
+    --button-border-color-hover: rgb(100, 100, 100);
+    
+    --button-primary-color: rgba(45, 45, 45);
+    --button-primary-color-hover: rgb(70, 70, 70);
+
+    --navbar-gradient: linear-gradient(rgb(45, 45, 45,0.6) 80%, rgba(0, 0, 0, 0) 90%);
+    --paginator-gradient: linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0));
+
+    --bg-txtbox-color: rgba(45, 45, 45);
+    --txtbox-border-color: rgb(70, 70, 70);
+    --bg-txtbox-color-focused: rgba(60,60,60);
+    --txtbox-border-color-focused: rgb(80, 80, 80);
+}
+
 
 /* Old dark theme
 :root[data-theme="dark"]{
