@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'account',
     'chatting',
     'FAQ',
+    'imageboard',
 ]
 
 MIDDLEWARE = [
