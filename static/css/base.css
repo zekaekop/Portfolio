@@ -3,12 +3,12 @@
     font-weight: 600 !important;
 }
 
-
 body{
-    background-color:#5a563d !important;
-    /* background-image: var(--bg-image);
+    /* background-color:#5a563d !important; */
+    /* background-image: var(--bg-image); */
     background-size: cover;
-    background-repeat: no-repeat;  */
+    background-repeat: no-repeat; 
+    background: var(--bg-color) !important;
 }
 
 .header-gradient{
@@ -132,11 +132,6 @@ input::placeholder {
 
 .btn{
     background-color: rgb(44, 44, 44);
-}
-
-.tags{
-    /* event tags */
-    background-color: red;
 }
 
 .shadow-text{
