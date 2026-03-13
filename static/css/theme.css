@@ -63,10 +63,10 @@
     --bg-txtbox-color-focused: rgba(60,60,60);
     --txtbox-border-color-focused: rgb(80, 80, 80);
 }
-:root[data-theme="steam old"]{
-    --bg-color: rgb(45, 45, 45);
+:root[data-theme="steam-old"]{
+    --bg-color: rgb(75, 74, 65);
     --bg-secondary-color: rgb(75, 75, 75,0.3);
-    --bg-border-color: rgb(75, 75, 75);
+    --bg-border-color: #919083;
     --text-color: rgb(255, 255, 255);
     --text-color-faded: rgb(255, 255, 255, 0.5);
     
@@ -93,8 +93,8 @@
     --bg-txtbox-color-focused: rgba(60,60,60);
     --txtbox-border-color-focused: rgb(80, 80, 80);
 }
-:root[data-theme="frutieger aero"]{
-    --bg-color: rgb(45, 45, 45);
+:root[data-theme="frutiger-aero"]{
+    --bg-color: rgb(88, 128, 141);
     --bg-secondary-color: rgb(75, 75, 75,0.3);
     --bg-border-color: rgb(75, 75, 75);
     --text-color: rgb(255, 255, 255);
@@ -156,3 +156,41 @@
     --txtbox-border-color-focused: rgb(70, 70, 70);
 }
 */
+
+/*  dark purple theme
+    background-color: rgb(72, 69, 95);
+    
+    border-top:  2px solid rgb(120, 117, 140);
+    border-left:  2px  solid rgb(120, 117, 140);
+
+    border-bottom:  2px  solid rgb(27, 24, 44);
+    border-right:  2px  solid rgb(27, 24, 44);
+
+    -------------------------------------------------
+    desert yellow theme
+    background-color: #e2de84;
+    
+    border-top:  2px solid #ecfeaa;
+    border-left:  2px  solid #ecfeaa;
+
+    border-bottom:  2px  solid #a6a670;
+    border-right:  2px  solid #a6a670;
+    ------------------------------------------------
+    desert yellow theme 2
+    background-color: #a59e63;
+    
+    border-top:  2px solid #fefaaa;
+    border-left:  2px  solid #fefaaa;
+
+    border-bottom:  2px  solid #8f8f5d;
+    border-right:  2px  solid #8f8f5d;
+    ------------------------------------------------
+    Gray theme
+    background-color: #757155;
+    
+    border-top:  2px solid #a19f8a;
+    border-left:  2px  solid #a19f8a;
+
+    border-bottom:  2px  solid #676751;
+    border-right:  2px  solid #676751;
+     */

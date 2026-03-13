@@ -16,7 +16,6 @@ if (theme) {
 function updateThemeDisplay(theme) {
     const themeNames = {
         'dark': 'Dark',
-        'light': 'Light',
         'default': 'Default',
         'steam-old': 'Steam Old',
         'frutiger-aero': 'Frutiger Aero'
