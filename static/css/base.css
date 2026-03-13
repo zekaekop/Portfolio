@@ -44,16 +44,31 @@ html[data-theme="default"] .box{
 
     border-bottom:  2px  solid rgb(151, 130, 54);
     border-right:  2px  solid rgb(127, 108, 40);
+
+    border-radius: 0.2rem !important;
+    
 }
 
-.btn-primary:hover,
-.btn-primary{
+html[data-theme="steam-old"] .btn-primary:hover,
+html[data-theme="steam-old"] .btn-primary{
     border-radius: 0 !important;
     border-color: rgba(0, 0, 0, 0) !important;
 }
+html[data-theme="steam-old"] .form-control:hover,
+html[data-theme="steam-old"] .form-control{
+    border-radius: 0 !important;
+}
+
+
+.btn-primary:hover,
+.btn-primary{
+    border-radius: 0.5rem !important;
+    border-color: rgba(0, 0, 0, 0) !important;
+}
+
 .form-control:hover,
 .form-control{
-    border-radius: 0 !important;
+    border-radius: 0.5rem !important;
 }
 
 html[data-theme="steam-old"] .btn-primary,
