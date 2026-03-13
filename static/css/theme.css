@@ -2,7 +2,7 @@
 /* You can find the icon variables in the base html files, these variables get assigned in icons.css*/
 
 :root[data-theme="default"]{ /*Handles dark and light mode*/
-    --bg-color: linear-gradient(rgb(27, 39, 82), rgb(89, 28, 168));
+    --bg-color: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0));
     --bg-secondary-color: rgba(230, 230, 230, 0.3);
     --bg-border-color: rgb(200, 200, 200);
     --text-color: rgb(5, 5, 5);
