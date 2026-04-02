@@ -31,6 +31,34 @@
 
 <hr>
 
+<h3>Project Architecture</h3>
+
+```
+adapters/
+    persistance/
+        models.py
+
+core/
+    entities/
+        entities.py
+
+framework/
+    nodeapp/
+        # All nodeJS applications
+    webapp/
+        # All django applications
+    porfolio/
+        settings.py
+    
+use_cases/
+    use_cases.py
+    interface.py
+
+```
+<p>Currently i am trying to rework the project from a monolith architecture to a clean onion architecture.</p>
+<p>Refrence project i used to guide myself https://github.com/brunodantas/onion-tasks</p>
+<hr>
+
 <h3>Road map</h3>
 
 <p>The current project is very new and in development, this section will be completed soon.</p>
