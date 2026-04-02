@@ -16,10 +16,7 @@ class SaveIpAddr:
         ip_addr = self.get_client_ip(request)
         created = self.get_repositories()[settings.FAQ_REPOSITORY].get_or_create_anon(ip_addr)
 
-        if created:
-            print("new IP ADDR created")
-        else:
-            print("IP ADDR exists")
+        print("new IP ADDR created " + ip_addr) if created else print("IP ADDR exists " + ip_addr)
 
         response = self.get_response(request)
 
