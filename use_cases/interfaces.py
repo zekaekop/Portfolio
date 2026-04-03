@@ -8,3 +8,7 @@ class FAQRepository:
     
     def list(self) -> list:
         raise NotImplementedError
+
+class FeedbackRepository:
+    def create(self, feedback):
+        raise NotImplementedError

@@ -49,6 +49,21 @@ def answer_FAQ(
 
     repository.answer_FAQ(faq_answer_dict)
 
+def create_feedback_report(
+    repository: interfaces.FAQRepository,
+    title: str,
+    desc: str,
+    anon: int,
+    ):
+
+    report_dict = dict(
+        anon = anon,
+        title = title,
+        desc = desc,
+    )
+
+    repository.create(report_dict)
+
 # Why not just call the function from FAQ web view instead of having to pass it through use_case?
 def archive_FAQ(
     repository: interfaces.FAQRepository,

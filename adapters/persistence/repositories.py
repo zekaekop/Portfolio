@@ -1,5 +1,5 @@
 from use_cases import interfaces
-from adapters.persistence.models import Anon, FAQuestions
+from adapters.persistence.models import Anon, FAQuestions, Feedback
 from datetime import timedelta
 
 # from django.http import QueryDict
@@ -34,3 +34,9 @@ class DjangoFAQRepository(interfaces.FAQRepository):
 
     def delete(self, FAQ):
         self.model.objects.delete(FAQ)
+
+class DjangoFeedbackRepository(interfaces.FeedbackRepository):
+    model = Feedback
+
+    def create(self, feedback):
+        self.model.objects.create(**feedback)

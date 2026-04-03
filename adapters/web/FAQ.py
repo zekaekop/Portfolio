@@ -3,6 +3,8 @@ from django.http import JsonResponse
 from django.conf import settings
 from django.shortcuts import Http404, render
 
+from frameworks.django.home.views import get_client_ip
+
 from adapters.persistence import repositories, models
 from use_cases import use_cases
 
@@ -57,11 +59,3 @@ def list_FAQ(request):
 
 def archive_FAQ():
     use_cases.archive_FAQ(request.POST.get("archive_id"))
-
-def get_client_ip(request):
-    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
-    if x_forwarded_for:
-        ip = x_forwarded_for.split(',')[0]
-    else:
-        ip = request.META.get('REMOTE_ADDR')
-    return ip

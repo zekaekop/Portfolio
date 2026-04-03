@@ -137,3 +137,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Repositories
 
 FAQ_REPOSITORY = "faq_repository"
+FEEDBACK_REPOSITORY = "feedback_repository"

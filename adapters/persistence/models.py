@@ -26,3 +26,16 @@ class FAQuestions(models.Model):
     # The server will check every 1 hour to see if it has passed the deletion date for it to be deleted
     # possible length for the archived questions should maybe be 30 days?
     deletion_date = models.DateTimeField(null=True)
+
+# Create your models here.
+class Feedback(models.Model):
+
+    anon = models.ForeignKey(Anon, on_delete=models.CASCADE)
+    
+    title = models.CharField(max_length=200,verbose_name="Title", blank=False, null=False)
+    desc = models.CharField(max_length=400, verbose_name="Description",  blank=False, null=False)
+
+    date_created = models.DateTimeField(auto_now_add=True)
+
+    viewed = models.BooleanField(default=False)
+    time_viewed = models.TimeField(auto_now=True)

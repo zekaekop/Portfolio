@@ -1,8 +1,10 @@
 from django.urls import path, reverse
-from . import views
+from adapters.web import feedback
+
+views = feedback
 
 app_name = 'feedback'
 
 urlpatterns = [
-    path('report/', views.report , name="report"),
+    path('report/', views.feedback_report , name="report"),
 ]
