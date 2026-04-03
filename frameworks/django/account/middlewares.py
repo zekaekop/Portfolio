@@ -1,5 +1,5 @@
-from adapters.persistance.account import Anon
-from adapters.persistance import repositories
+from adapters.persistence.models import Anon
+from adapters.persistence import repositories
 from django.conf import settings
 
 class SaveIpAddr:

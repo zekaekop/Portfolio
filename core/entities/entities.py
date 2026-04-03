@@ -1,4 +1,6 @@
 
+from enum import Enum
+
 class Status(Enum):
     UNANSWERED = "Unanswered"
     ANSWERED = "Answered"
@@ -10,41 +12,35 @@ class Report(Enum):
     UNCLEAR = "Requests more information about the question"
     MALICIOUS = "Malicious"
 
-class FAQ:
-    def __init__(
-        anon,
-        asked_question,
-        answer,
-        created_date
-        ):
-        self.anon = anon
-        self.asked_question = asked_question
-        self.answer = answer
-        self.created_date = created_date
-
-class FAQS:
+class FAQ():
     def __init__(
         anon,
         question,
+        answer,
         desc,
-        created_date
+        created_date,
+        answered_date,
+        deletion_date,
         ):
         self.anon = anon
-        self.question = asked_question
-        self.desc = answer
+        self.question = question
+        self.answer = answer
+        self.desc = desc
         self.created_date = created_date
+        self.answered_date = answered_date
+        self.deletion_date = deletion_date
 
-    def archive():
+    def archive(self):
         return self.Status == Status.ARCHIVED 
 
-    def create():
+    def create(self):
         return self.Status == Status.UNANSWERED
     
-    def report_duplicate():
+    def report_duplicate(self):
         return self.Report == Report.DUPLICATE
 
-    def report_unclear():
+    def report_unclear(self):
         return self.Report == Report.UNCLEAR
 
-    def report_MALICOUS():
+    def report_malicious(self):
         return self.Report == Report.MALICIOUS

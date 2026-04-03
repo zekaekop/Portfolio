@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from adapters.persistance.account import Anon
+from adapters.persistence.models import Anon
 
 # Create your views here.
 

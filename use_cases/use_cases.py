@@ -1,31 +1,62 @@
 from django.shortcuts import render
-from adapters.persistance.models import FAQuestions, FAQuestionsSubmissions
-from adapters.persistance.account import Anon
+from adapters.persistence.models import Anon, FAQuestions
 from frameworks.django.home.views import get_client_ip
-from core import entities
+from core.entities import entities
+import datetime
 # Create your views here.
 
 def create_FAQ(
     repository: interfaces.FAQRepository,
     anon: int,
-    asked_question: str,
+    question: str,
     answer: str,
+    desc: str,
     ):
     
-    faq = entities.FAQ(
-        anon = request.POST.get(ip_addr=get_client_ip(request)),
-        asked_question = request.POST.get("asked_question"),
-        answer = request.POST.get("answer"),
-    )
-
-    # why not just add the POST data directly into faq_dict?
     faq_dict = dict(
-        anon = faq.anon,
-        asked_question = faq.asked_question,
-        answer = faq.answer
+        anon = anon,
+        question = question,
+        answer = answer,
+        desc = desc,
+        created_date = datetime.datetime.now(),
+        answered_date = None,
+        deletion_date =  None,
     )
 
     repository.create(faq_dict)
 
-        
-        
+def answer_FAQ(
+    repository: interfaces.FAQRepository,
+    anon: int,
+    archive_id: int,
+    question: str,
+    answer: str,
+    created_date: datetime,
+    answered_date: datetime,
+    deletion_date: datetime,
+    ):
+
+    # why not just add the POST data directly into faq_dict?
+    faq_answer_dict = dict(
+        anon = anon,
+        question = question,
+        answer = answer,
+        desc = desc,
+        created_date = created_date,
+        answered_date = answered_date,
+        deletion_date = deletion_date,
+    )
+
+    repository.answer_FAQ(faq_answer_dict)
+
+# Why not just call the function from FAQ web view instead of having to pass it through use_case?
+def archive_FAQ(
+    repository: interfaces.FAQRepository,
+    archive_id: int,
+    ):
+
+    repository.archive(archive_id)
+
+def archive_deletion_check_FAQ():
+    FAQ_archive = get_all_archives()
+    repository.archive(archive_id)

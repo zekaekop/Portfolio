@@ -1,5 +1,5 @@
 from django.db import models
-from adapters.persistance.account import Anon
+from adapters.persistence.models import Anon
 
 # Create your models here.
 class Message(models.Model):

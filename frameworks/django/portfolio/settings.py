@@ -38,12 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'adapters.persistance',
+    'adapters.persistence',
 
     'frameworks.django.home',
     'frameworks.django.feedback',
     'frameworks.django.procedural_pfp',
     'frameworks.django.account',
+    'frameworks.django.FAQ',
     'frameworks.nodejs.chatting',
 ]
 

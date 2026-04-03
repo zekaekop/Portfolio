@@ -35,7 +35,7 @@
 
 ```
 adapters/
-    persistance/
+    persistence/ (App)
         models.py
 
 core/

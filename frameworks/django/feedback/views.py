@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from adapters.persistance.account import Anon
+from adapters.persistence.models import Anon
 from .models import Feedback
 from frameworks.django.home.views import get_client_ip
 
