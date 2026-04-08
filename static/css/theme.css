@@ -2,6 +2,8 @@
 /* You can find the icon variables in the base html files, these variables get assigned in icons.css*/
 
 :root[data-theme="default"]{ /*Handles dark and light mode*/
+    --bg-image: url("/static/img/wallpapers/nature_china.jpg");  
+
     --bg-color: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0));
     --bg-secondary-color: rgba(230, 230, 230, 0.3);
     --bg-border-color: rgb(200, 200, 200);
@@ -34,6 +36,8 @@
     --txtbox-border-color-focused: rgb(240, 240, 240);
 }
 :root[data-theme="dark"]{
+    --bg-image: url("static/img/wallpapers/nature_china.jpg");  
+    
     --bg-color: rgb(45, 45, 45);
     --bg-secondary-color: rgb(75, 75, 75,0.3);
     --bg-border-color: rgb(75, 75, 75);
@@ -64,6 +68,8 @@
     --txtbox-border-color-focused: rgb(80, 80, 80);
 }
 :root[data-theme="steam-old"]{
+    --bg-image: url("static/img/wallpapers/nature_china.jpg");  
+
     --bg-color: rgb(75, 74, 65);
     --bg-secondary-color: rgb(75, 75, 75,0.3);
     --bg-border-color: #919083;
@@ -94,6 +100,8 @@
     --txtbox-border-color-focused: rgb(80, 80, 80);
 }
 :root[data-theme="frutiger-aero"]{
+    --bg-image: url("static/img/wallpapers/nature_china.jpg");  
+
     --bg-color: rgb(88, 128, 141);
     --bg-secondary-color: rgb(75, 75, 75,0.3);
     --bg-border-color: rgb(75, 75, 75);

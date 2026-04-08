@@ -4,59 +4,61 @@
 {% block body %}
 <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
 
-<div class="container text-white box mt-3">
+<div class="container d-flex p-0">
+    <div class="container text-white box mt-3">
 
-    <h1>ip addr here</h1>
+        <h1>ip addr here</h1>
 
-    <p>basic status info and connection</p>
+        <p>basic status info and connection</p>
 
-    <div>
-        <input id="username" placeholder="Your name">
-        <button onclick="register()">Join</button>
+        <div>
+            <input id="username" placeholder="Your name">
+            <button onclick="register()">Join</button>
+        </div>
+        
+        <div>
+            <h3>Online Users:</h3>
+            <div id="users"></div>
+        </div>
+        
+        <div>
+            <input id="message" placeholder="Type message">
+            <input id="recipient" placeholder="To user">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+        
+        <div id="messages"></div>
+
+        <script>
+            const socket = io('http://127.0.0.1:3000');
+            
+            socket.on('users', (users) => {
+                document.getElementById('users').innerHTML = users.join('<br>');
+            });
+            
+            socket.on('private message', (data) => {
+                document.getElementById('messages').innerHTML += 
+                    `<p><b>${data.from}:</b> ${data.message} <small>${new Date(data.timestamp).toLocaleTimeString()}</small></p>`;
+            });
+            
+            socket.on('message sent', (data) => {
+                document.getElementById('messages').innerHTML += 
+                    `<p><i>You to ${data.to}:</i> ${data.message} <small>${new Date(data.timestamp).toLocaleTimeString()}</small></p>`;
+            });
+            
+            function register() {
+                const username = document.getElementById('username').value;
+                socket.emit('register', username);
+            }
+            
+            function sendMessage() {
+                const message = document.getElementById('message').value;
+                const to = document.getElementById('recipient').value;
+                socket.emit('private message', { to, message });
+                document.getElementById('message').value = '';
+            }
+        </script>
     </div>
-    
-    <div>
-        <h3>Online Users:</h3>
-        <div id="users"></div>
-    </div>
-    
-    <div>
-        <input id="message" placeholder="Type message">
-        <input id="recipient" placeholder="To user">
-        <button onclick="sendMessage()">Send</button>
-    </div>
-    
-    <div id="messages"></div>
-
-    <script>
-        const socket = io('http://127.0.0.1:3000');
-        
-        socket.on('users', (users) => {
-            document.getElementById('users').innerHTML = users.join('<br>');
-        });
-        
-        socket.on('private message', (data) => {
-            document.getElementById('messages').innerHTML += 
-                `<p><b>${data.from}:</b> ${data.message} <small>${new Date(data.timestamp).toLocaleTimeString()}</small></p>`;
-        });
-        
-        socket.on('message sent', (data) => {
-            document.getElementById('messages').innerHTML += 
-                `<p><i>You to ${data.to}:</i> ${data.message} <small>${new Date(data.timestamp).toLocaleTimeString()}</small></p>`;
-        });
-        
-        function register() {
-            const username = document.getElementById('username').value;
-            socket.emit('register', username);
-        }
-        
-        function sendMessage() {
-            const message = document.getElementById('message').value;
-            const to = document.getElementById('recipient').value;
-            socket.emit('private message', { to, message });
-            document.getElementById('message').value = '';
-        }
-    </script>
 </div>
 
 {% include 'footer.html' %}
