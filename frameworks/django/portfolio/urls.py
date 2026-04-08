@@ -23,5 +23,6 @@ urlpatterns = [
     path('account/', include('frameworks.django.account.urls')),
     path("feedback/", include('frameworks.django.feedback.urls')),
     path("FAQ/", include('frameworks.django.FAQ.urls')),
+    path("projects/", include('frameworks.django.project_showcase.urls')),
     path("chatting/", include('frameworks.nodejs.chatting.urls')),
 ]
