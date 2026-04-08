@@ -1,0 +1,37 @@
+{% load static %}
+
+<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"> 
+    <li><a href="/" class="nav-link px-2 text-white">Home</a></li>
+
+    {% if request.user == request.user.is_superuser%}
+        <li><a href="{# url 'admin_panel'#}" class="nav-link px-2 text-white">Admin panel</a></li>
+    {% endif %}
+
+    <li><a href="{% url 'chatting:chat' %}" class="nav-link px-2 text-white">Chat</a></li> 
+    <li><a href="{# url 'features' #}" class="nav-link px-2 text-white">Features</a></li> 
+    <li><a href="{% url 'FAQ:dashboard' %}" class="nav-link px-2 text-white">FAQs</a></li> 
+    <li><a href="{% url 'feedback:report' %}" class="nav-link px-2 text-white">Feedback</a></li> 
+    <li><a href="{# url 'about' #}" class="nav-link px-2 text-white">About</a></li> 
+    <li><a href="{# url 'about' #}" class="nav-link px-2 text-white">{{ip_addr}}</a></li> 
+
+    {% if request.user.is_authenticated  %}
+        <li><a href="{% url 'account:logout' %}" class="nav-link px-2 text-white">Logout</a></li> 
+    {% else %}
+        <li><a href="{% url 'account:login' %}" class="nav-link px-2 text-white">Login</a></li>
+    {% endif %}
+
+</ul>
+
+<div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <span id="theme_used">Theme</span>
+    </button>
+    <ul class="dropdown-menu" id="theme_menu">
+        <li><a class="dropdown-item" href="#" data-theme="default">Default</a></li>
+        <li><a class="dropdown-item" href="#" data-theme="light">Light</a></li>
+        <li><a class="dropdown-item" href="#" data-theme="steam-old">Steam Old</a></li>
+        <li><a class="dropdown-item" href="#" data-theme="frutiger-aero">Frutiger Aero</a></li>
+    </ul>
+</div>
+
+<script src="{% static 'js/theme.js' %}"></script>
