@@ -3,68 +3,77 @@
 
 {% block body %}
 
-<div class="container text-white box mt-3">
+<div class="container d-flex p-0">
+    <div class="container text-white box">
+        <div class="row justify-content-center">
 
-    <h1>Hello 
-        {% if request.user.is_authenticated %}
-            {{ request.user }}
-        {% else %}
-            Anon<!-- Instead of saying AnonymousUser, its just shortened -->
-        {% endif %}
-    </h1>
+            <h1>Hello 
+                {% if request.user.is_authenticated %}
+                    {{ request.user }}
+                {% else %}
+                    Anon<!-- Instead of saying AnonymousUser, its just shortened -->
+                {% endif %}
+            </h1>
 
-    <p>This is lorem</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi adipisci voluptates repellendus optio possimus saepe nihil ab aliquam modi odio cum quisquam, at ducimus? Quisquam ad impedit delectus tempore obcaecati.</p>
+            <p>This is lorem</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi adipisci voluptates repellendus optio possimus saepe nihil ab aliquam modi odio cum quisquam, at ducimus? Quisquam ad impedit delectus tempore obcaecati.</p>
 
-    <div class="d-flex justify-content-center box-inset p-0 ms-3 me-3">
-        {% if tags %}
-            {% for tag in tags%}
-                {% include 'home/tags.html' %}
-            {% endfor %}
-        {% else %}
-            Tag list of the langauges i know
-        {% endif %}
-    </div>
-
-    <div class="container">
-        <div class="row g-4">
-            <!-- The Django Project -->
-            <div class="col-md-4">
-                <div class="box-inset h-100">
-                    <img src="{% static '/img/example/example.png'%}" class="card-img-top img-fluid" alt="Project 1">
-                        <p>The Django project</p>
+            <!-- Tags -->
+            <div class="row justify-content-center mt-3">
+                <div class="col-12 col-lg-10 box-inset w-100 m-1">
+                    <div class="d-flex justify-content-center flex-wrap">
+                        {% if tags %}
+                            {% for tag in tags %}
+                                {% include 'home/tags.html' %}
+                            {% endfor %}
+                        {% else %}
+                            <p class="text-center mb-0">Tag list of the languages I know</p>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
-            
-            <!-- Python chat -->
-            <div class="col-md-4">
-                <div class="box-inset h-100">
-                    <img src="{% static '/img/example/example.png'%}" class="card-img-top img-fluid" alt="Project 2">
-                        <p>Python chat</p>
+
+            <div class="container">
+                <div class="row g-4">
+                    <!-- The Django Project -->
+                    <div class="col-md-4 mb-1">
+                        <div class="box-inset h-100">
+                            <img src="{% static '/img/example/example.png'%}" class="card-img-top img-fluid" alt="Project 1">
+                                <p>The Django project</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Python chat -->
+                    <div class="col-md-4 mb-1">
+                        <div class="box-inset h-100">
+                            <img src="{% static '/img/example/example.png'%}" class="card-img-top img-fluid" alt="Project 2">
+                                <p>Python chat</p>
+                        </div>
+                    </div>
+                    
+                    <!--  Sand Sim -->
+                    <div class="col-md-4 mb-1">
+                        <div class="box-inset h-100">
+                            <img src="{% static '/img/example/example.png'%}" class="card-img-top img-fluid" alt="Project 3">
+                                <p>Sand Simulation</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-            <!--  Sand Sim -->
-            <div class="col-md-4">
-                <div class="box-inset h-100">
-                    <img src="{% static '/img/example/example.png'%}" class="card-img-top img-fluid" alt="Project 3">
-                        <p>Sand Simulation</p>
+
+            {% if images %}
+                <div class="d-flex justify-content-center">
+                    {% for image in images %}
+
+                        Image wall here
+                        <img src="{% static '/img/img_wall/{image}' %}" alt="img-wall">
+                        
+                    {% endfor %}
                 </div>
-            </div>
+            {% endif %}
+
         </div>
     </div>
-
-    {% if images %}
-        <div class="d-flex justify-content-center">
-            {% for image in images %}
-
-                Image wall here
-                <img src="{% static '/img/img_wall/{image}' %}" alt="img-wall">
-                 
-            {% endfor %}
-        </div>
-    {% endif %}
-
 </div>
 
 {% include 'footer.html' %}

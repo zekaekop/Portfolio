@@ -3,22 +3,24 @@
 
 {% block body %}
 
-<div class="container text-white box mt-3">
+<div class="container d-flex p-0">
+    <div class="container text-white box">
 
-    <h1>Report an Issue</h1>
+        <h1>Report an Issue</h1>
 
-    <p>Found a Bug? an issue on your end? Let us know.</p>
+        <p>Found a Bug? an issue on your end? Let us know.</p>
 
-    <form action="" method="POST">
-        {% csrf_token %}
+        <form action="" method="POST">
+            {% csrf_token %}
 
-        <input type="text" name="title" id="" required>
-        <br>
-        <textarea name="desc" id="" required></textarea>
-        <br>
-        <button class="box-button text-white" type="submit">Submit</button>
-    </form>
+            <input type="text" name="title" id="" required>
+            <br>
+            <textarea name="desc" id="" required></textarea>
+            <br>
+            <button class="box-button text-white" type="submit">Submit</button>
+        </form>
 
+    </div>
 </div>
 
 {% include 'footer.html' %}

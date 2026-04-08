@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+
+{% if request.user.is_superuser %}
+    {% include 'FAQ/FAQ_navbar.html' %}
+{% endif %}
+
+<div class="container d-flex p-0">   
+        <div class="container text-white box">
+            {% if request.path ==  "/FAQ/answers/" %}
+                <h1>Submit a Question?</h1>
+
+                <p>Found a Bug? an issue on your end? Let us know.</p>
+
+                <form action="" method="POST">
+                    {% csrf_token %}
+
+                    {% if status_message %}
+                        <p>You were succesfull</p>
+                    {% endif %}
+
+                    <input type="text" name="question" id="" required>
+                    <br>
+                    <textarea type="text" name="desc" id="" required></textarea>
+                    <br>
+                    <button class="box-button text-white" type="submit">Submit</button>
+                </form>
+            {% endif %}
+
+            {% if request.user.is_superuser == False%}
+                <hr>
+                {% include 'FAQ/guidelines.html' %}
+            {% endif %}
+
+        </div>
+</div>
+
+<div class="container d-flex p-0">
+    <div class="container text-white box">
+
+        {% if request.path == "/FAQ/answers/" %}
+
+            <h1>Frequently Asked Questions</h1>
+            <!-- Lists current FAQ questions -->
+            {% if FAQs %}
+                <div class="d-flex box-inset">
+                        {% for Q in FAQs%}
+                            <div class="box">
+                                {{Q.asked_question}}
+                                <p>{{Q.answer}}</p>
+                                <small>{{Q.created_date}}</small>
+                            </div>
+                        {% endfor%}
+                </div>
+            {% else %}
+                <div class="box text-white">
+                    There seems to be no Questions
+                </div>
+            {% endif %}
+
+        {% elif request.path ==  "/FAQ/submissions/" %}
+        
+            <!-- Lists current FAQ Submissions -->
+            {% if FAQSs %}
+                <div class="d-flex box-inset">
+                    {% for S in FAQSs%}
+                        <div class="box">
+                            <h3>{{S.question}}</h3>
+                            <p>{{S.desc}}</p>
+                            <small>{{S.anon.ip_addr}}</small>
+                            <small>{{S.created_date}}</small>
+                        </div>
+                    {% endfor%}
+            </div>
+            {% else %}
+                <div class="box text-white">
+                    There seems to be no Submissions
+                </div>
+            {% endif %}
+
+        {% endif %}
+    </div>
+</div>
+
+{% include 'footer.html' %}
+
+{% endblock %}

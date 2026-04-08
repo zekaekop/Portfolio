@@ -3,12 +3,12 @@
     font-weight: 600 !important;
 }
 
-
 body{
-    background-color:#5a563d !important;
-    /* background-image: var(--bg-image);
+    /* background-color:#5a563d !important; */
+    background-image: var(--bg-image);
     background-size: cover;
-    background-repeat: no-repeat;  */
+    background-repeat: no-repeat; 
+    /* background: var(--bg-color) !important; */
 }
 
 .header-gradient{
@@ -26,15 +26,8 @@ input::placeholder {
   color: rgb(215, 215, 215) !important;
 }
 
-.form-control,
-.box-inset,
-.box{
-    padding: 0.5rem;
-    margin: 0.2rem;
-}
-
-.box-button,
-.box{
+html[data-theme="steam-old"] .box-button,
+html[data-theme="steam-old"] .box{
     background-color: #757155;
     
     border-top:  2px solid #a19f8a;
@@ -43,25 +36,54 @@ input::placeholder {
     border-bottom:  2px  solid #676751;
     border-right:  2px  solid #676751;
 }
-.btn-primary:hover,
-.btn-primary{
+html[data-theme="default"] .box{
+    margin: 0.5rem;
+    padding: 0.4rem;
+
+    background-color: rgba(35, 55, 35, 0.8);  /* Dark green background */
+    backdrop-filter: blur(10px);
+    
+    border-top:  2px solid rgb(100, 200, 100, 0.5);
+    border-left:  2px solid rgb(80, 160, 80, 0.5);
+    border-bottom:  2px solid rgb(40, 100, 40, 0.5);
+    border-right:  2px solid rgb(30, 80, 30, 0.5);
+
+    border-radius: 0.2rem !important;
+
+    box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.4);
+}
+
+html[data-theme="steam-old"] .btn-primary:hover,
+html[data-theme="steam-old"] .btn-primary{
     border-radius: 0 !important;
     border-color: rgba(0, 0, 0, 0) !important;
 }
-.form-control:hover,
-.form-control{
+html[data-theme="steam-old"] .form-control:hover,
+html[data-theme="steam-old"] .form-control{
     border-radius: 0 !important;
 }
 
-.btn-primary,
-.box-button{
+
+.btn-primary:hover,
+.btn-primary{
+    border-radius: 0.5rem !important;
+    border-color: rgba(0, 0, 0, 0) !important;
+}
+
+.form-control:hover,
+.form-control{
+    border-radius: 0.5rem !important;
+}
+
+html[data-theme="steam-old"] .btn-primary,
+html[data-theme="steam-old"] .box-button{
     background-color: #9b9670 !important ;
     border-top:  2px solid #c6c3aa !important;
     border-left:  2px  solid #c6c3aa !important;
 }
 
-.btn-primary:hover,
-.box-button:hover{
+html[data-theme="steam-old"] .btn-primary:hover,
+html[data-theme="steam-old"] .box-button:hover{
     background-color: #807b59 !important;
     
     border-bottom:  2px solid #81806f !important;
@@ -71,8 +93,8 @@ input::placeholder {
     border-left:  2px  solid #676751 !important;
 }
 
-.form-control,
-.box-inset{
+html[data-theme="steam-old"] .form-control,
+html[data-theme="steam-old"] .box-inset{
     background-color: #656148 !important;
     
     border-bottom:  2px solid #81806f !important;
@@ -88,55 +110,12 @@ input::placeholder {
     max-height: 200px;
 }
 
-/*  dark purple theme
-    background-color: rgb(72, 69, 95);
-    
-    border-top:  2px solid rgb(120, 117, 140);
-    border-left:  2px  solid rgb(120, 117, 140);
-
-    border-bottom:  2px  solid rgb(27, 24, 44);
-    border-right:  2px  solid rgb(27, 24, 44);
-
-    -------------------------------------------------
-    desert yellow theme
-    background-color: #e2de84;
-    
-    border-top:  2px solid #ecfeaa;
-    border-left:  2px  solid #ecfeaa;
-
-    border-bottom:  2px  solid #a6a670;
-    border-right:  2px  solid #a6a670;
-    ------------------------------------------------
-    desert yellow theme 2
-    background-color: #a59e63;
-    
-    border-top:  2px solid #fefaaa;
-    border-left:  2px  solid #fefaaa;
-
-    border-bottom:  2px  solid #8f8f5d;
-    border-right:  2px  solid #8f8f5d;
-    ------------------------------------------------
-    Gray theme
-    background-color: #757155;
-    
-    border-top:  2px solid #a19f8a;
-    border-left:  2px  solid #a19f8a;
-
-    border-bottom:  2px  solid #676751;
-    border-right:  2px  solid #676751;
-     */
-
 .btn-primary{
     background-color: black;
 }
 
 .btn{
     background-color: rgb(44, 44, 44);
-}
-
-.tags{
-    /* event tags */
-    background-color: red;
 }
 
 .shadow-text{

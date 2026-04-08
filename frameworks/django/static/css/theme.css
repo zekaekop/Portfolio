@@ -1,0 +1,204 @@
+/* The variables for the website theme Ex: light mode and dark mode*/
+/* You can find the icon variables in the base html files, these variables get assigned in icons.css*/
+
+:root[data-theme="default"]{ /*Handles dark and light mode*/
+    --bg-image: url("/static/img/wallpapers/nature_china.jpg");  
+
+    --bg-color: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0));
+    --bg-secondary-color: rgba(230, 230, 230, 0.3);
+    --bg-border-color: rgb(200, 200, 200);
+    --text-color: rgb(5, 5, 5);
+    --text-color-faded: rgba(5, 5, 5, 0.5);
+    --text-color-faded: rgba(5, 5, 5, 0.5);
+
+    --shadow-color-08: rgba(0, 0, 0, 0.8);
+    --shadow-color-04: rgba(0, 0, 0, 0.4);
+    --shadow-color-02: rgba(0, 0, 0, 0.2);
+
+    --transparent: rgba(0, 0, 0, 0);
+
+    --button-disabled: #8a8a8a;
+    --button-disabled-hover: #7c7c7c;
+    --button-disabled-active: #505050;
+
+    --button-border-color: rgb(180, 180, 180);
+    --button-border-color-hover: rgb(200, 200, 200);
+
+    --button-primary-color-hover: rgb(255, 255, 255);
+    --button-primary-color: rgb(245, 245, 245);
+
+    --navbar-gradient: linear-gradient(rgb(45, 45, 45, 0.6) 80%, #ffffff00 90%);
+    --paginator-gradient: linear-gradient(#ffffff00, #ffffff);
+
+    --bg-txtbox-color: rgb(245, 245, 245);
+    --txtbox-border-color: rgb(220, 220, 220);
+    --bg-txtbox-color-focused: rgb(255, 255, 255);
+    --txtbox-border-color-focused: rgb(240, 240, 240);
+}
+:root[data-theme="dark"]{
+    --bg-image: url("static/img/wallpapers/nature_china.jpg");  
+    
+    --bg-color: rgb(45, 45, 45);
+    --bg-secondary-color: rgb(75, 75, 75,0.3);
+    --bg-border-color: rgb(75, 75, 75);
+    --text-color: rgb(255, 255, 255);
+    --text-color-faded: rgb(255, 255, 255, 0.5);
+    
+    --shadow-color-04: rgb(0, 0, 0);
+    --shadow-color-02: rgba(0, 0, 0, 0.5);
+
+    --transparent: rgba(0, 0, 0, 0);
+
+    --button-disabled: #4a4a4a;
+    --button-disabled-hover: #5a5a5a;
+    --button-disabled-active: #707070;
+    
+    --button-border-color: rgb(80, 80, 80);
+    --button-border-color-hover: rgb(100, 100, 100);
+    
+    --button-primary-color: rgba(45, 45, 45);
+    --button-primary-color-hover: rgb(70, 70, 70);
+
+    --navbar-gradient: linear-gradient(rgb(45, 45, 45,0.6) 80%, rgba(0, 0, 0, 0) 90%);
+    --paginator-gradient: linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0));
+
+    --bg-txtbox-color: rgba(45, 45, 45);
+    --txtbox-border-color: rgb(70, 70, 70);
+    --bg-txtbox-color-focused: rgba(60,60,60);
+    --txtbox-border-color-focused: rgb(80, 80, 80);
+}
+:root[data-theme="steam-old"]{
+    --bg-image: url("static/img/wallpapers/nature_china.jpg");  
+
+    --bg-color: rgb(75, 74, 65);
+    --bg-secondary-color: rgb(75, 75, 75,0.3);
+    --bg-border-color: #919083;
+    --text-color: rgb(255, 255, 255);
+    --text-color-faded: rgb(255, 255, 255, 0.5);
+    
+    --shadow-color-04: rgb(0, 0, 0);
+    --shadow-color-02: rgba(0, 0, 0, 0.5);
+
+    --transparent: rgba(0, 0, 0, 0);
+
+    --button-disabled: #4a4a4a;
+    --button-disabled-hover: #5a5a5a;
+    --button-disabled-active: #707070;
+    
+    --button-border-color: rgb(80, 80, 80);
+    --button-border-color-hover: rgb(100, 100, 100);
+    
+    --button-primary-color: rgba(45, 45, 45);
+    --button-primary-color-hover: rgb(70, 70, 70);
+
+    --navbar-gradient: linear-gradient(rgb(45, 45, 45,0.6) 80%, rgba(0, 0, 0, 0) 90%);
+    --paginator-gradient: linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0));
+
+    --bg-txtbox-color: rgba(45, 45, 45);
+    --txtbox-border-color: rgb(70, 70, 70);
+    --bg-txtbox-color-focused: rgba(60,60,60);
+    --txtbox-border-color-focused: rgb(80, 80, 80);
+}
+:root[data-theme="frutiger-aero"]{
+    --bg-image: url("static/img/wallpapers/nature_china.jpg");  
+
+    --bg-color: rgb(88, 128, 141);
+    --bg-secondary-color: rgb(75, 75, 75,0.3);
+    --bg-border-color: rgb(75, 75, 75);
+    --text-color: rgb(255, 255, 255);
+    --text-color-faded: rgb(255, 255, 255, 0.5);
+    
+    --shadow-color-04: rgb(0, 0, 0);
+    --shadow-color-02: rgba(0, 0, 0, 0.5);
+
+    --transparent: rgba(0, 0, 0, 0);
+
+    --button-disabled: #4a4a4a;
+    --button-disabled-hover: #5a5a5a;
+    --button-disabled-active: #707070;
+    
+    --button-border-color: rgb(80, 80, 80);
+    --button-border-color-hover: rgb(100, 100, 100);
+    
+    --button-primary-color: rgba(45, 45, 45);
+    --button-primary-color-hover: rgb(70, 70, 70);
+
+    --navbar-gradient: linear-gradient(rgb(45, 45, 45,0.6) 80%, rgba(0, 0, 0, 0) 90%);
+    --paginator-gradient: linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0));
+
+    --bg-txtbox-color: rgba(45, 45, 45);
+    --txtbox-border-color: rgb(70, 70, 70);
+    --bg-txtbox-color-focused: rgba(60,60,60);
+    --txtbox-border-color-focused: rgb(80, 80, 80);
+}
+
+
+/* Old dark theme
+:root[data-theme="dark"]{
+    --bg-color: rgb(25, 25, 25);
+    --bg-secondary-color: rgb(35, 35, 35,0.3);
+    --bg-border-color: rgb(45, 45, 45);
+    --text-color: rgb(255, 255, 255);
+    
+    --shadow-color-04: rgb(0, 0, 0);
+    --shadow-color-02: rgba(0, 0, 0, 0.5);
+
+    --transparent: rgba(0, 0, 0, 0);
+    
+    --button-disabled: #4a4a4a;
+    --button-disabled-hover: #5a5a5a;
+    --button-disabled-active: #707070;
+    
+    --button-border-color: rgb(60, 60, 60);
+    --button-border-color-hover: rgb(80, 80, 80);
+    
+    --button-primary-color: rgba(30, 30, 30);
+    --button-primary-color-hover: rgb(60, 60, 60);
+
+    --navbar-gradient: linear-gradient(rgb(25, 25, 25) 80%, rgba(0, 0, 0, 0) 90%);
+    --paginator-gradient: linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0));
+
+    --bg-txtbox-color: rgba(30, 30, 30);
+    --txtbox-border-color: rgb(60, 60, 60);
+    --bg-txtbox-color-focused: rgba(40, 40, 40);
+    --txtbox-border-color-focused: rgb(70, 70, 70);
+}
+*/
+
+/*  dark purple theme
+    background-color: rgb(72, 69, 95);
+    
+    border-top:  2px solid rgb(120, 117, 140);
+    border-left:  2px  solid rgb(120, 117, 140);
+
+    border-bottom:  2px  solid rgb(27, 24, 44);
+    border-right:  2px  solid rgb(27, 24, 44);
+
+    -------------------------------------------------
+    desert yellow theme
+    background-color: #e2de84;
+    
+    border-top:  2px solid #ecfeaa;
+    border-left:  2px  solid #ecfeaa;
+
+    border-bottom:  2px  solid #a6a670;
+    border-right:  2px  solid #a6a670;
+    ------------------------------------------------
+    desert yellow theme 2
+    background-color: #a59e63;
+    
+    border-top:  2px solid #fefaaa;
+    border-left:  2px  solid #fefaaa;
+
+    border-bottom:  2px  solid #8f8f5d;
+    border-right:  2px  solid #8f8f5d;
+    ------------------------------------------------
+    Gray theme
+    background-color: #757155;
+    
+    border-top:  2px solid #a19f8a;
+    border-left:  2px  solid #a19f8a;
+
+    border-bottom:  2px  solid #676751;
+    border-right:  2px  solid #676751;
+     */

@@ -6,10 +6,10 @@
 
     <h1 class="box-inset">FAQ Moderation Navbar</h1>
 
-    <div class="box-inset">
+    <div class="box-inset mb-2">
 
         {% if request.user.is_superuser %}
-            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 mb-md-0 box">
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 mb-md-0 mb-2 box">
                 <li><a href="{% url 'FAQ:create' %}" class="nav-link px-2 text-white">Create FAQ</a></li>
                 <li><a href="{% url 'FAQ:submissions' %}" class="nav-link px-2 text-white">FAQ Submissions</a></li> 
                 <li><a href="{# url 'mod history' #}" class="nav-link px-2 text-white">Moderation History</a></li> 
