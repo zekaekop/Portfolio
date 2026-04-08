@@ -11,12 +11,6 @@ class DjangoFAQRepository(interfaces.FAQRepository):
         self.model.objects.create(**FAQ)
         # query_dict = QueryDict(' ', mutable=True)
         # query_dict.objects.create(FAQ)
-
-    def list(self) -> list:
-        try:
-            return list(self.model.objects.all())
-        except self.model.DoesNotExist:
-            return None
     
     def get_or_create_anon(self, ip_addr):
         anon, created =  Anon.objects.get_or_create(ip_addr=ip_addr)
@@ -33,10 +27,24 @@ class DjangoFAQRepository(interfaces.FAQRepository):
         self.model.objects.update(id=archive_id, deletion_date=timezone.now() + timedelta(days=30))
 
     def delete(self, FAQ):
-        self.model.objects.delete(FAQ)
+        self.model.objects.delete(**FAQ)
+    
+    def list(self) -> list:
+        return list(self.model.objects.all())
 
 class DjangoFeedbackRepository(interfaces.FeedbackRepository):
     model = Feedback
 
     def create(self, feedback):
         self.model.objects.create(**feedback)
+
+    def delete(self, feedback):
+        self.model.objects.delete(**feedback)
+
+# forgot what i was doing here since last time ???
+# class GenericQueries():
+#     def list(self) -> list:
+#         try:
+#             return list(self.model.objects.all())
+#         except self.model.DoesNotExist:
+#             return None

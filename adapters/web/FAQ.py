@@ -2,6 +2,8 @@ from django import http
 from django.http import JsonResponse
 from django.conf import settings
 from django.shortcuts import Http404, render
+# # del ts all
+# from adapters.persistence.models import GenericQueries
 
 from frameworks.django.home.views import get_client_ip
 
@@ -57,5 +59,6 @@ def dashboard(request):
 def list_FAQ(request):
     return repositories.DjangoFAQRepository().list()
 
-def archive_FAQ():
+def archive_FAQ(request):
     use_cases.archive_FAQ(request.POST.get("archive_id"))
+    GenericQueries.list(request)

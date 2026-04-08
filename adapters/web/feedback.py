@@ -22,7 +22,10 @@ def feedback_report(request):
             repository=get_repositories()[settings.FEEDBACK_REPOSITORY],
             title=request.POST.get("title"),
             desc=request.POST.get("desc"),
-            anon=Anon.objects.get(ip_addr=get_client_ip(request)),
+            # TODO: Add these in the feature
+            # display_username=request.POST.get("display_username"),
+            # tags = request.POST.get("report_tags"),
+            anon = Anon.objects.get(ip_addr=get_client_ip(request)),
         )
     
     content = {

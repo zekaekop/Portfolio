@@ -12,6 +12,16 @@ class Report(Enum):
     UNCLEAR = "Requests more information about the question"
     MALICIOUS = "Malicious"
 
+# These would probably be the same as on github but for now i will add placeholder tags
+class Feedback_tags(Enum):
+    ENHANCEMENT = "New feature or request"
+    BUG = "Something has gone wrong"
+    OTHER = "Other"
+
+# class GenericQrs():
+#     def 
+
+
 class FAQ():
     def __init__(
         anon,
