@@ -44,14 +44,14 @@ def answer_FAQ(request):
     )
 
 def dashboard(request):
-    FAQSs = list_FAQ(request)
+    FAQs = list_FAQ(request)
     
     if request.POST:
         create_FAQ(request)
 
     content = {
        # "ip_addr":get_client_ip(request),
-        "FAQSs":FAQSs,
+        "FAQs":FAQs,
     }
 
     return render(request, "FAQ/FAQ.html", content)
