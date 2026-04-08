@@ -57,6 +57,34 @@ html[data-theme="default"] .box{
     box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.4);
 }
 
+.disablefilterblur{
+    backdrop-filter: blur(0px);
+}
+
+.box-header{
+    margin-top: 0.5rem;
+    padding: 0.4rem;
+
+    background-color: rgba(37, 72, 37, 0.8);  /* Dark green background */
+    backdrop-filter: blur(10px);
+
+    border-radius: 0.2rem 0.2rem 0rem 0rem !important;
+
+    box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.1);
+}
+
+.box-footer{
+    margin-top: 0.5rem;
+    padding: 0.4rem;
+
+    background-color: rgba(37, 72, 37, 0.8);  /* Dark green background */
+    backdrop-filter: blur(10px);
+
+    border-radius: 0rem 0rem 0.2rem 0.2rem !important;
+
+    box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.1);
+}
+
 html[data-theme="default"] .btn-primary{
     margin: 0.5rem;
     padding: 0.4rem;

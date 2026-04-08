@@ -28,35 +28,41 @@
                     <!-- The Django Project -->
                     <div class="col-md-4 mb-1">
                         <a href="https://github.com/zekaekop/The-Django-Project"></a>
-                        <div class="box-inset h-100">
+                        <div class="box h-100 ">
                             <img src="{% static '/img/projects/the_django_project_1.png'%}" class="card-img-top img-fluid" alt="The Django Project Feed Image">
+                            <div class="box-footer">
                                 <!-- Title -->
                                 <p>The Django project</p>
                                 <!-- Description -->
                                 <p>A social media website created with <a href="django">django</a>.</p>
+                            </div>
                         </div>
                     </div>
                     
                     <!-- Python RPG -->
                     <div class="col-md-4 mb-1">
                         <a href="https://github.com/zekaekop/Python-RPG"></a>
-                        <div class="box-inset h-100">
+                        <div class="box h-100">
                             <img src="{% static '/img/projects/python_rpg.png'%}" class="card-img-top img-fluid" alt="Python RPG Code image">
+                            <div class="box-footer">
                                 <!-- Title -->
                                 <p>Python RPG</p>
                                 <!-- Description -->
                                 <p>A turn based <a href="https://en.wikipedia.org/wiki/Command-line_interface">CLI</a> game Role Playing Game where you fight againsts enemies.</p>
+                            </div>
                         </div>
                     </div>
                     
                     <!--  Sand Sim -->
                     <div class="col-md-4 mb-1">
-                        <div class="box-inset h-100">
+                        <div class="box h-100">
                             <img src="{% static '/img/projects/lua_sand.png'%}" class="card-img-top img-fluid" alt="Lua Sand Simulation Gameplay Image">
-                                <!-- Title -->
-                                <p>Lua Sand Simulation</p>
-                                <!-- Description -->
-                                <p>A Sand Simulation created with <a href="https://love2d.org/">Love2D</a> and <a href="https://lua.org/">Lua</a></p>
+                                <div class="box-footer">
+                                    <!-- Title -->
+                                    <p>Lua Sand Simulation</p>
+                                    <!-- Description -->
+                                    <p>A Sand Simulation created with <a href="https://love2d.org/">Love2D</a> and <a href="https://lua.org/">Lua</a></p>
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -64,7 +70,7 @@
                 <hr>
 
                 <!-- Tags -->
-                <div class="col-12 col-lg-10 box-inset w-100">
+                <div class="col-12 col-lg-10 mt-3 w-100 m-1">
                     <div class="d-flex justify-content-center flex-wrap">
                         {% if tags %}
                             {% for tag in tags %}
@@ -75,6 +81,8 @@
                         {% endif %}
                     </div>
                 </div>
+
+                <hr>
 
                 <div class="row">
                     <!-- Show more Projects -->
