@@ -9,4 +9,4 @@ def showcase(request):
         "ip_addr": Anon.objects.get(ip_addr=get_client_ip(request)).ip_addr,
     }
     
-    return render(request, "project_showcase/showcase.html" , content)
+    return render(request, "project_showcase/project_showcase.html" , content)
