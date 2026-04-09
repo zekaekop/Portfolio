@@ -4,7 +4,7 @@
 
 <hr>
 
-<img src="static/img/readme/Home.png" >
+<img src="frameworks/django/static/img/readme/Home.png">
 
 <small style="color:gray">These images may not represent the project at its current state and may look outdated. As the project develops</small>
 
@@ -25,7 +25,7 @@
 
 <hr>
 
-<img src="static/img/readme/FAQ.png" >
+<img src="frameworks/django/static/img/readme/FAQ.png">
 
 <small style="color:gray">These images may not represent the project at its current state and may look outdated. As the project develops</small>
 
@@ -37,6 +37,8 @@
 adapters/
     persistence/ (App)
         models.py
+    web/
+        views.py (django views)
 
 core/
     entities/
@@ -45,7 +47,7 @@ core/
 framework/
     nodeapp/
         # All nodeJS applications
-    webapp/
+    django/
         # All django applications
     porfolio/
         settings.py
