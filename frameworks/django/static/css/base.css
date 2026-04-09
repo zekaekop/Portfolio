@@ -11,6 +11,13 @@ body{
     /* background: var(--bg-color) !important; */
 }
 
+.table{
+    --bs-table-color: var(--text-color);
+    --bs-table-bg: var(--bg-color);
+    --bs-table-border-color: var(--bg-border-color);
+}
+
+
 .header-gradient{
     background: linear-gradient(#0000005c, #00000000);
 }
