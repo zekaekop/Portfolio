@@ -44,8 +44,20 @@ html[data-theme="steam-old"] .box{
     border-right:  2px  solid #676751;
 }
 
+html[data-theme="default"] .dropdown-menu{
+    background-color: transparent ;
+}
+
+html[data-theme="default"] .dropdown-item,
+html[data-theme="default"] .btn-primary,
+html[data-theme="default"] textarea,
+html[data-theme="default"] input,
+html[data-theme="default"] .box-button,
 html[data-theme="default"] .form-control,
 html[data-theme="default"] .box{
+
+    color: white;
+
     margin: 0.5rem !important;
     padding: 0.4rem !important;
 
