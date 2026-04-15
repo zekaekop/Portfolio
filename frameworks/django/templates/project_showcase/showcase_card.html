@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+
+            {% for project in projecs %}
+                <div class="col-md-4 mb-1">
+                    <a href="https://github.com/zekaekop/{{project.url}}"></a>
+                    <div class="box-inset h-100">
+                        <img src="{% static '/img/projects/{{project.image}}.png'%}" class="card-img-top img-fluid">
+                            <!-- Title -->
+                            <p>{{project.title}}</p>
+                            <!-- Description -->
+                            <p>{{project.description}}</p>
+                    </div>
+                </div>
+            {% endfor%}
+            
+        </div>
+    </div>
+
+
+{% endblock %}

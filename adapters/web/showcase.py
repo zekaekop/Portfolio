@@ -1,12 +1,22 @@
 from django.shortcuts import render
-from adapters.persistence.models import Anon
+from adapters.persistence.models import Anon, Projects
 from frameworks.django.home.views import get_client_ip
 
 def showcase(request):
-    
+
     content = {
-        "test":"test",
+        "projects":Projects.objects.all(),
         "ip_addr": Anon.objects.get(ip_addr=get_client_ip(request)).ip_addr,
     }
     
-    return render(request, "project_showcase/project_showcase.html" , content)
+    return render(request, "project_showcase/showcase.html" , content)
+
+def create_project_card(request):
+
+    content = {
+        # "projects":Projects.objects.all(),
+        "ip_addr": Anon.objects.get(ip_addr=get_client_ip(request)).ip_addr,
+    }
+    
+    return render(request, "project_showcase/showcase_project_create.html" , content)
+

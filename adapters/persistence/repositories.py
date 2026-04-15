@@ -1,5 +1,5 @@
 from use_cases import interfaces
-from adapters.persistence.models import Anon, FAQuestions, Feedback
+from adapters.persistence.models import Anon, FAQuestions, Feedback, Projects, Log
 from datetime import timedelta
 
 # from django.http import QueryDict
@@ -41,10 +41,29 @@ class DjangoFeedbackRepository(interfaces.FeedbackRepository):
     def delete(self, feedback):
         self.model.objects.delete(**feedback)
 
-# forgot what i was doing here since last time ???
-# class GenericQueries():
-#     def list(self) -> list:
-#         try:
-#             return list(self.model.objects.all())
-#         except self.model.DoesNotExist:
-#             return None
+        def list(self) -> list:
+            return list(self.model.objects.all())
+
+class DjangoProjectShowcaseRepository(interfaces.ProjectShowcaseRepository):
+    model = Projects
+
+    def create(self, project):
+        self.model.objects.create(**project)
+
+    def delete(self, project):
+        self.model.objects.delete(**project)
+    
+    def list(self) -> list:
+        return list(self.model.objects.all())
+
+class DjangoLogRepository(interfaces.LogRepository):
+    model = Log
+    
+    def create(self, log):
+        self.model.objects.create(**log)
+
+    def delete(self, log):
+        self.model.objects.delete(**log)
+    
+    def list(self) -> list:
+        return list(self.model.objects.all())

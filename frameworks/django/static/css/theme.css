@@ -7,9 +7,8 @@
     --bg-color: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0));
     --bg-secondary-color: rgba(230, 230, 230, 0.3);
     --bg-border-color: rgb(200, 200, 200);
-    --text-color: rgb(5, 5, 5);
-    --text-color-faded: rgba(5, 5, 5, 0.5);
-    --text-color-faded: rgba(5, 5, 5, 0.5);
+    --text-color: rgb(255, 255, 255);
+    --text-color-faded: rgba(245, 245, 245, 0.5);
 
     --shadow-color-08: rgba(0, 0, 0, 0.8);
     --shadow-color-04: rgba(0, 0, 0, 0.4);

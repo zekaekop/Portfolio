@@ -39,3 +39,17 @@ class Feedback(models.Model):
 
     viewed = models.BooleanField(default=False)
     time_viewed = models.TimeField(auto_now=True)
+
+class Projects(models.Model):
+
+    image = models.ImageField(width_field=1920, height_field=1080, blank=False, null=False)
+
+    title = models.CharField(max_length=200,verbose_name="Title", blank=False, null=False)
+    desc = models.CharField(max_length=400, verbose_name="Description",  blank=False, null=False)
+  
+    uploaded_date = models.DateTimeField(auto_created=True)
+
+class Log(models.Model):
+
+    log_content = models.CharField(max_length=200, verbose_name="Log Contents", blank=False, null=False)
+    date_created = models.DateTimeField(auto_now_add=True)

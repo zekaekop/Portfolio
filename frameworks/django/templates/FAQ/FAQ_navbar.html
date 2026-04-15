@@ -2,20 +2,22 @@
 
 <!-- This navbar should only be accesible to people of power -->
 
-<div class="container text-white box">
+<div class="container text-white">
+    <div class="box m-0 p-0">
 
-    <h1 class="box-inset">FAQ Moderation Navbar</h1>
+        <h1 class="box-inset">FAQ Moderation Navbar</h1>
 
-    <div class="box-inset mb-2">
+        <div class="box-inset mb-2">
 
-        {% if request.user.is_superuser %}
-            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 mb-md-0 mb-2 box">
-                <li><a href="{% url 'FAQ:create' %}" class="nav-link px-2 text-white">Create FAQ</a></li>
-                <li><a href="{% url 'FAQ:submissions' %}" class="nav-link px-2 text-white">FAQ Submissions</a></li> 
-                <li><a href="{# url 'mod history' #}" class="nav-link px-2 text-white">Moderation History</a></li> 
-                <!-- this should jump all the way up to the main navbar -->
-                <li class="ms-auto"><a href="{% url 'FAQ:answers' %}" class="nav-link px-2 text-white"><small>Go Back</small></a></li>  
-            </ul>
-        {% endif %}
+            {% if request.user.is_superuser %}
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 mb-md-0 mb-2 box">
+                    <li><a href="{% url 'FAQ:create' %}" class="nav-link px-2 text-white">Create FAQ</a></li>
+                    <li><a href="{# url 'FAQ:submissions' #}" class="nav-link px-2 text-white">FAQ Submissions</a></li> 
+                    <li><a href="{# url 'mod history' #}" class="nav-link px-2 text-white">Moderation History</a></li> 
+                    <!-- this should jump all the way up to the main navbar -->
+                    <li class="ms-auto"><a href="{% url 'FAQ:answers' %}" class="nav-link px-2 text-white"><small>Go Back</small></a></li>  
+                </ul>
+            {% endif %}
+        </div>
     </div>
 </div>

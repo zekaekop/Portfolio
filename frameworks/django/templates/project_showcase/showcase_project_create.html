@@ -15,20 +15,26 @@
                 {% endif %}
             </h1>
 
-            <p>These my projects</p>
+            <p>Add a project to the showcase</p>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi adipisci voluptates repellendus optio possimus saepe nihil ab aliquam modi odio cum quisquam, at ducimus? Quisquam ad impedit delectus tempore obcaecati.</p>
 
             <hr>
 
-            {% for project in projects %}
-                {% include 'project_showcase/showcase_card.html' %}
-            {% endfor %}
+            <form action="" method="POST">
+                {% csrf_token %}
 
+                <hr>
+                <input type="text" name="username" class="form-control text-white" placeholder="Title" required>
+                <area type="text"  name="password" class="form-control text-white" placeholder="Description" required></input>
+                <input type="file"  name="image" class="form-control text-white" placeholder="image" required></input>
+                <hr>
+                <button class="btn btn-primary" type="submit">Add Project</button>
+            </form>
+            
+        </div>    
             <hr>
 
-            {% if request.user.is_superuser %}
-                <a href="{% url 'project_showcase:create_project_card' %}">Add a project</a>
-            {% endif %}
+            <a href="{% url 'project_showcase:create_project_card' %}">Return to showcase</a>
 
         </div>
     </div>
