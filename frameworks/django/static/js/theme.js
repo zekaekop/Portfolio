@@ -6,8 +6,8 @@ if (theme) {
     root.setAttribute("data-theme", theme);
     updateThemeDisplay(theme);
 } else {
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const systemtheme = prefersDark ? "dark" : "light";
+    const prefersDark = window.matchMedia("(prefers-color-scheme: default)").matches;
+    const systemtheme = prefersDark ? "default" : "dark";
     root.setAttribute("data-theme", systemtheme);
     localStorage.setItem("theme", systemtheme);
     updateThemeDisplay(systemtheme);
