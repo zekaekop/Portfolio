@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'frameworks.django.procedural_pfp',
     'frameworks.django.account',
     'frameworks.django.FAQ',
+    'frameworks.django.project_showcase',
+
     'frameworks.nodejs.chatting',
 ]
 
@@ -138,3 +140,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 FAQ_REPOSITORY = "faq_repository"
 FEEDBACK_REPOSITORY = "feedback_repository"
+SHOWCASE_REPOSITORY = "showcase_repository"

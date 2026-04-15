@@ -23,10 +23,9 @@
             <form action="" method="POST">
                 {% csrf_token %}
 
-                <hr>
-                <input type="text" name="username" class="form-control text-white" placeholder="Title" required>
-                <area type="text"  name="password" class="form-control text-white" placeholder="Description" required></input>
-                <input type="file"  name="image" class="form-control text-white" placeholder="image" required></input>
+                <input type="text" name="username" class="w-100" placeholder="Title" required>
+                <textarea type="text"  name="description" class="w-100" placeholder="Description" required></textarea>
+                <!-- <input type="file"  name="image" class="w-100" placeholder="image"></input> -->
                 <hr>
                 <button class="btn btn-primary" type="submit">Add Project</button>
             </form>

@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class ProjectShowcaseConfig(AppConfig):
-    name = 'project_showcase'
+    name = 'frameworks.django.project_showcase'
