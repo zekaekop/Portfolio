@@ -17,12 +17,9 @@ body{
     --bs-table-border-color: var(--bg-border-color);
 }
 
-<<<<<<< HEAD
-=======
 hr{
     color: rgba(255, 255, 255, 0.5);
 }
->>>>>>> origin
 
 .header-gradient{
     background: linear-gradient(#0000005c, #00000000);
