@@ -20,11 +20,11 @@
                     <p>You were succesfull</p>
                 {% endif %}
 
-                <input type="text" name="question" id="" required>
+                <input type="text" class="form-control" name="question" id="" required>
                 <br>
-                <textarea type="text" name="desc" id="" required></textarea>
+                <textarea type="text" class="form-control" name="desc" id="" required></textarea>
                 <br>
-                <button class="box-button text-white" type="submit">Submit</button>
+                <button class="btn btn-primary text-white" type="submit">Submit</button>
             </form>
 
             {% if request.user.is_superuser == False%}
