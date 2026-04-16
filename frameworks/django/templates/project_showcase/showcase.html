@@ -5,7 +5,7 @@
 
 <div class="container d-flex p-0">
     <div class="container text-white box">
-        <div class="row justify-content-center">
+        <div class="row">
 
             <h1>Hello 
                 {% if request.user.is_authenticated %}
@@ -24,10 +24,8 @@
                 {% include 'project_showcase/showcase_card.html' %}
             {% endfor %}
 
-            <hr>
-
             {% if request.user.is_superuser %}
-                <a href="{% url 'project_showcase:create_project_card' %}">Add a project</a>
+                <a href="{% url 'project_showcase:create_project_card' %}" class="mt-2">Add a project</a>
             {% endif %}
 
         </div>

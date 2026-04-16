@@ -3,29 +3,25 @@
 {% block body %}
 
     <div class="container">
-        <div class="row d-flex justify-content-center">
+        <div class="row d-flex">
+            <div class="col-md-4 mb-1">
+                <a href="https://github.com/zekaekop/{{project.url}}"></a>
+                <div class="box h-100">
 
-            {% for project in projects %}
-                <div class="col-md-4 mb-1">
-                    <a href="https://github.com/zekaekop/{{project.url}}"></a>
-                    <div class="box h-100">
-
-                        <div class="card-header">   
-                            <img src="{% static '/img/projects/{{project.image}}.png'%}" class="card-img-top img-fluid" style="aspect-ratio: 3.2;" alt="Project image">
-                            <!-- Title -->
-                            <p>{{project.title}}</p>
-                        </div>
-                        
-                        <!-- Description -->
-                        <div class="card-footer">
-                            <p>{{project.desc}}</p>
-                            <small class="text-fadded">{{project.uploaded_date}}</small>
-                        </div>
-
+                    <div class="card-header">   
+                        <img src="{% static '/img/projects/{{project.image}}.png'%}" class="card-img-top img-fluid" style="aspect-ratio: 3.2;" alt="Project image">
+                        <!-- Title -->
+                        <p>{{project.title}}</p>
                     </div>
+
+                    <!-- Description -->
+                    <div class="card-footer">
+                        <p>{{project.desc}}</p>
+                        <small class="text-fadded">{{project.uploaded_date}}</small>
+                    </div>
+
                 </div>
-            {% endfor%}
-            
+            </div>
         </div>
     </div>
 

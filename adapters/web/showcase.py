@@ -26,14 +26,16 @@ def create_project_card(request):
     # if project_card_data:
     #     raise Http404("Could not get showcase card creation post data")
 
+    data = {}
+    
     if request.method == "POST":
 
         data = { 
-            "repository":get_repositories()[settings.SHOWCASE_REPOSITORY],
             "title":request.POST.get("title"),
             "desc":request.POST.get("description"),
             "uploaded_date":datetime.now(),
-            "image":request.FILE.get("image"),
+            "image":request.FILES.get("image"),
+            "github_url":request.POST.get("github_url"),
             # "anon":Anon.objects.get(ip_addr=get_client_ip(request)),
         }
 
