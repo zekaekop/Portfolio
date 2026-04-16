@@ -43,14 +43,14 @@ class Feedback(models.Model):
 class Projects(models.Model):
 
     #optional
-    image = models.ImageField(width_field=1920, height_field=1080, blank=True, null=True)
+    image = models.ImageField(upload_to="project_img" ,blank=True, null=True)
     # its optional since if the title matches a repository it will link to there if github url is emty
     github_url = models.CharField(max_length=200, verbose_name="GitHub Url", blank=True, null=True)
 
     title = models.CharField(max_length=200,verbose_name="Title", blank=False, null=False)
     desc = models.CharField(max_length=400, verbose_name="Description",  blank=False, null=False)
   
-    uploaded_date = models.DateTimeField(auto_created=True)
+    uploaded_date = models.DateTimeField(auto_now_add=True)
 
 class Log(models.Model):
 
