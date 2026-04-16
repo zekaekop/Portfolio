@@ -4,9 +4,10 @@ from adapters.persistence import repositories
 from django.conf import settings
 from frameworks.django.home.views import get_client_ip
 from adapters.persistence.applications.project_showcase_service import ProjectActions
+from datetime import datetime
 
 def get_repositories() -> dict:
-    return {"showcase_repository":repositories.DjangoFAQRepository()}
+    return {"showcase_repository":repositories.DjangoProjectShowcaseRepository()}
 
 def showcase(request):
 
@@ -28,16 +29,18 @@ def create_project_card(request):
     if request.method == "POST":
 
         data = { 
-            # "repository":get_repositories()[settings.SHOWCASE_REPOSITORY],
+            "repository":get_repositories()[settings.SHOWCASE_REPOSITORY],
             "title":request.POST.get("title"),
             "desc":request.POST.get("description"),
-            # "image":request.FILE.get("image"),
+            "uploaded_date":datetime.now(),
+            "image":request.FILE.get("image"),
             # "anon":Anon.objects.get(ip_addr=get_client_ip(request)),
         }
+
         create_status = ProjectActions().create_project_showcase_card(data)
     
     content = {
-        # "projects":Projects.objects.all(),
+        "projects":Projects.objects.all(),
         "create_status": create_status,
         "ip_addr": Anon.objects.get(ip_addr=get_client_ip(request)).ip_addr,
     }

@@ -42,7 +42,8 @@ class Feedback(models.Model):
 
 class Projects(models.Model):
 
-    image = models.ImageField(width_field=1920, height_field=1080, blank=False, null=False)
+    #optional image
+    image = models.ImageField(width_field=1920, height_field=1080, blank=True, null=True)
 
     title = models.CharField(max_length=200,verbose_name="Title", blank=False, null=False)
     desc = models.CharField(max_length=400, verbose_name="Description",  blank=False, null=False)
