@@ -1,4 +1,3 @@
-{% extends 'base.html' %}
 {% load static %}
 
 {% block body %}
@@ -6,15 +5,15 @@
     <div class="container">
         <div class="row d-flex justify-content-center">
 
-            {% for project in projecs %}
+            {% for project in projects %}
                 <div class="col-md-4 mb-1">
                     <a href="https://github.com/zekaekop/{{project.url}}"></a>
-                    <div class="box-inset h-100">
-                        <img src="{% static '/img/projects/{{project.image}}.png'%}" class="card-img-top img-fluid">
+                    <div class="box h-100">
+                        <img src="{% static '/img/projects/{{project.image}}.png'%}" class="card-img-top img-fluid" style="aspect-ratio: 3.2;" alt="Project image">
                             <!-- Title -->
                             <p>{{project.title}}</p>
                             <!-- Description -->
-                            <p>{{project.description}}</p>
+                            <p>{{project.desc}}</p>
                     </div>
                 </div>
             {% endfor%}

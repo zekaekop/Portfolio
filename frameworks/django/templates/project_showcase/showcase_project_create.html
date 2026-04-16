@@ -23,7 +23,7 @@
             <form action="" method="POST">
                 {% csrf_token %}
 
-                <input type="text" name="username" class="w-100" placeholder="Title" required>
+                <input type="text" name="title" class="w-100" placeholder="Title" required>
                 <textarea type="text"  name="description" class="w-100" placeholder="Description" required></textarea>
                 <!-- <input type="file"  name="image" class="w-100" placeholder="image"></input> -->
                 <hr>
@@ -33,7 +33,7 @@
         </div>    
             <hr>
 
-            <a href="{% url 'project_showcase:create_project_card' %}">Return to showcase</a>
+            <a href="{% url 'project_showcase:showcase' %}">Return to showcase</a>
 
         </div>
     </div>
