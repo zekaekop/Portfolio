@@ -1,7 +1,12 @@
+<<<<<<< Updated upstream
 from django.shortcuts import render, Http404
 from adapters.persistence.models import Anon, Projects
 from adapters.persistence import repositories
 from django.conf import settings
+=======
+from django.shortcuts import render
+from adapters.persistence.models import Anon, Projects
+>>>>>>> Stashed changes
 from frameworks.django.home.views import get_client_ip
 from adapters.persistence.applications.project_showcase_service import ProjectActions
 from datetime import datetime
