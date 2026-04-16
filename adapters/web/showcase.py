@@ -12,11 +12,11 @@ def get_repositories() -> dict:
 def showcase(request):
 
     content = {
-        "test":"test",
+        "projects":Projects.objects.all(),
         "ip_addr": Anon.objects.get(ip_addr=get_client_ip(request)).ip_addr,
     }
     
-    return render(request, "project_showcase/showcase_project_create.html" , content)
+    return render(request, "project_showcase/showcase.html" , content)
 
 def create_project_card(request):
 
@@ -42,7 +42,6 @@ def create_project_card(request):
         create_status = ProjectActions().create_project_showcase_card(data)
     
     content = {
-        "projects":Projects.objects.all(),
         "create_status": create_status,
         "ip_addr": Anon.objects.get(ip_addr=get_client_ip(request)).ip_addr,
     }
