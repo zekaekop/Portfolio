@@ -62,7 +62,7 @@ cover/
 staticfiles/*
 local_settings.py
 
-framework/django/media/project_img/*
+frameworks/django/media/project_img/*
 
 # Flask stuff:
 instance/
