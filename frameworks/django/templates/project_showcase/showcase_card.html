@@ -3,7 +3,6 @@
 {% block body %}
 
 <div class="col-md-4 mb-5">
-    <a href="https://github.com/zekaekop/{{project.url}}"></a>
     <div class="box h-100">
 
         <div class="card-header">   
@@ -17,6 +16,12 @@
             <p>{{project.desc}}</p>
             <small class="text-fadded">{{project.uploaded_date}}</small>
         </div>
+
+        {% if project.github_url %}
+            <a href="{{project.github_url}}">Repo</a>
+        {% else %}
+            <a href="https://github.com/zekaekop/{{project.title}}">Repo</a>
+        {% endif %}
 
     </div>
 </div>
