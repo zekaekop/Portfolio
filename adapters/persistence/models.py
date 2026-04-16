@@ -39,3 +39,20 @@ class Feedback(models.Model):
 
     viewed = models.BooleanField(default=False)
     time_viewed = models.TimeField(auto_now=True)
+
+class Projects(models.Model):
+
+    #optional
+    image = models.ImageField(upload_to="project_img" ,blank=True, null=True)
+    # its optional since if the title matches a repository it will link to there if github url is emty
+    github_url = models.CharField(max_length=200, verbose_name="GitHub Url", blank=True, null=True)
+
+    title = models.CharField(max_length=200,verbose_name="Title", blank=False, null=False)
+    desc = models.CharField(max_length=400, verbose_name="Description",  blank=False, null=False)
+  
+    uploaded_date = models.DateTimeField(auto_now_add=True)
+
+class Log(models.Model):
+
+    log_content = models.CharField(max_length=200, verbose_name="Log Contents", blank=False, null=False)
+    date_created = models.DateTimeField(auto_now_add=True)

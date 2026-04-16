@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'frameworks.django.procedural_pfp',
     'frameworks.django.account',
     'frameworks.django.FAQ',
+    'frameworks.django.project_showcase',
+
     'frameworks.nodejs.chatting',
 ]
 
@@ -129,6 +131,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
@@ -138,3 +143,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 FAQ_REPOSITORY = "faq_repository"
 FEEDBACK_REPOSITORY = "feedback_repository"
+SHOWCASE_REPOSITORY = "showcase_repository"

@@ -36,7 +36,8 @@ def answer_FAQ(
     deletion_date: datetime,
     ):
 
-    # why not just add the POST data directly into faq_dict?
+    # why not just add the POST data directly into answer_FAQ?
+    # answer_FAQ is unfinished
     faq_answer_dict = dict(
         anon = anon,
         question = question,

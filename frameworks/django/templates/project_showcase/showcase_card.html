@@ -1,0 +1,30 @@
+{% load static %}
+
+{% block body %}
+
+<div class="col-md-4 mb-5">
+    <div class="box h-100">
+
+        <div class="card-header">   
+            <img src="/media/project_img/{{project.image}}" class="card-img-top img-fluid" style="aspect-ratio: 3.2;" alt="Project image">
+            <!-- Title -->
+            <p>{{project.title}}</p>
+        </div>
+
+        <!-- Description -->
+        <div class="card-footer">
+            <p>{{project.desc}}</p>
+            <small class="text-fadded">{{project.uploaded_date}}</small>
+        </div>
+
+        {% if project.github_url %}
+            <a href="{{project.github_url}}">Repo</a>
+        {% else %}
+            <a href="https://github.com/zekaekop/{{project.title}}">Repo</a>
+        {% endif %}
+
+    </div>
+</div>
+
+
+{% endblock %}

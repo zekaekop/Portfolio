@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+
+<div class="container d-flex p-0">
+    <div class="container text-white box">
+        <div class="row">
+
+            <h1>Hello 
+                {% if request.user.is_authenticated %}
+                    {{ request.user }}
+                {% else %}
+                    Anon<!-- Instead of saying AnonymousUser, its just shortened -->
+                {% endif %}
+            </h1>
+
+            <p>These my projects</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi adipisci voluptates repellendus optio possimus saepe nihil ab aliquam modi odio cum quisquam, at ducimus? Quisquam ad impedit delectus tempore obcaecati.</p>
+
+            <hr>
+
+            {% for project in projects %}
+                {% include 'project_showcase/showcase_card.html' %}
+            {% endfor %}
+
+            {% if request.user.is_superuser %}
+                <a href="{% url 'project_showcase:create_project_card' %}" class="mt-2">Add a project</a>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+
+{% include 'footer.html' %}
+
+{% endblock %}

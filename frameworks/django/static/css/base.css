@@ -9,6 +9,12 @@ body{
     background-size: cover;
     background-repeat: no-repeat; 
     /* background: var(--bg-color) !important; */
+}   
+
+.table{
+    --bs-table-color: var(--text-color);
+    --bs-table-bg: var(--bg-color);
+    --bs-table-border-color: var(--bg-border-color);
 }
 
 hr{
@@ -40,21 +46,35 @@ html[data-theme="steam-old"] .box{
     border-bottom:  2px  solid #676751;
     border-right:  2px  solid #676751;
 }
-html[data-theme="default"] .box{
-    margin: 0.5rem;
-    padding: 0.4rem;
 
-    background-color: rgba(35, 55, 35, 0.8);  /* Dark green background */
-    backdrop-filter: blur(10px);
+html[data-theme="default"] .dropdown-menu{
+    background-color: transparent ;
+}
+
+html[data-theme="default"] .dropdown-item,
+html[data-theme="default"] .btn-primary,
+html[data-theme="default"] textarea,
+html[data-theme="default"] input,
+html[data-theme="default"] .box-button,
+html[data-theme="default"] .form-control,
+html[data-theme="default"] .box{
+
+    color: white;
+
+    margin: 0.5rem !important;
+    padding: 0.4rem !important;
+
+    background-color: rgba(35, 55, 35, 0.8) !important;  /* Dark green background */
+    backdrop-filter: blur(10px) !important;
     
-    border-top:  2px solid rgb(100, 200, 100, 0.5);
-    border-left:  2px solid rgb(80, 160, 80, 0.5);
-    border-bottom:  2px solid rgb(40, 100, 40, 0.5);
-    border-right:  2px solid rgb(30, 80, 30, 0.5);
+    border-top:  2px solid rgb(100, 200, 100, 0.5) !important;
+    border-left:  2px solid rgb(80, 160, 80, 0.5) !important;
+    border-bottom:  2px solid rgb(40, 100, 40, 0.5) !important;
+    border-right:  2px solid rgb(30, 80, 30, 0.5) !important;
 
     border-radius: 0.2rem !important;
 
-    box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.4);
+    box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.4) !important;
 }
 
 .disablefilterblur{
