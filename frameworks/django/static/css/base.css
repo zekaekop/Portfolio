@@ -17,6 +17,12 @@ body{
     --bs-table-border-color: var(--bg-border-color);
 }
 
+<<<<<<< HEAD
+=======
+hr{
+    color: rgba(255, 255, 255, 0.5);
+}
+>>>>>>> origin
 
 .header-gradient{
     background: linear-gradient(#0000005c, #00000000);
@@ -74,6 +80,117 @@ html[data-theme="default"] .box{
     box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.4) !important;
 }
 
+.disablefilterblur{
+    backdrop-filter: blur(0px);
+}
+
+.box-header{
+    margin-top: 0.5rem;
+    padding: 0.4rem;
+
+    background-color: rgba(37, 72, 37, 0.8);  /* Dark green background */
+    backdrop-filter: blur(10px);
+
+    border-radius: 0.2rem 0.2rem 0rem 0rem !important;
+
+    box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.1);
+}
+
+.box-footer{
+    margin-top: 0.5rem;
+    padding: 0.4rem;
+
+    background-color: rgba(37, 72, 37, 0.8);  /* Dark green background */
+    backdrop-filter: blur(10px);
+
+    border-radius: 0rem 0rem 0.2rem 0.2rem !important;
+
+    box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.1);
+}
+
+html[data-theme="default"] .btn-primary{
+    margin: 0.5rem;
+    padding: 0.4rem;
+
+    background-color: rgba(46, 81, 46, 0.8);  /* Dark green background */
+    backdrop-filter: blur(10px);
+    
+    border-top:  2px solid rgb(100, 200, 100, 0.5) !important;
+    border-left:  2px solid rgb(80, 160, 80, 0.5) !important;
+    border-bottom:  2px solid rgb(40, 100, 40, 0.5) !important;
+    border-right:  2px solid rgb(30, 80, 30, 0.5) !important;
+
+    border-radius: 0.2rem !important;
+
+    box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.2);
+}
+
+html[data-theme="default"] .form-control,
+html[data-theme="default"] .box-inset{
+    color: white;
+    padding: 1rem;
+    background-color: rgba(28, 42, 28, 0.5);
+    backdrop-filter: blur(5px);
+    
+    border-bottom:  2px solid rgb(100, 200, 100, 0.5) !important;
+    border-right:  2px solid rgb(80, 160, 80, 0.5) !important;
+    border-top:  2px solid rgb(40, 100, 40, 0.5) !important;
+    border-left:  2px solid rgb(30, 80, 30, 0.5) !important;
+
+    border-radius: 0.2rem !important;
+}
+
+/* i can simulate thinner glass with inset by using the wallpaper and darkening and adding slight blur since you cannot just unblur */
+
+/* The child box that will act as a "window"
+html[data-theme="default"] .box-inset {
+  position: relative;
+  padding: 1rem;
+  overflow: hidden; /* Contains the pseudo-element */
+  
+  /* border-bottom: 2px solid rgb(100, 200, 100, 0.5) !important;
+  border-right: 2px solid rgb(80, 160, 80, 0.5) !important;
+  border-top: 2px solid rgb(40, 100, 40, 0.5) !important;
+  border-left: 2px solid rgb(30, 80, 30, 0.5) !important;
+}
+
+/* Create a pseudo-element that shows the same background */
+/* html[data-theme="default"] .box-inset::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; Critical for alignment! */
+   */
+  /* Apply your effects here */
+/* filter: blur(8px) brightness(0.4) sepia(1) hue-rotate(70deg) saturate(2) grayscale(50%); */
+  
+  /* Alternative: Use backdrop-filter approach */
+  /* backdrop-filter: blur(5px) brightness(0.6); }*/
+
+html[data-theme="default"] .btn-primary:hover{
+    margin: 0.5rem;
+    padding: 0.4rem;
+
+    background-color: rgba(45, 96, 45, 0.8);  /* Dark green background */
+    backdrop-filter: blur(10px);
+    
+    border-top:  2px solid rgb(100, 200, 100) !important;
+    border-left:  2px solid rgb(80, 160, 80) !important;
+    border-bottom:  2px solid rgb(40, 100, 40) !important;
+    border-right:  2px solid rgb(30, 80, 30) !important;
+
+    border-radius: 0.2rem !important;
+
+    box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.4);
+}
+
 html[data-theme="steam-old"] .btn-primary:hover,
 html[data-theme="steam-old"] .btn-primary{
     border-radius: 0 !important;
@@ -129,10 +246,6 @@ html[data-theme="steam-old"] .box-inset{
     display: block;
     object-fit: cover !important;
     max-height: 200px;
-}
-
-.btn-primary{
-    background-color: black;
 }
 
 .btn{
