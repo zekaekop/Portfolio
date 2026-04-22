@@ -23,42 +23,6 @@
 
     {% include 'admin_panel/admin_navbar.html' %}
 
-    <div class="container text-white box table-responsive">
-        <table class="table">
-            <thead>
-                <tr>
-                    {% if type == "projects" %}
-                        <th>ID</th>
-                        <th>Title</th>
-                        <th>Description</th>
-                        <th>Image</th> <!-- img icon with a link that leads to the full res img -->
-                        <th>Uploaded Date</th>
-                    {% elif type == "anons" %}
-                        <th>ID</th>
-                        <th>IpAddr</th> <!-- Last seen requires websockets, i have half baked implementation for this in my git stash.. comming later-->
-                        <th>Username</th>
-                        <th>Description</th> <!-- This will be like notes the mods can place on the users actions -->
-                        <th>Last Seen</th> <!-- last time since connection was made with the server -->
-                        <th>Account Created Date</th>
-                    {% elif type == "users" %}
-                        <th>ID</th>
-                        <th>Username</th>
-                        <th>Description</th> <!-- This will be like notes the mods can place on the users actions -->
-                        <th>Last Seen</th> <!-- last time since connection was made with the server -->
-                        <th>Account Created Date</th>
-                    {% elif type == "tags" %}
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Created By</th>
-                        <th>Used Count</th>
-                    {% elif type == "moderators" %}
-                        <th>ID</th>
-                        <th>Username</th>
-                        <th>Description</th> <!-- This will be like notes the mods can place on the users actions -->
-                        <th>Last Seen</th> <!-- last time since connection was made with the server -->
-                        <th>Account Created Date</th>
-                    {% endif%}
 
     {% if type %}
 
