@@ -23,12 +23,8 @@
                     <li class="mt-2"><a href="{% url 'admin_panel:anons' %}" class="nav-link px-2 text-white">Anons</a></li> 
                 {% endif %}
 
-                {% if type == "tags" %}
-                    <li><a href="{% url 'admin_panel:tags' %}" class="nav-link px-2 text-white box">Tags</a></li>
-                {% else %}
-                    <li class="mt-2"><a href="{% url 'admin_panel:tags' %}" class="nav-link px-2 text-white">Tags</a></li>
-                {% endif %}
-
+                <!-- Tags are gone because, its not really needed -->
+            
                 {% if type == "projects" %}
                     <li><a href="{% url 'admin_panel:projects' %}" class="nav-link px-2 text-white box">Projects</a></li> 
                 {% else %}

@@ -21,7 +21,7 @@ def projects(request):
 
     content = {
         "type": "projects",
-        "projects": Projects.objects.all(),
+        "datas": Projects.objects.all(),
         "ip_addr": Anon.objects.get(ip_addr=get_client_ip(request)).ip_addr,
     }
     
@@ -48,21 +48,21 @@ def users(request):
     
     return render(request, "admin_panel/admin_panel.html" , content)
 
-def tags(request):
+# def tags(request):
 
-    content = {
-        "type": "tags",
-        "projects": Projects.objects.all(),
-        "ip_addr": Anon.objects.get(ip_addr=get_client_ip(request)).ip_addr,
-    }
+#     content = {
+#         "type": "tags",
+#         "datas": Projects.objects.all(),
+#         "ip_addr": Anon.objects.get(ip_addr=get_client_ip(request)).ip_addr,
+#     }
     
-    return render(request, "admin_panel/admin_panel.html" , content)
+#     return render(request, "admin_panel/admin_panel.html" , content)
 
 def moderators(request):
 
     content = {
         "type": "moderators",
-        "moderators": Anon.objects.all(),
+        "datas": User.objects.all(),
         "ip_addr": Anon.objects.get(ip_addr=get_client_ip(request)).ip_addr,
     }
     

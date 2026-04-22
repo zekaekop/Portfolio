@@ -38,17 +38,16 @@
                             <th>Uploaded Date</th>
                         {% elif type == "users" %}
                             <th>ID</th>
-                            <th>IpAddr</th>
                             <th>Username</th>
                             <th>Description</th> <!-- This will be like notes the mods can place on the users actions -->
                             <th>Last Seen</th> <!-- last time since connection was made with the server -->
                             <th>Account Created Date</th>
-                        {% elif type == "tags" %}
-                            <th>ID</th>
+                            <!-- Tags -->
+                            <!-- <th>ID</th>
                             <th>Name</th>
                             <th>Description</th>
                             <th>Created By</th>
-                            <th>Used Count</th>
+                            <th>Used Count</th> -->
                         {% elif type == "anons" %}
                             <th>ID</th>
                             <th>IpAddr</th>
@@ -60,9 +59,9 @@
 
                         {% if type == "moderators" %}
                             <th>ID</th>
-                            <th>IpAddr</th>
                             <th>Username</th>
-                            <th>Description</th> <!-- This will be like notes the mods can place on the users actions -->
+                            <th>Super User</th>
+                            <th>Staff</th>
                             <th>Last Seen</th> <!-- last time since connection was made with the server -->
                             <th>Account Created Date</th>
                         {% endif%}
@@ -78,33 +77,55 @@
                             <td>{{data.id}}</td>
                             <td>{{data.title}}</td>
                             <td>{{data.desc}}</td>
-                            <td>{{data.img}}</td>
+                            {% if data.image %}
+                            <td><a href="{{data.image.url}}">{{data.image.url}}</a></td>
+                            {% else %}
+                            <td>No Image</td>
+                            {% endif %}
                             <td>{{data.uploaded_date}}</td>
                         {% elif type == "users" %}
                             <td>{{data.id}}</td>
                             <td>{{data.username}}</td>
-                            <td>{{data.desc}}</td>
-                            <td>{{data.last_seen}}</td>
-                            <td>{{data.account_created_date}}</td>
+
+                            {% if data.desc %}
+                                <td>{{data.desc}}</td>
+                            {% else %}
+                            <td>No Description</td>
+                            {% endif%}
+
+                            <td>{{data.last_login}}</td>
+                            <td>{{data.date_joined}}</td>
                         {% elif type == "anons" %}
                             <td>{{data.id}}</td>
                             <td>{{data.ip_addr}}</td>
-                            <td>{{data.name}}</td>
-                            <td>{{data.desc}}</td>
+
+                            {% if data.name %}
+                                <td>{{data.name}}</td>
+                            {% else %}
+                            <td>No Name</td>
+                            {% endif%}
+
+                            {% if data.desc %}
+                                <td>{{data.desc}}</td>
+                            {% else %}
+                            <td>No Description</td>
+                            {% endif%}
+
                             <td>{{data.last_seen}}</td>
                             <td>{{data.account_created_date}}</td>
                         {% elif type == "moderators" %}
                             <td>{{data.id}}</td>
-                            <td>{{data.name}}</td>
-                            <td>{{data.desc}}</td>
-                            <td>{{data.last_seen}}</td>
-                            <td>{{data.created_date}}</td>
-                        {% else %} <!-- tags -->
-                            <td>{{data.id}}</td>
+                            <td>{{data.username}}</td>
+                            <td>{{data.is_superuser}}</td>
+                            <td>{{data.is_staff}}</td>
+                            <td>{{data.last_login}}</td>
+                            <td>{{data.date_joined}}</td>
+                            <!-- tags -->
+                            <!-- <td>{{data.id}}</td>
                             <td>{{data.title}}</td>
                             <td>{{data.desc}}</td>
                             <td>{{data.img}}</td>
-                            <td>{{data.uploaded_date}}</td>
+                            <td>{{data.uploaded_date}}</td> -->
                         {% endif %}
 
                         {% if data.ipaddr == "127.0.0.1" %} <!-- localhost -->
