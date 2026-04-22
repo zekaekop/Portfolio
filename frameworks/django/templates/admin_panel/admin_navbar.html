@@ -14,31 +14,31 @@
                 {% if type == "users" %}
                     <li><a href="{% url 'admin_panel:users' %}" class="nav-link px-2 text-white box">Users</a></li> 
                 {% else %}
-                    <li><a href="{% url 'admin_panel:users' %}" class="nav-link px-2 text-white">Users</a></li> 
+                    <li class="mt-2"><a href="{% url 'admin_panel:users' %}" class="nav-link px-2 text-white">Users</a></li> 
                 {% endif %}
 
                 {% if type == "anons" %}
                     <li><a href="{% url 'admin_panel:anons' %}" class="nav-link px-2 text-white box">Anons</a></li> 
                 {% else %}
-                    <li><a href="{% url 'admin_panel:anons' %}" class="nav-link px-2 text-white">Anons</a></li> 
+                    <li class="mt-2"><a href="{% url 'admin_panel:anons' %}" class="nav-link px-2 text-white">Anons</a></li> 
                 {% endif %}
 
                 {% if type == "tags" %}
                     <li><a href="{% url 'admin_panel:tags' %}" class="nav-link px-2 text-white box">Tags</a></li>
                 {% else %}
-                    <li><a href="{% url 'admin_panel:tags' %}" class="nav-link px-2 text-white">Tags</a></li>
+                    <li class="mt-2"><a href="{% url 'admin_panel:tags' %}" class="nav-link px-2 text-white">Tags</a></li>
                 {% endif %}
 
                 {% if type == "projects" %}
                     <li><a href="{% url 'admin_panel:projects' %}" class="nav-link px-2 text-white box">Projects</a></li> 
                 {% else %}
-                    <li><a href="{% url 'admin_panel:projects' %}" class="nav-link px-2 text-white">Projects</a></li>
+                    <li class="mt-2"><a href="{% url 'admin_panel:projects' %}" class="nav-link px-2 text-white">Projects</a></li>
                 {% endif %}
 
                 {% if type == "moderators"%}
                     <li><a href="{% url 'admin_panel:moderators' %}" class="nav-link px-2 text-white box">Moderators</a></li> 
                 {% else %}
-                    <li><a href="{% url 'admin_panel:moderators' %}" class="nav-link px-2 text-white">Moderators</a></li>
+                    <li class="mt-2"><a href="{% url 'admin_panel:moderators' %}" class="nav-link px-2 text-white">Moderators</a></li>
                 {% endif %}
 
                 <div class="d-flex ms-auto">
