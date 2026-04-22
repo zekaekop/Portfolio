@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
-from adapters.persistence.models import Anon, SiteStatistics
+from adapters.persistence.models import Anon, SiteStatistics, User, UserProfile
 # Create your views here.
 
 def fetch_stats(request):
@@ -27,22 +27,30 @@ def fetch_stats(request):
 def set_stats(request):
 
     data = {
-        "currently_online_user_count": Anon.objects.count(),
-        "currently_offline_user_count": Anon.objects.count(),
+        "currently_online_user_count": UserProfile.objects.filter(activity_status=True).count(),
+        "currently_offline_user_count": UserProfile.objects.filter(activity_status=False).count(),
         
         "total_anon_user_count": Anon.objects.count(),
-        "currently_online_anon_count": Anon.objects.count(),
+        "currently_online_anon_count": Anon.objects.filter(activity_status=True).count(),
 
-        "registered_user_count": User.objects.count(),
+        "registered_user_count": UserProfile.objects.count(),
 
-        "currently_online_admin_count": Anon.objects.count(),
-        "currently_offline_admin_count": Anon.objects.count(),
+        # "currently_online_admin_count": UserProfile.objects.filter(role="admin", activity_status=True).count(),
+        # "currently_offline_admin_count": UserProfile.objects.filter(role="admin", activity_status=False).count(),
     }
 
     sitestatistics, create = SiteStatistics.objects.get_or_create(
         currently_online_user_count=data["currently_online_user_count"],
-        currently_online_user_count=data["currently_online_user_count"],
-        currently_online_user_count=data["currently_online_user_count"],)
+        currently_offline_user_count=data["currently_offline_user_count"],
+
+        total_anon_user_count=data["total_anon_user_count"],
+        currently_online_anon_count=data["currently_online_anon_count"],
+
+        registered_user_count=data["registered_user_count"],
+
+        # currently_online_admin_count=data["currently_online_admin_count"],
+        # currently_offline_admin_count=data["currently_offline_admin_count"],
+        )
 
     if create:
         print("Failed to set and create site statistics")
