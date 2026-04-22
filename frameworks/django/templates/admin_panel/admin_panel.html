@@ -60,64 +60,163 @@
                         <th>Account Created Date</th>
                     {% endif%}
 
-                    {% if type == "moderators" %}
-                        <th>ID</th>
-                        <th>IpAddr</th>
-                        <th>Username</th>
-                        <th>Description</th> <!-- This will be like notes the mods can place on the users actions -->
-                        <th>Last Seen</th> <!-- last time since connection was made with the server -->
-                        <th>Account Created Date</th>
-                    {% endif%}
-                </tr>
-            </thead>
+    {% if type %}
 
-            <tbody>
+        <div class="container text-white box table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        {% if type == "projects" %}
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Image</th> <!-- img icon with a link that leads to the full res img -->
+                            <th>Uploaded Date</th>
+                        {% elif type == "users" %}
+                            <th>ID</th>
+                            <th>IpAddr</th>
+                            <th>Username</th>
+                            <th>Description</th> <!-- This will be like notes the mods can place on the users actions -->
+                            <th>Last Seen</th> <!-- last time since connection was made with the server -->
+                            <th>Account Created Date</th>
+                        {% elif type == "tags" %}
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Created By</th>
+                            <th>Used Count</th>
+                        {% elif type == "moderators" %}
+                            <th>ID</th>
+                            <th>IpAddr</th>
+                            <th>Username</th>
+                            <th>Description</th> <!-- This will be like notes the mods can place on the users actions -->
+                            <th>Last Seen</th> <!-- last time since connection was made with the server -->
+                            <th>Account Created Date</th>
+                        {% endif%}
+
+                        {% if type == "moderators" %}
+                            <th>ID</th>
+                            <th>IpAddr</th>
+                            <th>Username</th>
+                            <th>Description</th> <!-- This will be like notes the mods can place on the users actions -->
+                            <th>Last Seen</th> <!-- last time since connection was made with the server -->
+                            <th>Account Created Date</th>
+                        {% endif%}
+                    </tr>
+                </thead>
+
+                <tbody>
 
                 {% for data in datas %}
 
-                {% if data.ipaddr == "127.0.0.1" %} <!-- localhost -->
-                    <tr>You are disconnected from the site</tr>
+                    <tr>
+                        {% if type == "projects" %}
+                            <td>{{data.id}}</td>
+                            <td>{{data.title}}</td>
+                            <td>{{data.desc}}</td>
+                            <td>{{data.img}}</td>
+                            <td>{{data.uploaded_date}}</td>
+                        {% elif type == "users" %}
+                            <td>{{data.id}}</td>
+                            <td>{{data.username}}</td>
+                            <td>{{data.desc}}</td>
+                            <td>{{data.last_seen}}</td>
+                            <td>{{data.account_created_date}}</td>
+                        {% elif type == "anons" %}
+                            <td>{{data.id}}</td>
+                            <td>{{data.ip_addr}}</td>
+                            <td>{{data.username}}</td>
+                            <td>{{data.desc}}</td>
+                            <td>{{data.last_seen}}</td>
+                            <td>{{data.account_created_date}}</td>
+                        {% elif type == "moderators" %}
+                            <td>{{data.id}}</td>
+                            <td>{{data.name}}</td>
+                            <td>{{data.desc}}</td>
+                            <td>{{data.last_seen}}</td>
+                            <td>{{data.created_date}}</td>
+                        {% else %} <!-- tags -->
+                            <td>{{data.id}}</td>
+                            <td>{{data.title}}</td>
+                            <td>{{data.desc}}</td>
+                            <td>{{data.img}}</td>
+                            <td>{{data.uploaded_date}}</td>
+                        {% endif %}
+
+                        {% if data.ipaddr == "127.0.0.1" %} <!-- localhost -->
+                            <tr>You are disconnected from the site</tr>
+                        {% endif %}
+
+                        <tr>
+                            {% if type == "projects" %}
+                                <td>{{data.id}}</td>
+                                <td>{{data.title}}</td>
+                                <td>{{data.desc}}</td>
+                                <td>{{data.img}}</td>
+                                <td>{{data.uploaded_date}}</td>
+                            {% elif type == "users" %}
+                                <td>{{data.id}}</td>
+                                <td>{{data.ip_addr}}</td>
+                                <td>{{data.username}}</td>
+                                <td>{{data.desc}}</td>
+                                <td>{{data.last_seen}}</td>
+                                <td>{{data.account_created_date}}</td>
+                            {% elif type == "moderators" %}
+                                <td>{{data.id}}</td>
+                                <td>{{data.ipaddr}}</td>
+                                <td>{{data.name}}</td>
+                                <td>{{data.desc}}</td>
+                                <td>{{data.last_seen}}</td>
+                                <td>{{data.created_date}}</td>
+                            {% else %} <!-- tags -->
+                                <td>{{data.id}}</td>
+                                <td>{{data.title}}</td>
+                                <td>{{data.desc}}</td>
+                                <td>{{data.img}}</td>
+                                <td>{{data.uploaded_date}}</td>
+                            {% endif %}
+                        </tr>
+
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+
+    <!-- If no category is selected for the adminpanel it will just display generic statistics untill the user picks something from the admin_navbar.html -->
+
+    <!-- It would be unefficent to fetch the statistics every single time the admin panel has been opened. -->
+    <!-- Its better to create a stats table and than just update that table with the correct data every 1min. -->
+    {% else %}
+        <div class="container d-flex justify-content-between">
+            <div class="row box w-100">
+                <h1>Users Online</h1>
+                <!-- Websockets should be used for online and offline status -->
+                <p>{{currently_online_user_count}}</p>
+                <p>{{currently_offline_user_count}}</p>
+                <p>{{currently_online_anon_user_count}}</p>
+                <p>{{total_anon_user_count}}</p>
+            </div>
+
+            <div class="row box w-100">
+                <h1>Registered Users</h1>
+                <p>{{registered_user_count}}</p>
+                {% if daily_registered_user_count %}
+                    <p>{{daily_registered_user_count}}</p>
+                {% else %}
+                    <p>No available data</p>
                 {% endif %}
+            </div>
 
-                <tr>
-                    {% if type == "projects" %}
-                        <td>{{data.id}}</td>
-                        <td>{{data.title}}</td>
-                        <td>{{data.desc}}</td>
-                        <td>{{data.img}}</td>
-                        <td>{{data.uploaded_date}}</td>
-                    {% elif type == "users" %}
-                        <td>{{data.id}}</td>
-                        <td>{{data.username}}</td>
-                        <td>{{data.desc}}</td>
-                        <td>{{data.last_seen}}</td>
-                        <td>{{data.account_created_date}}</td>
-                    {% elif type == "anons" %}
-                        <td>{{data.id}}</td>
-                        <td>{{data.ip_addr}}</td>
-                        <td>{{data.username}}</td>
-                        <td>{{data.desc}}</td>
-                        <td>{{data.last_seen}}</td>
-                        <td>{{data.account_created_date}}</td>
-                    {% elif type == "moderators" %}
-                        <td>{{data.id}}</td>
-                        <td>{{data.name}}</td>
-                        <td>{{data.desc}}</td>
-                        <td>{{data.last_seen}}</td>
-                        <td>{{data.created_date}}</td>
-                    {% else %} <!-- tags -->
-                        <td>{{data.id}}</td>
-                        <td>{{data.title}}</td>
-                        <td>{{data.desc}}</td>
-                        <td>{{data.img}}</td>
-                        <td>{{data.uploaded_date}}</td>
-                    {% endif %}
-                </tr>
-                {% endfor %}
-            </tbody>
-
-        </table>
-    </div>
+            <div class="row box w-100">
+                <h1>Admins Online</h1>
+                <!-- Websockets should be used for online and offline status -->
+                <!-- This will have a more often fetch rate since its more important -->
+                <p>{{currently_online_admin_count}}<2/p>
+                <p>{{currently_offline_admin_count}}</p>
+            </div>
+        </div>
+    {% endif %}
 
 </div>
 

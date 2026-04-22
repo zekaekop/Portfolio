@@ -1,4 +1,5 @@
 from adapters.persistence.models import Anon
+from .user_status_consumer import UserStatusConsumer
 from adapters.persistence import repositories
 from django.conf import settings
 
@@ -29,3 +30,6 @@ class SaveIpAddr:
         else:
             ip = request.META.get('REMOTE_ADDR')
         return ip
+
+    def run_consumer(self,request):
+        UserStatusConsumer().connect()

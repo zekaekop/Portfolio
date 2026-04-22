@@ -41,7 +41,10 @@
                     <li><a href="{% url 'admin_panel:moderators' %}" class="nav-link px-2 text-white">Moderators</a></li>
                 {% endif %}
 
-                <li class="ms-auto"><a href="{# url 'admin_panel:create' #}" class="nav-link px-2 text-white box">Create</a></li>
+                <div class="d-flex ms-auto">
+                    <li class="ms-auto"><a href="{% url 'admin_panel:dashboard' %}" class="nav-link px-2 text-white box">Dashboard</a></li>
+                    <li class="ms-auto"><a href="{# url 'admin_panel:create' #}" class="nav-link px-2 text-white box">Create</a></li>
+                </div>
 
             </ul>
 
