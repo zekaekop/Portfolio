@@ -110,37 +110,7 @@
                         {% if data.ipaddr == "127.0.0.1" %} <!-- localhost -->
                             <tr>You are disconnected from the site</tr>
                         {% endif %}
-
-                        <tr>
-                            {% if type == "projects" %}
-                                <td>{{data.id}}</td>
-                                <td>{{data.title}}</td>
-                                <td>{{data.desc}}</td>
-                                <td>{{data.img}}</td>
-                                <td>{{data.uploaded_date}}</td>
-                            {% elif type == "users" %}
-                                <td>{{data.id}}</td>
-                                <td>{{data.ip_addr}}</td>
-                                <td>{{data.username}}</td>
-                                <td>{{data.desc}}</td>
-                                <td>{{data.last_seen}}</td>
-                                <td>{{data.account_created_date}}</td>
-                            {% elif type == "moderators" %}
-                                <td>{{data.id}}</td>
-                                <td>{{data.ipaddr}}</td>
-                                <td>{{data.name}}</td>
-                                <td>{{data.desc}}</td>
-                                <td>{{data.last_seen}}</td>
-                                <td>{{data.created_date}}</td>
-                            {% else %} <!-- tags -->
-                                <td>{{data.id}}</td>
-                                <td>{{data.title}}</td>
-                                <td>{{data.desc}}</td>
-                                <td>{{data.img}}</td>
-                                <td>{{data.uploaded_date}}</td>
-                            {% endif %}
-                        </tr>
-
+                        
                     {% endfor %}
                 </tbody>
 
