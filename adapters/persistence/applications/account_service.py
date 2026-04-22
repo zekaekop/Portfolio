@@ -1,7 +1,12 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
+from adapters.persistence.models import UserProfile
+
 # Create your views here.
+
+# The reason why the functions are called user_register etc. 
+# Is because function names were conflicting with django.contrib.auth import login name
 
 def user_register(request):
     if request.method == "POST":
@@ -10,12 +15,19 @@ def user_register(request):
         password = request.POST.get("password")
         repeat_password = request.POST.get("repeat_password")
 
-        user,existing = User.objects.get_or_create(username=username)
 
-        if (existing):
-            return render(request, "account/register.html", { "login_status" : "Account Already Exists"})
+        # i dont know, dont question it
+        # if (user_profile_existing):
+        #     return render(request, "account/register.html", { "login_status" : "Account User Profile Already Exists"})
 
-        if (password == repeat_password):
+        if (password == repeat_password): 
+
+            if (User.objects.filter(username=username).exists()):
+                return render(request, "account/register.html", { "login_status" : "Account Already Exists"})
+
+            user = User.objects.create(username=username, password=password)
+            UserProfile.objects.create(user=user)
+
             user.set_password(password)
             user.is_staff = False
             user.is_superuser = False
