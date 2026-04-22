@@ -33,7 +33,7 @@ def set_stats(request):
         "total_anon_user_count": Anon.objects.count(),
         "currently_online_anon_user_count": Anon.objects.filter(activity_status=True).count(),
 
-        "registered_user_count": UserProfile.objects.count(),
+        "registered_user_count": User.objects.count(),
 
         # "currently_online_admin_count": UserProfile.objects.filter(role="admin", activity_status=True).count(),
         # "currently_offline_admin_count": UserProfile.objects.filter(role="admin", activity_status=False).count(),
