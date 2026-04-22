@@ -89,7 +89,7 @@
                         {% elif type == "anons" %}
                             <td>{{data.id}}</td>
                             <td>{{data.ip_addr}}</td>
-                            <td>{{data.username}}</td>
+                            <td>{{data.name}}</td>
                             <td>{{data.desc}}</td>
                             <td>{{data.last_seen}}</td>
                             <td>{{data.account_created_date}}</td>
@@ -110,7 +110,7 @@
                         {% if data.ipaddr == "127.0.0.1" %} <!-- localhost -->
                             <tr>You are disconnected from the site</tr>
                         {% endif %}
-                        
+
                     {% endfor %}
                 </tbody>
 
