@@ -1,0 +1,180 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+
+<div class="container d-flex flex-column p-0">
+    <div class="container text-white box">
+        <div class="row justify-content-center">
+
+            <h1>Hello 
+                {% if request.user.is_authenticated %}
+                    {{ request.user }}
+                {% else %}
+                    Anon<!-- Instead of saying AnonymousUser, its just shortened -->
+                {% endif %}
+            </h1>
+
+            <p>This is the admin panel</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi adipisci voluptates repellendus optio possimus saepe nihil ab aliquam modi odio cum quisquam, at ducimus? Quisquam ad impedit delectus tempore obcaecati.</p>
+
+        </div>
+    </div>
+
+    {% include 'admin_panel/admin_navbar.html' %}
+
+
+    {% if type %}
+
+        <div class="container text-white box table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        {% if type == "projects" %}
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Image</th> <!-- img icon with a link that leads to the full res img -->
+                            <th>Uploaded Date</th>
+                        {% elif type == "users" %}
+                            <th>ID</th>
+                            <th>Username</th>
+                            <th>Description</th> <!-- This will be like notes the mods can place on the users actions -->
+                            <th>Last Seen</th> <!-- last time since connection was made with the server -->
+                            <th>Account Created Date</th>
+                            <!-- Tags -->
+                            <!-- <th>ID</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Created By</th>
+                            <th>Used Count</th> -->
+                        {% elif type == "anons" %}
+                            <th>ID</th>
+                            <th>IpAddr</th>
+                            <th>Username</th>
+                            <th>Description</th> <!-- This will be like notes the mods can place on the users actions -->
+                            <th>Last Seen</th> <!-- last time since connection was made with the server -->
+                            <th>Account Created Date</th>
+                        {% endif%}
+
+                        {% if type == "moderators" %}
+                            <th>ID</th>
+                            <th>Username</th>
+                            <th>Super User</th>
+                            <th>Staff</th>
+                            <th>Last Seen</th> <!-- last time since connection was made with the server -->
+                            <th>Account Created Date</th>
+                        {% endif%}
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                {% for data in datas %}
+
+                    <tr>
+                        {% if type == "projects" %}
+                            <td>{{data.id}}</td>
+                            <td>{{data.title}}</td>
+                            <td>{{data.desc}}</td>
+                            {% if data.image %}
+                            <td><a href="{{data.image.url}}">{{data.image.url}}</a></td>
+                            {% else %}
+                            <td>No Image</td>
+                            {% endif %}
+                            <td>{{data.uploaded_date}}</td>
+                        {% elif type == "users" %}
+                            <td>{{data.id}}</td>
+                            <td>{{data.username}}</td>
+
+                            {% if data.desc %}
+                                <td>{{data.desc}}</td>
+                            {% else %}
+                            <td>No Description</td>
+                            {% endif%}
+
+                            <td>{{data.last_login}}</td>
+                            <td>{{data.date_joined}}</td>
+                        {% elif type == "anons" %}
+                            <td>{{data.id}}</td>
+                            <td>{{data.ip_addr}}</td>
+
+                            {% if data.name %}
+                                <td>{{data.name}}</td>
+                            {% else %}
+                            <td>No Name</td>
+                            {% endif%}
+
+                            {% if data.desc %}
+                                <td>{{data.desc}}</td>
+                            {% else %}
+                            <td>No Description</td>
+                            {% endif%}
+
+                            <td>{{data.last_seen}}</td>
+                            <td>{{data.account_created_date}}</td>
+                        {% elif type == "moderators" %}
+                            <td>{{data.id}}</td>
+                            <td>{{data.username}}</td>
+                            <td>{{data.is_superuser}}</td>
+                            <td>{{data.is_staff}}</td>
+                            <td>{{data.last_login}}</td>
+                            <td>{{data.date_joined}}</td>
+                            <!-- tags -->
+                            <!-- <td>{{data.id}}</td>
+                            <td>{{data.title}}</td>
+                            <td>{{data.desc}}</td>
+                            <td>{{data.img}}</td>
+                            <td>{{data.uploaded_date}}</td> -->
+                        {% endif %}
+
+                        {% if data.ipaddr == "127.0.0.1" %} <!-- localhost -->
+                            <tr>You are disconnected from the site</tr>
+                        {% endif %}
+
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+
+    <!-- If no category is selected for the adminpanel it will just display generic statistics untill the user picks something from the admin_navbar.html -->
+
+    <!-- It would be unefficent to fetch the statistics every single time the admin panel has been opened. -->
+    <!-- Its better to create a stats table and than just update that table with the correct data every 1min. -->
+    {% else %}
+        <div class="container d-flex justify-content-between">
+            <div class="row box w-100">
+                <h1>Users Online</h1>
+                <!-- Websockets should be used for online and offline status -->
+                <p>Currently online users: {{site_stats.currently_online_user_count}}</p>
+                <p>Currently offline users: {{site_stats.currently_offline_user_count}}</p>
+                <p>Currently online anon users:  {{site_stats.currently_online_anon_user_count}}</p>
+                <p>total anon users: {{site_stats.total_anon_user_count}}</p>
+            </div>
+
+            <div class="row box w-100">
+                <h1>Registered Users</h1>
+                <p>{{site_stats.registered_user_count}}</p>
+                {% if daily_registered_user_count %}
+                    <p>{{daily_registered_user_count}}</p>
+                {% else %}
+                    <p>No available data</p>
+                {% endif %}
+            </div>
+
+            <div class="row box w-100">
+                <h1>Admins Online</h1>
+                <!-- Websockets should be used for online and offline status -->
+                <!-- This will have a more often fetch rate since its more important -->
+                <p>{{site_stats.currently_online_admin_count}}</p>
+                <p>{{site_stats.currently_offline_admin_count}}</p>
+            </div>
+        </div>
+    {% endif %}
+
+</div>
+
+{% include 'footer.html' %}
+
+{% endblock %}

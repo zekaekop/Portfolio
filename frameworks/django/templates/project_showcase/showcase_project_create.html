@@ -14,15 +14,11 @@
                     Anon<!-- Instead of saying AnonymousUser, its just shortened -->
                 {% endif %}
             </h1>
-
             <p>Add a project to the showcase</p>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi adipisci voluptates repellendus optio possimus saepe nihil ab aliquam modi odio cum quisquam, at ducimus? Quisquam ad impedit delectus tempore obcaecati.</p>
-
             <hr>
-
             <form action="" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
-
                 <input type="text" name="title" class="w-100" placeholder="Title*" required>
                 <textarea type="text"  name="description" class="w-100" placeholder="Description*" required></textarea>
                 <input type="file"  name="image" class="w-100" placeholder="image"></input>
@@ -33,13 +29,9 @@
             
         </div>    
             <hr>
-
             <a href="{% url 'project_showcase:project_showcase' %}">Return to showcase</a>
-
         </div>
     </div>
 </div>
-
 {% include 'footer.html' %}
-
 {% endblock %}

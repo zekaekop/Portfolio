@@ -42,10 +42,8 @@ def create_project_card(request):
         create_status = ProjectActions().create_project_showcase_card(data)
     
     content = {
-        "projects":Projects.objects.all(),
         "create_status": create_status,
         "ip_addr": Anon.objects.get(ip_addr=get_client_ip(request)).ip_addr,
     }
     
     return render(request, "project_showcase/showcase_project_create.html" , content)
-

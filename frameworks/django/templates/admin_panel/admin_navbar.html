@@ -1,0 +1,48 @@
+{% load static %}
+
+<div class="container mt-3 p-0"> 
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start box"> 
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 w-100"> 
+
+                <li>
+                    <a href="https://github.com/zekaekop/Portfolio" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                        <img style="max-height: 50px;" src="{% static '/img/brands/GitHub_Invertocat_White_Clearspace.svg'%}" alt="Github Icon">
+                    </a> 
+                </li>
+
+                {% if type == "users" %}
+                    <li><a href="{% url 'admin_panel:users' %}" class="nav-link px-2 text-white box">Users</a></li> 
+                {% else %}
+                    <li class="mt-2"><a href="{% url 'admin_panel:users' %}" class="nav-link px-2 text-white">Users</a></li> 
+                {% endif %}
+
+                {% if type == "anons" %}
+                    <li><a href="{% url 'admin_panel:anons' %}" class="nav-link px-2 text-white box">Anons</a></li> 
+                {% else %}
+                    <li class="mt-2"><a href="{% url 'admin_panel:anons' %}" class="nav-link px-2 text-white">Anons</a></li> 
+                {% endif %}
+
+                <!-- Tags are gone because, its not really needed -->
+            
+                {% if type == "projects" %}
+                    <li><a href="{% url 'admin_panel:projects' %}" class="nav-link px-2 text-white box">Projects</a></li> 
+                {% else %}
+                    <li class="mt-2"><a href="{% url 'admin_panel:projects' %}" class="nav-link px-2 text-white">Projects</a></li>
+                {% endif %}
+
+                {% if type == "moderators"%}
+                    <li><a href="{% url 'admin_panel:moderators' %}" class="nav-link px-2 text-white box">Moderators</a></li> 
+                {% else %}
+                    <li class="mt-2"><a href="{% url 'admin_panel:moderators' %}" class="nav-link px-2 text-white">Moderators</a></li>
+                {% endif %}
+
+                <div class="d-flex ms-auto">
+                    <li class="ms-auto"><a href="{% url 'admin_panel:dashboard' %}" class="nav-link px-2 text-white box">Dashboard</a></li>
+                    <li class="ms-auto"><a href="{# url 'admin_panel:create' #}" class="nav-link px-2 text-white box">Create</a></li>
+                </div>
+
+            </ul>
+
+    </div> 
+</div>

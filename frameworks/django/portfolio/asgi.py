@@ -9,8 +9,23 @@ https://docs.djangoproject.com/en/5.2/howto/deployment/asgi/
 
 import os
 
-from django.core.asgi import get_asgi_application
+# Note: this ordering is apperantly very important, i need to remember this
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'frameworks.django.portfolio.settings')
 
-application = get_asgi_application()
+from django.core.asgi import get_asgi_application
+django_asgi_app = get_asgi_application()
+
+from channels.routing import ProtocolTypeRouter, URLRouter
+from channels.auth import AuthMiddlewareStack
+from django.urls import path
+
+from frameworks.django.account.user_status_consumer import UserStatusConsumer
+
+
+
+application = ProtocolTypeRouter({
+    "http": django_asgi_app,
+    "websocket": AuthMiddlewareStack(URLRouter([path('ws/status/', UserStatusConsumer.as_asgi()),]),
+    )
+})

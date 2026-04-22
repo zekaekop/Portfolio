@@ -10,6 +10,11 @@
     <li><a href="{# url 'about' #}" class="nav-link px-2 text-white">About</a></li> 
     <li><a href="{# url 'account_info' #}" class="nav-link px-2 text-white">{{ip_addr}}</a></li> 
 
+    {% if request.user.is_authenticated  %}
+        {% if request.user.is_superuser %}
+            <li><a href="{% url 'admin_panel:dashboard' %}" class="nav-link px-2 text-white">Admin Panel</a></li> 
+        {% endif %}
+    {% endif %}
 
     {% if request.user.is_authenticated  %}
         <li><a href="{% url 'account:logout' %}" class="nav-link px-2 text-white">Logout</a></li> 
