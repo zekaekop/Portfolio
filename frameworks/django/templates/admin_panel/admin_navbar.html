@@ -17,6 +17,12 @@
                     <li><a href="{% url 'admin_panel:users' %}" class="nav-link px-2 text-white">Users</a></li> 
                 {% endif %}
 
+                {% if type == "anons" %}
+                    <li><a href="{% url 'admin_panel:anons' %}" class="nav-link px-2 text-white box">Anons</a></li> 
+                {% else %}
+                    <li><a href="{% url 'admin_panel:anons' %}" class="nav-link px-2 text-white">Anons</a></li> 
+                {% endif %}
+
                 {% if type == "tags" %}
                     <li><a href="{% url 'admin_panel:tags' %}" class="nav-link px-2 text-white box">Tags</a></li>
                 {% else %}

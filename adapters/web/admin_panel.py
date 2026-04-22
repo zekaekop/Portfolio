@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from adapters.persistence.models import Anon, Projects
+from django.contrib.auth.models import User
 from frameworks.django.home.views import get_client_ip
 
 def dashboard(request):
@@ -22,11 +23,22 @@ def projects(request):
     
     return render(request, "admin_panel/admin_panel.html" , content)
 
+def anons(request):
+
+    content = {
+        "type": "anons",
+        "datas":Anon.objects.all(),
+        "ip_addr": Anon.objects.get(ip_addr=get_client_ip(request)).ip_addr,
+    }
+    
+    return render(request, "admin_panel/admin_panel.html" , content)
+
+
 def users(request):
 
     content = {
         "type": "users",
-        "datas": Anon.objects.all(),
+        "datas":User.objects.all(),
         "ip_addr": Anon.objects.get(ip_addr=get_client_ip(request)).ip_addr,
     }
     

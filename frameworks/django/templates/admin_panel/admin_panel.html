@@ -33,9 +33,15 @@
                         <th>Description</th>
                         <th>Image</th> <!-- img icon with a link that leads to the full res img -->
                         <th>Uploaded Date</th>
+                    {% elif type == "anons" %}
+                        <th>ID</th>
+                        <th>IpAddr</th> <!-- Last seen requires websockets, i have half baked implementation for this in my git stash.. comming later-->
+                        <th>Username</th>
+                        <th>Description</th> <!-- This will be like notes the mods can place on the users actions -->
+                        <th>Last Seen</th> <!-- last time since connection was made with the server -->
+                        <th>Account Created Date</th>
                     {% elif type == "users" %}
                         <th>ID</th>
-                        <th>IpAddr</th>
                         <th>Username</th>
                         <th>Description</th> <!-- This will be like notes the mods can place on the users actions -->
                         <th>Last Seen</th> <!-- last time since connection was made with the server -->
@@ -48,7 +54,6 @@
                         <th>Used Count</th>
                     {% elif type == "moderators" %}
                         <th>ID</th>
-                        <th>IpAddr</th>
                         <th>Username</th>
                         <th>Description</th> <!-- This will be like notes the mods can place on the users actions -->
                         <th>Last Seen</th> <!-- last time since connection was made with the server -->
@@ -83,6 +88,12 @@
                         <td>{{data.uploaded_date}}</td>
                     {% elif type == "users" %}
                         <td>{{data.id}}</td>
+                        <td>{{data.username}}</td>
+                        <td>{{data.desc}}</td>
+                        <td>{{data.last_seen}}</td>
+                        <td>{{data.account_created_date}}</td>
+                    {% elif type == "anons" %}
+                        <td>{{data.id}}</td>
                         <td>{{data.ip_addr}}</td>
                         <td>{{data.username}}</td>
                         <td>{{data.desc}}</td>
@@ -90,7 +101,6 @@
                         <td>{{data.account_created_date}}</td>
                     {% elif type == "moderators" %}
                         <td>{{data.id}}</td>
-                        <td>{{data.ipaddr}}</td>
                         <td>{{data.name}}</td>
                         <td>{{data.desc}}</td>
                         <td>{{data.last_seen}}</td>
