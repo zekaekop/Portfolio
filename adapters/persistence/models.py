@@ -74,7 +74,7 @@ class SiteStatistics(models.Model):
     currently_offline_user_count = models.PositiveIntegerField(default=0)
 
     total_anon_user_count = models.PositiveIntegerField(default=0)
-    currently_online_anon_count = models.PositiveIntegerField(default=0)
+    currently_online_anon_user_count = models.PositiveIntegerField(default=0)
 
     registered_user_count = models.PositiveIntegerField(default=0)
 

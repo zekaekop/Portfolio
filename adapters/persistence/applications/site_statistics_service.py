@@ -27,11 +27,11 @@ def fetch_stats(request):
 def set_stats(request):
 
     data = {
-        "currently_online_user_count": UserProfile.objects.filter(activity_status=True).count(),
+        "currently_online_user_count": UserProfile.objects.filter(activity_status=True).all().count(),
         "currently_offline_user_count": UserProfile.objects.filter(activity_status=False).count(),
         
         "total_anon_user_count": Anon.objects.count(),
-        "currently_online_anon_count": Anon.objects.filter(activity_status=True).count(),
+        "currently_online_anon_user_count": Anon.objects.filter(activity_status=True).count(),
 
         "registered_user_count": UserProfile.objects.count(),
 
@@ -44,7 +44,7 @@ def set_stats(request):
         currently_offline_user_count=data["currently_offline_user_count"],
 
         total_anon_user_count=data["total_anon_user_count"],
-        currently_online_anon_count=data["currently_online_anon_count"],
+        currently_online_anon_user_count=data["currently_online_anon_user_count"],
 
         registered_user_count=data["registered_user_count"],
 
