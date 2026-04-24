@@ -49,29 +49,11 @@ class UserStatusConsumer(WebsocketConsumer):
             return model.objects.filter(ip_addr=user).update(activity_status=status)
         else:
 
-            self.log_user_status(model, status, user)
+            LogAction().log_user_status(model, status, user)
 
             # Filter might be way inefficent for this.
             print("updating user profile status " + str(user.pk) + " to " + str(status))
             return model.objects.filter(user_id=user.pk).update(activity_status=status)
-
-    def log_user_status(self, model, status, user):
-        current_status = model.objects.get(user_id=user.pk).activity_status
-
-        # print("current status")
-        # print(current_status)
-        # print("new status")
-        # print(status)
-
-        if current_status == status:
-            return None
-
-        if status == False:
-            log_content = f"User Status: {user.username} is offline"
-        else:
-            log_content = f"User Status: {user.username} is online"
-
-        LogAction().save(user, log_content)
 
     # Aperrantly i need this code, since i cannot pass request through websockets, to run middleware to get ip_addr
     def get_client_ip(self):

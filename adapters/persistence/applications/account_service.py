@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from adapters.persistence.models import UserProfile
+from adapters.persistence.applications.action_log_service import  LogAction
 
 # Create your views here.
 
@@ -28,6 +29,8 @@ def user_register(request):
             user = User.objects.create(username=username, password=password)
             UserProfile.objects.create(user=user)
 
+            LogAction().log_user_registered(user)
+
             user.set_password(password)
             user.is_staff = False
             user.is_superuser = False
@@ -48,6 +51,8 @@ def user_login(request):
         user = authenticate(username=username, password=password)
         UserProfile.objects.get_or_create(user=user)
 
+        LogAction().log_user_login(user)
+
         if user is not None:
             login(request, user)
             return redirect("/")
@@ -57,5 +62,6 @@ def user_login(request):
     return render(request, "account/login.html", {"login_status": "Failed to log in"})
 
 def user_logout(request):
+    LogAction().log_user_logout(request)
     logout(request)
     return redirect("account/login")
