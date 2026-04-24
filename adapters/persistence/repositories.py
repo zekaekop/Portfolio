@@ -59,11 +59,11 @@ class DjangoProjectShowcaseRepository(interfaces.ProjectShowcaseRepository):
 class DjangoLogRepository(interfaces.LogRepository):
     model = Log
     
-    def create(self, log):
-        self.model.objects.create(**log)
+    def create(self, user, log_contents):
+        self.model.objects.create(user_id=user.id, log_content=log_contents, deletion_date=timezone.now())
 
-    def delete(self, log):
-        self.model.objects.delete(**log)
+    def delete(self, id):
+        self.model.objects.delete(id=id)
     
     def list(self) -> list:
         return list(self.model.objects.all())

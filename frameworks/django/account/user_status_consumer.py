@@ -2,6 +2,7 @@
 from channels.generic.websocket import WebsocketConsumer
 from adapters.persistence.models import Anon, UserProfile
 from frameworks.django.account import middlewares
+from adapters.persistence.applications.action_log_service import LogAction
 
 class UserStatusConsumer(WebsocketConsumer):
     def connect(self):
@@ -36,6 +37,13 @@ class UserStatusConsumer(WebsocketConsumer):
             print("updating anon user status " + str(user) + " to " + str(status))
             return model.objects.filter(ip_addr=user).update(activity_status=status)
         else:
+
+            # Currently only logs registered users
+            if status == False:
+                LogAction().save(user, "User Status: " + str(user.username) + " is offline" )
+            else:
+                LogAction().save(user, "User Status: " + str(user.username) + " is online")
+
             # Filter might be way inefficent for this.
             print("updating user profile status " + str(user.pk) + " to " + str(status))
             return model.objects.filter(user_id=user.pk).update(activity_status=status)

@@ -63,6 +63,8 @@ class Projects(models.Model):
     uploaded_date = models.DateTimeField(auto_now_add=True)
 
 class Log(models.Model):
+    # Does Do nothing, prevent deletion of log or User?
+    user = models.OneToOneField(User, on_delete=models.DO_NOTHING, related_name='logs')
 
     log_content = models.CharField(max_length=200, verbose_name="Log Contents", blank=False, null=False)
     date_created = models.DateTimeField(auto_now_add=True)
