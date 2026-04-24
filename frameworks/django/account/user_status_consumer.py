@@ -4,6 +4,9 @@ from adapters.persistence.models import Anon, UserProfile
 from frameworks.django.account import middlewares
 from adapters.persistence.applications.action_log_service import LogAction
 
+import time
+import threading
+
 class UserStatusConsumer(WebsocketConsumer):
     def connect(self):
 
@@ -23,12 +26,20 @@ class UserStatusConsumer(WebsocketConsumer):
     
     def disconnect(self, close_code):
 
-        if (self.user.is_authenticated):
-            user = self.user
-            self.apply_user_status(UserProfile , user, False)
-        else:
-            ip_addr =  self.get_client_ip()
-            self.apply_user_status(Anon , ip_addr, False)
+        # Adds a delay to disconnect, this fixes status logs being duplicate since the js client has to load on every new page
+        # good enough solution
+        def delay_disconnect():
+            time.sleep(5)
+
+            if (self.user.is_authenticated):
+                user = self.user
+                self.apply_user_status(UserProfile , user, False)
+            else:
+                ip_addr =  self.get_client_ip()
+                self.apply_user_status(Anon , ip_addr, False)
+        
+        thread = threading.Thread(target=delay_disconnect, daemon=True)
+        thread.start()
 
     # Its wastefull to store "online" and "offline" as str
     def apply_user_status(self, model, user, status=False):
@@ -38,17 +49,29 @@ class UserStatusConsumer(WebsocketConsumer):
             return model.objects.filter(ip_addr=user).update(activity_status=status)
         else:
 
-            # Currently only logs registered users
-            if status == False:
-                log_content = "User Status: " + str(user.username) + " is offline"
-                LogAction().save(user, log_content)
-            else:
-                log_content = "User Status: " + str(user.username) + " is online"
-                LogAction().save(user, log_content)
+            self.log_user_status(model, status, user)
 
             # Filter might be way inefficent for this.
             print("updating user profile status " + str(user.pk) + " to " + str(status))
             return model.objects.filter(user_id=user.pk).update(activity_status=status)
+
+    def log_user_status(self, model, status, user):
+        current_status = model.objects.get(user_id=user.pk).activity_status
+
+        # print("current status")
+        # print(current_status)
+        # print("new status")
+        # print(status)
+
+        if current_status == status:
+            return None
+
+        if status == False:
+            log_content = f"User Status: {user.username} is offline"
+        else:
+            log_content = f"User Status: {user.username} is online"
+
+        LogAction().save(user, log_content)
 
     # Aperrantly i need this code, since i cannot pass request through websockets, to run middleware to get ip_addr
     def get_client_ip(self):
