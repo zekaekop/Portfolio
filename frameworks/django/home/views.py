@@ -5,7 +5,8 @@ from adapters.persistence.models import Anon
 
 def home_page(request):
 
-    tags = ("CSS","HTML","JS","C","C++","Python","PHP","TypeScript","Bash","MySQL","GIT","Django", "Nginx", "NodeJS", )
+    tags = ("CSS","HTML","JS","C","C++","Python","PHP","TypeScript",
+    "Bash","MySQL","Git","Django", "Lua", "Love2D", "Godot", "Linux")
 
     context = {
         "tags":  tags,
