@@ -133,4 +133,39 @@
     --txtbox-border-color: rgb(70, 70, 70);
     --bg-txtbox-color-focused: rgb(60, 60, 60);
     --txtbox-border-color-focused: rgb(80, 80, 80);
+
+    
+}
+
+:root[data-theme="sunset"] {
+    --bg-image: url("/static/img/wallpapers/nature_china.jpg");
+
+    --bg-color: linear-gradient(rgb(255, 140, 0), rgb(255, 94, 98));
+    --bg-secondary-color: rgba(255, 200, 150, 0.3);
+    --bg-border-color: rgb(255, 120, 80);
+    --text-color: rgb(255, 255, 255);
+    --text-color-faded: rgba(255, 255, 255, 0.6);
+
+    --shadow-color-04: rgba(0, 0, 0, 0.5);
+    --shadow-color-02: rgba(0, 0, 0, 0.3);
+
+    --transparent: rgba(0, 0, 0, 0);
+
+    --button-disabled: #c97b5a;
+    --button-disabled-hover: #e08a66;
+    --button-disabled-active: #a65a3a;
+
+    --button-border-color: rgb(255, 150, 100);
+    --button-border-color-hover: rgb(255, 180, 130);
+
+    --button-primary-color: rgb(255, 120, 80);
+    --button-primary-color-hover: rgb(255, 150, 100);
+
+    --navbar-gradient: linear-gradient(rgba(255, 140, 0, 0.6) 80%, rgba(0, 0, 0, 0) 90%);
+    --paginator-gradient: linear-gradient(rgba(0, 0, 0, 0), rgb(255, 94, 98));
+
+    --bg-txtbox-color: rgb(255, 230, 200);
+    --txtbox-border-color: rgb(255, 180, 140);
+    --bg-txtbox-color-focused: rgb(255, 240, 220);
+    --txtbox-border-color-focused: rgb(255, 200, 160);
 }
