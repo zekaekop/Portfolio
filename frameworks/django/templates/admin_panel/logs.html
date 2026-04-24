@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+
+<div class="container d-flex flex-column p-0">
+    <div class="container text-white box">
+        <div class="row justify-content-center">
+
+            <h1>Hello 
+                {% if request.user.is_authenticated %}
+                    {{ request.user }}
+                {% else %}
+                    Anon<!-- Instead of saying AnonymousUser, its just shortened -->
+                {% endif %}
+            </h1>
+
+            <p>This is the User Logs page</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi adipisci voluptates repellendus optio possimus saepe nihil ab aliquam modi odio cum quisquam, at ducimus? Quisquam ad impedit delectus tempore obcaecati.</p>
+
+        </div>
+    </div>
+
+    {% include 'admin_panel/admin_navbar.html' %}
+
+        <div class="container text-white box table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                            <th>User ID / ID</th>
+                            <th>Log Contents</th>
+                            <th>Date Created</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                {% for log in logs %}
+
+                    <tr>
+                        <td>{{log.user_id}} / {{log.id}}</td>
+                        <td>{{log.log_content}}</td>
+                        <td>{{log.date_created}}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+
+</div>
+
+{% include 'footer.html' %}
+
+{% endblock %}

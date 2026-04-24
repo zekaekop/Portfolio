@@ -5,7 +5,7 @@ views = account_logs
 app_name = 'account_logs'
 
 urlpatterns = [
-    path('user_logs/', views.list_user_logs, name="user_logs"),
+    path('list_user_logs/<int:user_id>/', views.list_user_logs, name="list_user_logs"),
 
     # path('tags/', views.tags , name="tags"),
     # path('moderators/', views.moderators , name="moderators"),

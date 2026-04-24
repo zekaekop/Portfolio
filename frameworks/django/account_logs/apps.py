@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class AccountLogsConfig(AppConfig):
-    name = 'account_logs'
+    name = 'frameworks.django.account_logs'
