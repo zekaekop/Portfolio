@@ -40,9 +40,11 @@ class UserStatusConsumer(WebsocketConsumer):
 
             # Currently only logs registered users
             if status == False:
-                LogAction().save(user, "User Status: " + str(user.username) + " is offline" )
+                log_content = "User Status: " + str(user.username) + " is offline"
+                LogAction().save(user, log_content)
             else:
-                LogAction().save(user, "User Status: " + str(user.username) + " is online")
+                log_content = "User Status: " + str(user.username) + " is online"
+                LogAction().save(user, log_content)
 
             # Filter might be way inefficent for this.
             print("updating user profile status " + str(user.pk) + " to " + str(status))
