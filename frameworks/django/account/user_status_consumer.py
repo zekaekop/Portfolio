@@ -2,6 +2,10 @@
 from channels.generic.websocket import WebsocketConsumer
 from adapters.persistence.models import Anon, UserProfile
 from frameworks.django.account import middlewares
+from adapters.persistence.applications.action_log_service import LogAction
+
+import time
+import threading
 
 class UserStatusConsumer(WebsocketConsumer):
     def connect(self):
@@ -22,12 +26,20 @@ class UserStatusConsumer(WebsocketConsumer):
     
     def disconnect(self, close_code):
 
-        if (self.user.is_authenticated):
-            user = self.user
-            self.apply_user_status(UserProfile , user, False)
-        else:
-            ip_addr =  self.get_client_ip()
-            self.apply_user_status(Anon , ip_addr, False)
+        # Adds a delay to disconnect, this fixes status logs being duplicate since the js client has to load on every new page
+        # good enough solution
+        def delay_disconnect():
+            time.sleep(5)
+
+            if (self.user.is_authenticated):
+                user = self.user
+                self.apply_user_status(UserProfile , user, False)
+            else:
+                ip_addr =  self.get_client_ip()
+                self.apply_user_status(Anon , ip_addr, False)
+        
+        thread = threading.Thread(target=delay_disconnect, daemon=True)
+        thread.start()
 
     # Its wastefull to store "online" and "offline" as str
     def apply_user_status(self, model, user, status=False):
@@ -36,6 +48,9 @@ class UserStatusConsumer(WebsocketConsumer):
             print("updating anon user status " + str(user) + " to " + str(status))
             return model.objects.filter(ip_addr=user).update(activity_status=status)
         else:
+
+            LogAction().log_user_status(model, status, user)
+
             # Filter might be way inefficent for this.
             print("updating user profile status " + str(user.pk) + " to " + str(status))
             return model.objects.filter(user_id=user.pk).update(activity_status=status)

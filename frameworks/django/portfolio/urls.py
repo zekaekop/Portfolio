@@ -29,6 +29,7 @@ urlpatterns = [
     path("admin_panel/", include('frameworks.django.admin_panel.urls')),
     path("projects/", include('frameworks.django.project_showcase.urls')),
     path("chatting/", include('frameworks.nodejs.chatting.urls')),
+    path("logs/", include('frameworks.django.account_logs.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

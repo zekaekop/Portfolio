@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'adapters.persistence',
 
+    'frameworks.django.account_logs',
     'frameworks.django.home',
     'frameworks.django.feedback',
     'frameworks.django.procedural_pfp',

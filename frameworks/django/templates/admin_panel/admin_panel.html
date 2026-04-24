@@ -42,6 +42,7 @@
                             <th>Description</th> <!-- This will be like notes the mods can place on the users actions -->
                             <th>Last Seen</th> <!-- last time since connection was made with the server -->
                             <th>Account Created Date</th>
+                            <th>Logs</th>
                             <!-- Tags -->
                             <!-- <th>ID</th>
                             <th>Name</th>
@@ -95,6 +96,7 @@
 
                             <td>{{data.last_login}}</td>
                             <td>{{data.date_joined}}</td>
+                            <th><a href="{% url 'account_logs:list_user_logs' data.id %}">View Logs</a></th>
                         {% elif type == "anons" %}
                             <td>{{data.id}}</td>
                             <td>{{data.ip_addr}}</td>
