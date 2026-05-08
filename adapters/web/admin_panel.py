@@ -3,8 +3,9 @@ from adapters.persistence.models import Anon, Projects
 from django.contrib.auth.models import User
 from frameworks.django.home.views import get_client_ip
 from adapters.persistence.applications import site_statistics_service
+from django.core.paginator import Paginator
 
-admin_paginate_num = 30
+admin_paginate_num = 1
 
 def dashboard(request):
 
@@ -32,7 +33,7 @@ def projects(request):
 def anons(request):
     anons = Anon.objects.all()
 
-    page_obj = paginate_data(anons, admin_paginate_num)
+    page_obj = paginate_data(request, anons, admin_paginate_num)
 
     content = {
         "type": "anons",
@@ -42,7 +43,7 @@ def anons(request):
     
     return render(request, "admin_panel/admin_panel.html" , content)
 
-def paginate_data(data, amount):
+def paginate_data(request, data, amount):
     # Paginate users by 30 per page, this is an example
     paginator = Paginator(data, amount)
     page_num = request.GET.get("page")
@@ -51,7 +52,7 @@ def paginate_data(data, amount):
 
 def users(request):
     users = User.objects.all()
-    page_obj = paginate_data(users, admin_paginate_num)
+    page_obj = paginate_data(request, users, admin_paginate_num)
 
     content = {
         "type": "users",
@@ -73,7 +74,7 @@ def users(request):
 
 def moderators(request):
     users = User.objects.all()
-    page_obj = paginate_data(users, admin_paginate_num)
+    page_obj = paginate_data(request, users, admin_paginate_num)
 
     content = {
         "type": "moderators",
