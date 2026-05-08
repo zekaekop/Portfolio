@@ -55,6 +55,10 @@
                 There seems to be no Questions
             </div>
         {% endif %}
+
+        {% with datas=FAQs %}
+            {% include 'paginator.html' %}
+        {% endwith%}
         
     </div>
 </div>

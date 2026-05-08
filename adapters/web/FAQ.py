@@ -2,6 +2,7 @@ from django import http
 from django.http import JsonResponse
 from django.conf import settings
 from django.shortcuts import Http404, render
+from django.core.paginator import Paginator
 # # del ts all
 # from adapters.persistence.models import GenericQueries
 
@@ -12,6 +13,13 @@ from use_cases import use_cases
 
 def get_repositories() -> dict:
     return {"faq_repository":repositories.DjangoFAQRepository()}
+
+def paginate_data(request, data, amount):
+    # Paginate users by 30 per page, this is an example
+    paginator = Paginator(data, amount)
+    page_num = request.GET.get("page")
+    page_obj = paginator.get_page(page_num)
+    return page_obj
 
 def create_FAQ(request):
      
@@ -44,14 +52,16 @@ def answer_FAQ(request):
     )
 
 def dashboard(request):
-    FAQs = list_FAQ(request)
+    faqs = list_FAQ(request)
+
+    questions = paginate_data(request, faqs, 30)
     
     if request.POST:
         create_FAQ(request)
 
     content = {
        # "ip_addr":get_client_ip(request),
-        "FAQs":FAQs,
+        "FAQs": questions,
     }
 
     return render(request, "FAQ/FAQ.html", content)
