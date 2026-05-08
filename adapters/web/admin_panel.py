@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from frameworks.django.home.views import get_client_ip
 from adapters.persistence.applications import site_statistics_service
 
+admin_paginate_num = 30
+
 def dashboard(request):
 
     site_stats = site_statistics_service.set_stats(request)
@@ -30,7 +32,7 @@ def projects(request):
 def anons(request):
     anons = Anon.objects.all()
 
-    page_obj = paginate_data(anons, 30)
+    page_obj = paginate_data(anons, admin_paginate_num)
 
     content = {
         "type": "anons",
@@ -49,7 +51,7 @@ def paginate_data(data, amount):
 
 def users(request):
     users = User.objects.all()
-    page_obj = paginate_data(users, 30)
+    page_obj = paginate_data(users, admin_paginate_num)
 
     content = {
         "type": "users",
@@ -71,7 +73,7 @@ def users(request):
 
 def moderators(request):
     users = User.objects.all()
-    page_obj = paginate_data(users, 30)
+    page_obj = paginate_data(users, admin_paginate_num)
 
     content = {
         "type": "moderators",
