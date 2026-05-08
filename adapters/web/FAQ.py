@@ -54,7 +54,7 @@ def answer_FAQ(request):
 def dashboard(request):
     faqs = list_FAQ(request)
 
-    questions = paginate_data(request, faqs, 30)
+    questions = paginate_data(request, faqs, 4)
     
     if request.POST:
         create_FAQ(request)

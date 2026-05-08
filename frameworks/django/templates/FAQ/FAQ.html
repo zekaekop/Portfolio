@@ -41,9 +41,9 @@
         <h1>Frequently Asked Questions</h1>
         <!-- Lists current FAQ questions -->
         {% if FAQs %}
-            <div class="d-flex box-inset">
+            <div class="d-flex flex-row overflow-auto" style="gap: 1rem;"> <!-- Added horizontal scroll -->
                     {% for Q in FAQs%}
-                        <div class="box">
+                        <div class="box" style="min-width: 300px; flex: 0 0 auto;"> <!-- Fixed width cards -->
                             {{Q.question}}
                             <p>{{Q.answer}}</p>
                             <small>{{Q.created_date}}</small>
