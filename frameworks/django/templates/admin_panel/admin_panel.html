@@ -79,11 +79,11 @@
                             <td>{{data.title}}</td>
                             <td>{{data.desc}}</td>
                             {% if data.image %}
-                            <td><a href="{{data.image.url}}">{{data.image.url}}</a></td>
+                                <td><a href="{{data.image.url}}">{{data.image.url}}</a></td>
                             {% else %}
-                            <td>No Image</td>
+                                <td>No Image</td>
                             {% endif %}
-                            <td>{{data.uploaded_date}}</td>
+                                <td>{{data.uploaded_date}}</td>
                         {% elif type == "users" %}
                             <td>{{data.id}}</td>
                             <td>{{data.username}}</td>
@@ -91,7 +91,7 @@
                             {% if data.desc %}
                                 <td>{{data.desc}}</td>
                             {% else %}
-                            <td>No Description</td>
+                                <td>No Description</td>
                             {% endif%}
 
                             <td>{{data.last_login}}</td>
@@ -104,13 +104,13 @@
                             {% if data.name %}
                                 <td>{{data.name}}</td>
                             {% else %}
-                            <td>No Name</td>
+                                <td>No Name</td>
                             {% endif%}
 
                             {% if data.desc %}
                                 <td>{{data.desc}}</td>
                             {% else %}
-                            <td>No Description</td>
+                                <td>No Description</td>
                             {% endif%}
 
                             <td>{{data.last_seen}}</td>
