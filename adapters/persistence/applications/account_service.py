@@ -24,16 +24,13 @@ def user_register(request):
         if (password == repeat_password): 
 
             if (User.objects.filter(username=username).exists()):
-                return render(request, "account/register.html", { "login_status" : "Account Already Exists"})
+                return render(request, "account/register.html", { "login_status" : "Account username is taken"})
 
-            user = User.objects.create(username=username, password=password)
+            user = User.objects.create_user(username=username, password=password, is_staff=False, is_superuser=False)
             UserProfile.objects.create(user=user)
 
             LogAction().log_user_registered(user)
 
-            user.set_password(password)
-            user.is_staff = False
-            user.is_superuser = False
             user.save()
             new_user = authenticate(username=username, password=password)
 
@@ -49,17 +46,17 @@ def user_login(request):
         password = request.POST.get("password")
 
         user = authenticate(username=username, password=password)
-        UserProfile.objects.get_or_create(user=user)
-
-        LogAction().log_user_login(user)
 
         if user is not None:
+            UserProfile.objects.get_or_create(user=user)
+            LogAction().log_user_login(user)
+
             login(request, user)
             return redirect("/")
         else:
-            return render(request, "account/login.html", {"login_status": "Account username is taken"})
+            return render(request, "account/login.html", {"login_status": "User does not exist"})
 
-    return render(request, "account/login.html", {"login_status": "Failed to log in"})
+    return render(request, "account/login.html")
 
 def user_logout(request):
     LogAction().log_user_logout(request)
