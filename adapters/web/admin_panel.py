@@ -28,21 +28,32 @@ def projects(request):
     return render(request, "admin_panel/admin_panel.html" , content)
 
 def anons(request):
+    anons = Anon.objects.all()
+
+    page_obj = paginate_data(anons, 30)
 
     content = {
         "type": "anons",
-        "datas":Anon.objects.all(),
+        "datas": page_obj,
         "ip_addr": Anon.objects.get(ip_addr=get_client_ip(request)).ip_addr,
     }
     
     return render(request, "admin_panel/admin_panel.html" , content)
 
+def paginate_data(data, amount):
+    # Paginate users by 30 per page, this is an example
+    paginator = Paginator(data, amount)
+    page_num = request.GET.get("page")
+    page_obj = paginator.get_page(page_num)
+    return page_obj
 
 def users(request):
+    users = User.objects.all()
+    page_obj = paginate_data(users, 30)
 
     content = {
         "type": "users",
-        "datas":User.objects.all(),
+        "datas":page_obj,
         "ip_addr": Anon.objects.get(ip_addr=get_client_ip(request)).ip_addr,
     }
     
@@ -59,10 +70,12 @@ def users(request):
 #     return render(request, "admin_panel/admin_panel.html" , content)
 
 def moderators(request):
+    users = User.objects.all()
+    page_obj = paginate_data(users, 30)
 
     content = {
         "type": "moderators",
-        "datas": User.objects.all(),
+        "datas": page_obj,
         "ip_addr": Anon.objects.get(ip_addr=get_client_ip(request)).ip_addr,
     }
     
