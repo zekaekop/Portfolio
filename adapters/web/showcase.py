@@ -5,14 +5,25 @@ from django.conf import settings
 from frameworks.django.home.views import get_client_ip
 from adapters.persistence.applications.project_showcase_service import ProjectActions
 from datetime import datetime
+from django.core.paginator import Paginator
 
 def get_repositories() -> dict:
     return {"showcase_repository":repositories.DjangoProjectShowcaseRepository()}
 
+def paginate_data(request, data, amount):
+    # Paginate users by 30 per page, this is an example
+    paginator = Paginator(data, amount)
+    page_num = request.GET.get("page")
+    page_obj = paginator.get_page(page_num)
+    return page_obj
+
 def showcase(request):
+    projects = Projects.objects.all()
+
+    page_obj = paginate_data(request, projects, 6)
 
     content = {
-        "projects":Projects.objects.all(),
+        "projects": page_obj,
         "ip_addr": Anon.objects.get(ip_addr=get_client_ip(request)).ip_addr,
     }
     
