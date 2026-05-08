@@ -24,6 +24,10 @@
                 {% include 'project_showcase/showcase_card.html' %}
             {% endfor %}
 
+            {% with datas=projects %}
+                {% include 'paginator.html' %}
+            {% endwith %}
+
             {% if request.user.is_superuser %}
                 <a href="{% url 'project_showcase:create_project_card' %}" class="mt-2">Add a project</a>
             {% endif %}

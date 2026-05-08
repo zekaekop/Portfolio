@@ -139,23 +139,7 @@
 
             </table>
 
-            <div class="pagination">
-                <span class="step-links">
-                    {% if datas.has_previous %}
-                        <a href="?page=1">First</a>
-                        <a href="?page={{ datas.previous_page_number }}">previous</a>
-                    {% endif %}
-
-                    <span class="current">
-                        {{ datas.number}} of {{ datas.paginator.num_pages }}
-                    </span>
-
-                    {% if datas.has_next %}
-                        <a href="?page={{ datas.next_page_number}}">Next</a>
-                        <a href="?page={{ datas.paginator.num_pages }}">End</a>
-                    {% endif %}
-                </span>
-            </div>
+            {% include 'paginator.html' %}
 
         </div>
 
