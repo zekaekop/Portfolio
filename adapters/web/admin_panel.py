@@ -21,10 +21,13 @@ def dashboard(request):
     return render(request, "admin_panel/admin_panel.html" , content)
 
 def projects(request):
+    projects = Projects.objects.all()
+
+    page_obj = paginate_data(request, projects, admin_paginate_num)
 
     content = {
         "type": "projects",
-        "datas": Projects.objects.all(),
+        "datas": page_obj,
         "ip_addr": Anon.objects.get(ip_addr=get_client_ip(request)).ip_addr,
     }
     
