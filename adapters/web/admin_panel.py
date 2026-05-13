@@ -5,7 +5,7 @@ from frameworks.django.home.views import get_client_ip
 from adapters.persistence.applications import site_statistics_service
 from django.core.paginator import Paginator
 
-admin_paginate_num = 30
+admin_paginate_num = 10
 
 def dashboard(request):
 

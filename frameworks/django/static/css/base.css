@@ -153,3 +153,19 @@ input,
 .shadow-box{
     box-shadow: 3px 3px 3px black;
 }
+
+/* Pagination */
+
+.pagination .step-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.pagination .current {
+    display: inline-block;  /* Important for centering within flex */
+    text-align: center;
+}

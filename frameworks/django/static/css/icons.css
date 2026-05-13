@@ -1,0 +1,17 @@
+/* Arrow icons */
+
+.keyboard-double-arrow-left{
+    content: var(--keyboard-double-arrow-left);
+}
+
+.keyboard-arrow-left{
+    content: var(--keyboard-arrow-left);
+}
+
+.keyboard-double-arrow-right{
+    content: var(--keyboard-double-arrow-right);
+}
+
+.keyboard-arrow-right{
+    content: var(--keyboard-arrow-right);
+}
