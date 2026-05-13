@@ -4,37 +4,37 @@
 :root[data-theme="default"]{ /*Handles dark and light mode*/
     --bg-image: url("/static/img/wallpapers/nature_china.jpg");  
 
-    --bg-color: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0));
-    --bg-secondary-color: rgba(230, 230, 230, 0.3);
-    --bg-border-color: rgb(200, 200, 200);
+    --bg-color: rgba(35, 55, 35, 0.8);
+    --bg-secondary-color: rgba(47, 82, 47, 0.8); /* Lighter */
+    --bg-third-color: rgba(25, 45, 25, 0.8); /* Darker */
+
+    /* Used in boxes to simulate light comming from the top left */
+    --border-top-color: rgb(100, 200, 100, 0.5);
+    --border-left-color: rgb(80, 160, 80, 0.5);
+    --border-bottom-color: rgb(40, 100, 40, 0.5);
+    --border-right-color: rgb(30, 80, 30, 0.5);
+
+    --border-color: rgb(120, 200, 120, 0.8);
+
+    /* Change this if your theme is light or dark overall */
     --text-color: rgb(255, 255, 255);
     --text-color-faded: rgba(245, 245, 245, 0.5);
 
+    /* Used in text shadows, box shadows etc. */
     --shadow-color-08: rgba(0, 0, 0, 0.8);
     --shadow-color-04: rgba(0, 0, 0, 0.4);
     --shadow-color-02: rgba(0, 0, 0, 0.2);
 
     --transparent: rgba(0, 0, 0, 0);
 
-    --button-disabled: #8a8a8a;
-    --button-disabled-hover: #7c7c7c;
-    --button-disabled-active: #505050;
+    --button-border-color-hover: rgba(87, 122, 87, 0.8); 
+    --button-border-color: rgba(87, 132, 87, 0.8);
 
-    --button-border-color: rgb(180, 180, 180);
-    --button-border-color-hover: rgb(200, 200, 200);
-
-    --button-primary-color-hover: rgb(255, 255, 255);
-    --button-primary-color: rgb(245, 245, 245);
-
-    --navbar-gradient: linear-gradient(rgb(45, 45, 45, 0.6) 80%, #ffffff00 90%);
-    --paginator-gradient: linear-gradient(#ffffff00, #ffffff);
-
-    --bg-txtbox-color: rgb(245, 245, 245);
-    --txtbox-border-color: rgb(220, 220, 220);
-    --bg-txtbox-color-focused: rgb(255, 255, 255);
-    --txtbox-border-color-focused: rgb(240, 240, 240);
+    --button-primary-color-hover: rgba(67, 92, 67, 0.8); 
+    --button-primary-color:rgba(57, 82, 57, 0.8); 
 }
-:root[data-theme="dark"]{
+
+/* :root[data-theme="dark"]{
     --bg-image: url("/static/img/wallpapers/nature_china.jpg");  
     
     --bg-color: rgb(45, 45, 45);
@@ -129,7 +129,7 @@
     --txtbox-border-color: rgb(70, 70, 70);
     --bg-txtbox-color-focused: rgba(60,60,60);
     --txtbox-border-color-focused: rgb(80, 80, 80);
-}
+} */
 
 
 /* Old dark theme
