@@ -9,9 +9,13 @@
                     <small>MIT - License</small>
                     <small>Copyright (c) 2026 Eko</small>
                 </div>
+                
+                <!-- This will center it into the center, without breaking the justify-content-between layout  -->
+                <div class="mt-1" style="position: absolute; left: 50%; transform: translateX(-50%);">
+                    {% include 'paginator.html' %}
+                </div>
 
-                <!-- Add a different logo or something -->
-                <img class="ms-auto" style="max-width: 30px;" src="{% static '/img/brands/GitHub_Invertocat_White_Clearspace.svg'%}" alt="Github Icon">
+                <img style="max-width: 30px;" src="{% static '/img/brands/GitHub_Invertocat_White_Clearspace.svg'%}" alt="Github Icon">
             </div>
         </footer>
     </div>

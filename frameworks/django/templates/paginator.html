@@ -1,17 +1,30 @@
-<div class="pagination">
-    <span class="step-links">
-        {% if datas.has_previous %}
-            <a href="?page=1">First</a>
-            <a href="?page={{ datas.previous_page_number }}">previous</a>
-        {% endif %}
+{% load static %}
 
-        <span class="current">
-            {{ datas.number}} of {{ datas.paginator.num_pages }}
+{% if datas %}
+    <div class="step-links text-white" style="display: flex !important; justify-content: center !important;">
+        <!-- You can change the icon in the theme class -->
+        <div class="me-2">
+        {% if datas.has_previous %}
+            <a href="?page={{ datas.previous_page_number }}"><img class="keyboard-arrow-left" alt="Previous"></a>
+            <a href="?page=1"><img class="keyboard-double-arrow-left" alt="First"></a>
+        {% else %} <!-- Disabled / grayed out versions -->
+            <img style="filter: opacity(50%);" class="keyboard-arrow-left" alt="Previous">
+            <img style="filter: opacity(50%);" class="keyboard-double-arrow-left" alt="First">
+        {% endif %}
+        </div>
+
+        <span class="current text-center">
+            {{ datas.number }} / {{ datas.paginator.num_pages }}
         </span>
 
+        <div class="ms-2">
         {% if datas.has_next %}
-            <a href="?page={{ datas.next_page_number}}">Next</a>
-            <a href="?page={{ datas.paginator.num_pages }}">End</a>
+            <a href="?page={{ datas.paginator.num_pages }}"><img class="keyboard-double-arrow-right" alt="End"></a>
+            <a href="?page={{ datas.next_page_number }}"><img class="keyboard-arrow-right" alt="Next"></a>
+        {% else %} <!-- Disabled / grayed out versions -->
+            <img style="filter: opacity(50%);" class="keyboard-double-arrow-right" alt="">
+            <img style="filter: opacity(50%);" class="keyboard-arrow-right" alt="">
         {% endif %}
-    </span>
-</div>
+        </div>
+    </div>
+{% endif %}

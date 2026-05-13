@@ -8,9 +8,24 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet"> <!-- Quicksand Font -->
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/theme.css' %}">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/icons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/theme.css' %}">
 </head>
+
+<style>
+    :root[data-theme="default"]{
+    /* Icons */
+
+    /* Arrows  */
+    --keyboard-arrow-right: url("{% static 'img/arrows/keyboard_arrow_right.svg' %}");
+    --keyboard-double-arrow-right: url("{% static 'img/arrows/keyboard_double_arrow_right.svg' %}");
+
+    --keyboard-arrow-left: url("{% static 'img/arrows/keyboard_arrow_left.svg' %}");
+    --keyboard-double-arrow-left: url("{% static 'img/arrows/keyboard_double_arrow_left.svg' %}");
+    }
+</style>
+
 <body>
 
     {% include "header.html"%}
